@@ -1,0 +1,61 @@
+:root {
+    --cor-principal: #0080ff;
+    --altura-min-nav: 8vh;
+    --altura-itens-nav: 2rem;
+    --cor-itens-nav: white;
+}
+
+body {
+    margin: 0%;
+    box-sizing: border-box;
+    font-size: 2rem; /* testando */
+}
+
+/* navegador */
+
+nav {
+    position: fixed;
+    top: 0;
+    background-color: var(--cor-principal);
+    display: flex;
+    align-items: center;
+    height: var(--altura-min-nav);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo, .menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    padding: 0.5rem;
+}
+
+.menu {
+    right: 0;
+    gap: 0.5rem;
+}
+
+.logo .nomeLogo {
+    display: grid;
+    place-items: center;
+    background-color: var(--cor-itens-nav);
+    border-radius: 20px;
+    font-size: 2rem;
+    color: black;
+    padding: 0.5rem;
+    height: var(--altura-itens-nav);
+}
+
+.menu .perfil {
+    display: grid;
+    place-items: center;
+    background-color: var(--cor-itens-nav);
+    border-radius: 50%;
+    width: var(--altura-itens-nav);
+    height: var(--altura-itens-nav);
+    padding: 0.5rem;
+}
+
+/* conteudo */
