@@ -1,14 +1,17 @@
 :root {
-    --cor-principal: #0080ff;
+    --cor-principal: #00ff1a;
     --altura-min-nav: 8vh;
     --altura-itens-nav: 2rem;
     --cor-itens-nav: white;
+    --altura-caixa-carrocel: 50vh;
+    --largura-caixa-carrocel: 15vw;
+    --gap-paginas-carrocel: 1.5rem;
 }
 
 body {
     margin: 0%;
     box-sizing: border-box;
-    font-size: 2rem; /* testando */
+    font-size: 2rem; /* teste */
 }
 
 /* navegador */
@@ -22,6 +25,7 @@ nav {
     height: var(--altura-min-nav);
     width: 100%;
     box-sizing: border-box;
+    z-index: 100;
 }
 
 .logo, .menu {
@@ -29,7 +33,10 @@ nav {
     align-items: center;
     height: 100%;
     position: absolute;
-    padding: 0.5rem;
+    height: var(--altura-min-nav);
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .menu {
@@ -58,4 +65,66 @@ nav {
     padding: 0.5rem;
 }
 
-/* conteudo */
+/* main */
+
+main {
+    margin-top: var(--altura-min-nav);
+    box-sizing: border-box;
+}
+
+/* main > sectionCarrocel > carrocel */
+
+.sectionCarrocel {
+    display: flex;
+    position: relative;
+    background-color: red; /*teste*/
+    box-sizing: border-box;
+}
+
+.carrocel {
+    gap: 1.5rem;
+    overflow-x: hidden;
+    display: flex;
+    padding: 0.5rem;
+    padding: 0 8vw 0 8vw;
+}
+
+
+
+.caixa{
+    min-width: var(--largura-caixa-carrocel);
+    background-color: blue; /*teste*/
+    height: var(--altura-caixa-carrocel);
+    width: var(--largura-caixa-carrocel);
+}
+
+/* main > sectionCarrocel > proximo/anterior */
+
+.proximo, .anterior {
+    position: absolute;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.proximo {
+    right: 0;
+}
+
+.anterior {
+    left: 0;
+}
+
+/* main > texto */
+
+.sectionTexto { /*teste*/
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+/* footer */
