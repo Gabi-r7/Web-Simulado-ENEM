@@ -4,8 +4,7 @@
     --altura-itens-nav: 2rem;
     --cor-itens-nav: white;
     --altura-caixa-carrocel: 50vh;
-    --largura-caixa-carrocel: 15vw;
-    --gap-paginas-carrocel: 1.5rem;
+    --largura-caixa-carrocel: 100vw;
 }
 
 body {
@@ -82,16 +81,15 @@ main {
 }
 
 .carrocel {
-    gap: 1.5rem;
     overflow-x: hidden;
     display: flex;
-    padding: 0.5rem;
-    padding: 0 8vw 0 8vw;
 }
 
 
 
 .caixa{
+    /* margin-right: calc((100vw - var(--largura-caixa-carrocel))/2);
+    margin-left: calc((100vw - var(--largura-caixa-carrocel))/2); */
     min-width: var(--largura-caixa-carrocel);
     background-color: blue; /*teste*/
     height: var(--altura-caixa-carrocel);
@@ -127,4 +125,16 @@ main {
     padding: 1rem;
     box-sizing: border-box;
 }
+
 /* footer */
+
+
+.carrocel>:nth-child(1) {
+    background-color: yellow;
+}
+.carrocel>:nth-child(3) {
+    background-color: yellow;
+}
+.carrocel>:nth-child(5) {
+    background-color: yellow;
+}

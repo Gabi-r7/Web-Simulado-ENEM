@@ -1,45 +1,40 @@
-// navegador
 
-const nav = document.querySelector('nav');
-
-nav.innerHTML = `
-    <div class="logo">
-        <div class="nomeLogo">SIMULANDO</div>
-    </div>
-    <div class="menu">
-        <div class="perfil"></div>
-        <div class="perfil"></div>
-        <div class="perfil"></div>
-    </div>`
 
 // carrocel
 
 const carrocel = document.querySelector('.carrocel');
+const caixa = document.querySelector('.carrocel .caixa'); 
 
-let estiloElemento = getComputedStyle(document.documentElement);
-let gapCaixas = estiloElemento.getPropertyValue('--gap-caixas-carrocel');
+// let estiloElemento = getComputedStyle(document.documentElement);
+// let gapCaixas = parseFloat(estiloElemento.getPropertyValue('--gap-caixas-carrocel').trim());
 
-let larguraCaixa = carrocel.getBoundingClientRect().width;
-let quantidadeCaixas = carrocel.children.length;
+// let larguraCaixa = caixa.offsetWidth;
+// let quantidadeCaixas = carrocel.children.length;
+
+// let quantasCaixasMover = 1;
+
+// root.style.setProperty('--largura-caixa-carrocel', `${larguraViewport}px`);
+
+let larguraViewport = window.innerWidth;
 
 function moverCarrocel(direcao) {
-    let larguraCarrocel = carrocel.getBoundingClientRect().width;
-    console.log(larguraCarrocel);
-
+    
     let posicaoAtual = carrocel.scrollLeft;
     console.log(posicaoAtual);
-
+    
     let novaPosicao;
+    
+    let quantiaMover = larguraViewport ;
 
-    const mover = (caixaWidth + espacoEntreCaixas) * elementosParaMover; //fafafaffafffaffafaf
+    console.log(quantiaMover);
 
     if (direcao === 1) {
         console.log('proximo!!!');
-        novaPosicao = posicaoAtual + larguraCarrocel;
+        novaPosicao = posicaoAtual + quantiaMover;
     }
     else {
         console.log('volta ae!!!');
-        novaPosicao = posicaoAtual - larguraCarrocel;
+        novaPosicao = posicaoAtual - quantiaMover;
     }
 
     carrocel.scrollTo({
