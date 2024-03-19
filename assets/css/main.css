@@ -88,12 +88,18 @@ main {
 
 
 .caixa{
-    /* margin-right: calc((100vw - var(--largura-caixa-carrocel))/2);
-    margin-left: calc((100vw - var(--largura-caixa-carrocel))/2); */
     min-width: var(--largura-caixa-carrocel);
     background-color: blue; /*teste*/
     height: var(--altura-caixa-carrocel);
     width: var(--largura-caixa-carrocel);
+    display: grid;
+    place-items: center;
+}
+
+.modalidade{
+    background-color: white;
+    width: 80%;
+    height: 80%;
 }
 
 /* main > sectionCarrocel > proximo/anterior */

@@ -5,16 +5,6 @@
 const carrocel = document.querySelector('.carrocel');
 const caixa = document.querySelector('.carrocel .caixa'); 
 
-// let estiloElemento = getComputedStyle(document.documentElement);
-// let gapCaixas = parseFloat(estiloElemento.getPropertyValue('--gap-caixas-carrocel').trim());
-
-// let larguraCaixa = caixa.offsetWidth;
-// let quantidadeCaixas = carrocel.children.length;
-
-// let quantasCaixasMover = 1;
-
-// root.style.setProperty('--largura-caixa-carrocel', `${larguraViewport}px`);
-
 let larguraViewport = window.innerWidth;
 
 function moverCarrocel(direcao) {
@@ -25,8 +15,6 @@ function moverCarrocel(direcao) {
     let novaPosicao;
     
     let quantiaMover = larguraViewport ;
-
-    console.log(quantiaMover);
 
     if (direcao === 1) {
         console.log('proximo!!!');
@@ -52,3 +40,32 @@ document.querySelector('.proximo').addEventListener('click', function () {
 document.querySelector('.anterior').addEventListener('click', function () {
     moverCarrocel(-1);
 });
+
+// if (direcao === 1) {
+    //     console.log('proximo!!!');
+    //     if (posicaoAtual == 4095) {
+    //         // Rola a div do carrossel até o fim
+    //         carrocel.scrollTo({
+    //             left: carrocel.scrollWidth,
+    //             behavior: 'smooth'
+    //         });
+    //         return;
+    //     }
+    //     else{
+    //         novaPosicao = posicaoAtual + quantiaMover;
+    //     }
+    // }
+    // else {
+    //     console.log('volta ae!!!');
+    //     if (posicaoAtual == 1382) {
+    //         // Rola a div do carrossel até o começo
+    //         carrocel.scrollTo({
+    //             left: 0,
+    //             behavior: 'smooth'
+    //         });
+    //         return;
+    //     }
+    //     else{
+    //         novaPosicao = posicaoAtual - quantiaMover;
+    //     }
+    // }
