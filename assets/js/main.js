@@ -4,8 +4,12 @@
 
 const carrocel = document.querySelector('.carrocel');
 const caixa = document.querySelector('.carrocel .caixa'); 
+const proximo = document.querySelector('.proximo'); 
+const anterior = document.querySelector('.anterior'); 
 
-let larguraViewport = window.innerWidth;
+let larguraCaixa = caixa.offsetWidth;
+
+anterior.style.display = 'none';
 
 function moverCarrocel(direcao) {
     
@@ -14,13 +18,25 @@ function moverCarrocel(direcao) {
     
     let novaPosicao;
     
-    let quantiaMover = larguraViewport ;
+    let quantiaMover = larguraCaixa ;
 
     if (direcao === 1) {
+        if(posicaoAtual >= larguraCaixa * 3){
+            proximo.style.display = 'none';
+        }
+        if(posicaoAtual == 0){
+            anterior.style.display = 'grid';
+        }
         console.log('proximo!!!');
         novaPosicao = posicaoAtual + quantiaMover;
     }
     else {
+        if(posicaoAtual >= larguraCaixa * 3){
+            proximo.style.display = 'grid';
+        }
+        if(posicaoAtual >= larguraCaixa && posicaoAtual < larguraCaixa*2){
+            anterior.style.display = 'none';
+        }
         console.log('volta ae!!!');
         novaPosicao = posicaoAtual - quantiaMover;
     }
