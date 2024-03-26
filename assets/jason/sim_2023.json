@@ -1,0 +1,25 @@
+{
+    "2023":{
+        "1":[
+            {
+                "Descrição":"Qual a raiz quadrada de 4?",
+                "Alternativas":["1","2","4","8","16"],
+                "Resposta":1
+            }
+        ],
+        "2":[
+            {
+                "Descrição":"Quanto é 1+1?",
+                "Alternativas":["1","2","4","11","22"],
+                "Resposta":1
+            }
+        ],
+        "3":[
+            {
+                "Descrição":"Quem descobriu o Brasil?",
+                "Alternativas":["Pedro Alvares Cabral", "Vitor Müller", "Enéias", "Eduardo","Pedro"],
+                "Resposta":0
+            }
+        ]
+    }
+}
