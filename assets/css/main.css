@@ -1,16 +1,26 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
 :root {
-    --cor-principal: #00ff1a;
+    --cor-principal: #134566;
     --altura-min-nav: 8vh;
-    --altura-itens-nav: 2rem;
+    --altura-itens-nav: 2.2rem;
     --cor-itens-nav: white;
     --altura-caixa-carrocel: 50vh;
     --largura-caixa-carrocel: 100vw;
+    --cor-fundo: #ffffff;
 }
 
 body {
     margin: 0%;
     box-sizing: border-box;
     font-size: 2rem; /* teste */
+    background-color: var(--cor-fundo);
 }
 
 /* navegador */
@@ -34,13 +44,13 @@ nav {
     position: absolute;
     height: var(--altura-min-nav);
     box-sizing: border-box;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .menu {
     right: 0;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .logo .nomeLogo {
@@ -54,14 +64,21 @@ nav {
     height: var(--altura-itens-nav);
 }
 
-.menu .perfil {
+.menu .perfil,.menu .ranking {
     display: grid;
     place-items: center;
     background-color: var(--cor-itens-nav);
-    border-radius: 50%;
+    border-radius: 100rem;
     width: var(--altura-itens-nav);
     height: var(--altura-itens-nav);
     padding: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.menu .perfil:hover,.menu .ranking:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 /* main */
@@ -89,7 +106,7 @@ main {
 
 .caixa{
     min-width: var(--largura-caixa-carrocel);
-    background-color: blue; /*teste*/
+    background-color: rgb(255, 153, 0); /*teste*/
     height: var(--altura-caixa-carrocel);
     width: var(--largura-caixa-carrocel);
     display: grid;
