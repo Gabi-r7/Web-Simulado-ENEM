@@ -1,17 +1,19 @@
 {
     "2023":{
-        "Português":{
+        "Linguagens, códigos e suas tecnologias":{
             "1":[
                 {
-                    "Descrição":"Qual a raiz quadrada de 4?",
-                    "Alternativas":["1","2","4","8","16"],
+                    "ImagemAuxiliar":"img/2023/Captura de tela 2024-04-02 141056.png",
+                    "Pergunta":"Esse cartaz de campanha sugere que",
+                    "Alternativas":["A os lixões precisam de ampliação.","o desperdício degrada o ambiente.","os mercados doam alimentos perecíveis.","a desnutrição compromete o raciocínio.","as residências carecem de refrigeradores."],
                     "Resposta":1
                 }
             ],
             "2":[
                 {
-                    "Descrição":"Quanto é 1+1?",
-                    "Alternativas":["1","2","4","11","22"],
+                    "DescriçãoAuxiliar":"No man is an island,\nEntire of itself;\nEvery man is a piece of the continent,\nA part of the main.",
+                    "Pergunta":"Nesse poema, a expressão “No man is an island” ressalta o(a)",
+                    "Alternativas":["medo da morte.","ideia de conexão.","conceito de solidão.","risco de devastação.","necessidade de empatia."],
                     "Resposta":1
                 }
             ],
