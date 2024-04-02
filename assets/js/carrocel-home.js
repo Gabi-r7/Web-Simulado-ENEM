@@ -7,9 +7,32 @@ const caixa = document.querySelector('.carrocel .caixa');
 const proximo = document.querySelector('.proximo'); 
 const anterior = document.querySelector('.anterior'); 
 
+
 let larguraCaixa = caixa.offsetWidth;
 
 anterior.style.display = 'none';
+
+let quantiaCaixa = 5;
+
+
+for(i = 0; i < quantiaCaixa; i++){
+    carrocel.innerHTML = `
+    <div class="logo">
+        <div class="nomeLogo">SIMULANDO</div>
+    </div>
+    <div class="menu">
+        <div class="ranking">
+            <span class="material-symbols-outlined">
+                trophy
+            </span>
+        </div>
+        <div class="perfil">
+            <span class="material-symbols-outlined">
+                person
+            </span>
+        </div>
+    </div>`
+}
 
 function moverCarrocel(direcao) {
     
@@ -21,7 +44,7 @@ function moverCarrocel(direcao) {
     let quantiaMover = larguraCaixa ;
 
     if (direcao === 1) {
-        if(posicaoAtual >= larguraCaixa * 3){
+        if(posicaoAtual >= larguraCaixa * (quantiaCaixa -2)){
             proximo.style.display = 'none';
         }
         if(posicaoAtual == 0){
@@ -31,7 +54,7 @@ function moverCarrocel(direcao) {
         novaPosicao = posicaoAtual + quantiaMover;
     }
     else {
-        if(posicaoAtual >= larguraCaixa * 3){
+        if(posicaoAtual >= larguraCaixa * (quantiaCaixa -2)){
             proximo.style.display = 'grid';
         }
         if(posicaoAtual >= larguraCaixa && posicaoAtual < larguraCaixa*2){
@@ -56,32 +79,3 @@ document.querySelector('.proximo').addEventListener('click', function () {
 document.querySelector('.anterior').addEventListener('click', function () {
     moverCarrocel(-1);
 });
-
-// if (direcao === 1) {
-    //     console.log('proximo!!!');
-    //     if (posicaoAtual == 4095) {
-    //         // Rola a div do carrossel até o fim
-    //         carrocel.scrollTo({
-    //             left: carrocel.scrollWidth,
-    //             behavior: 'smooth'
-    //         });
-    //         return;
-    //     }
-    //     else{
-    //         novaPosicao = posicaoAtual + quantiaMover;
-    //     }
-    // }
-    // else {
-    //     console.log('volta ae!!!');
-    //     if (posicaoAtual == 1382) {
-    //         // Rola a div do carrossel até o começo
-    //         carrocel.scrollTo({
-    //             left: 0,
-    //             behavior: 'smooth'
-    //         });
-    //         return;
-    //     }
-    //     else{
-    //         novaPosicao = posicaoAtual - quantiaMover;
-    //     }
-    // }
