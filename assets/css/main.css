@@ -106,7 +106,7 @@ main {
 
 .caixa{
     min-width: var(--largura-caixa-carrocel);
-    background-color: rgb(255, 153, 0); /*teste*/
+    background-color: rgb(255, 238, 0); /*teste*/
     height: var(--altura-caixa-carrocel);
     width: var(--largura-caixa-carrocel);
     display: grid;
@@ -150,14 +150,3 @@ main {
 }
 
 /* footer */
-
-
-.carrocel>:nth-child(1) {
-    background-color: yellow;
-}
-.carrocel>:nth-child(3) {
-    background-color: yellow;
-}
-.carrocel>:nth-child(5) {
-    background-color: yellow;
-}

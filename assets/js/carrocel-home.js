@@ -1,38 +1,13 @@
-
-
 // carrocel
 
 const carrocel = document.querySelector('.carrocel');
-const caixa = document.querySelector('.carrocel .caixa'); 
+const caixa = document.querySelector('.caixa'); 
 const proximo = document.querySelector('.proximo'); 
 const anterior = document.querySelector('.anterior'); 
 
-
-let larguraCaixa = caixa.offsetWidth;
-
 anterior.style.display = 'none';
 
-let quantiaCaixa = 5;
-
-
-for(i = 0; i < quantiaCaixa; i++){
-    carrocel.innerHTML = `
-    <div class="logo">
-        <div class="nomeLogo">SIMULANDO</div>
-    </div>
-    <div class="menu">
-        <div class="ranking">
-            <span class="material-symbols-outlined">
-                trophy
-            </span>
-        </div>
-        <div class="perfil">
-            <span class="material-symbols-outlined">
-                person
-            </span>
-        </div>
-    </div>`
-}
+let larguraCaixa = caixa.offsetWidth;
 
 function moverCarrocel(direcao) {
     
