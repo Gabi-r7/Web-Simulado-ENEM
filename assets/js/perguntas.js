@@ -1,13 +1,16 @@
 let perguntas = null;
 let indicePerguntaAtual = 0;
 
-fetch('assets/json/sim_2023.json')
-    .then(response => response.json())
-    .then(data => {
-        perguntas = [].concat(...Object.values(data['2023']['Linguagens']));
-        atualizarPergunta();
-    })
-    .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+function carregarPerguntas(ano, tipo) {
+    fetch('assets/json/sim_2023.json')
+        .then(response => response.json())
+        .then(data => {
+            perguntas = [].concat(...Object.values(data[ano][tipo]));
+            atualizarPergunta();
+        })
+        .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+}
+
 
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
@@ -46,7 +49,7 @@ function atualizarPergunta() {
 
     // Inserir no HTML
     let div = document.createElement('div');
-    let h3 = document.createElement('h3');
+    let h3 = document.createElement('div');
     h3.textContent = descricao;
     div.appendChild(h3);
 
@@ -93,138 +96,3 @@ function proximaPergunta() {
     indicePerguntaAtual++;
     atualizarPergunta();
 }
-
-
-// let perguntas = null;
-// let conjuntoAtual = "1";
-// let perguntaAtual = 0;
-
-// fetch('assets/json/sim_2023.json')
-//     .then(response => response.json())
-//     .then(data => {
-//         perguntas = data['2023']['Português'];
-//         atualizarPergunta();
-//     })
-//     .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
-
-//     let respostasDoUsuario = [];
-
-// function atualizarPergunta() {
-//     if (!perguntas[conjuntoAtual] || !perguntas[conjuntoAtual][perguntaAtual]) {
-//         console.error('Pergunta não encontrada:', conjuntoAtual, perguntaAtual);
-//         return;
-//     }
-
-//     let pergunta = perguntas[conjuntoAtual][perguntaAtual];
-//     let descricao = pergunta['Descrição'];
-//     let alternativas = pergunta['Alternativas'];
-
-//     // Limpar o conteúdo anterior
-//     document.body.innerHTML = '';
-
-//     // Inserir no HTML
-//     let div = document.createElement('div');
-//     let h3 = document.createElement('h3');
-//     h3.textContent = descricao;
-//     div.appendChild(h3);
-
-//     let ul = document.createElement('ul');
-//     alternativas.forEach((alternativa, index) => {
-//         let button = document.createElement('button');
-//         button.textContent = alternativa;
-//         button.addEventListener('click', function() {
-//             respostasDoUsuario.push(index);
-//             proximaPergunta();
-//         });
-//         ul.appendChild(button);
-//     });
-//     div.appendChild(ul);
-
-//     document.body.appendChild(div);
-// }
-
-// function proximaPergunta() {
-//     perguntaAtual++;
-//     if (perguntaAtual >= perguntas[conjuntoAtual].length) {
-//         perguntaAtual = 0;
-//         conjuntoAtual = (parseInt(conjuntoAtual) + 1).toString();
-//         if (!perguntas[conjuntoAtual]) {
-//             conjuntoAtual = "1";
-//         }
-//         if (!perguntas[conjuntoAtual]) {
-//             // Todas as perguntas foram respondidas
-//             document.body.innerHTML = 'Obrigado por responder todas as perguntas!';
-//             console.log(respostasDoUsuario);
-//             return;
-//         }
-//     }
-//     atualizarPergunta();
-// }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let perguntas = [];
-// let i = 0;
-
-// async function carregarPerguntas() {
-//     const request = await fetch("assets/jason/sim_2023.json");
-//     perguntas = await request.json();
-//     adicionarQuestao();
-// }
-
-// // Função para adicionar uma questão no HTML
-// function adicionarQuestao() {
-//     const container = document.getElementById('questoes-container');
-
-//     // Limpar o container antes de adicionar a nova pergunta
-//     container.innerHTML = '';
-
-//     const pergunta = perguntas[i];
-//     const div = document.createElement('div');
-//     div.innerHTML = `<p>${pergunta.descricao}</p>`;
-//     div.innerHTML += `<p>Alternativas:</p>`;
-//     pergunta.alternativas.forEach((alternativa, index) => {
-//         div.innerHTML += `<p>${index + 1} - ${alternativa}</p>`;
-//     });
-//     container.appendChild(div);
-    
-// }
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     // Adicionar ouvinte de evento ao botão
-//     const nextButton = document.getElementById('next-button');
-//     if (nextButton) {
-//         nextButton.addEventListener('click', adicionarQuestao);
-//     } else {
-//         console.error("Botão 'next-button' não encontrado");
-//     }
-
-//     // Chamando a função para carregar as questões no carregamento da página
-//     carregarPerguntas();
-// });
