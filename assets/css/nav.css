@@ -1,0 +1,82 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+:root {
+    --cor-principal: #134566;
+    --altura-min-nav: 8vh;
+    --altura-itens-nav: 2.2rem;
+    --cor-itens-nav: white;
+    --altura-caixa-carrocel: 50vh;
+    --largura-caixa-carrocel: 100vw;
+    --cor-fundo: #ffffff;
+}
+
+body {
+    margin: 0%;
+    box-sizing: border-box;
+    font-size: 2rem; /* teste */
+    background-color: var(--cor-fundo);
+}
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    background-color: var(--cor-principal);
+    display: flex;
+    align-items: center;
+    height: var(--altura-min-nav);
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.logo, .menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    height: var(--altura-min-nav);
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.menu {
+    right: 0;
+    gap: 1rem;
+}
+
+.logo .nomeLogo {
+    display: grid;
+    place-items: center;
+    background-color: var(--cor-itens-nav);
+    border-radius: 20px;
+    font-size: 2rem;
+    color: black;
+    padding: 0.5rem;
+    height: var(--altura-itens-nav);
+}
+
+.menu .perfil,.menu .ranking {
+    display: grid;
+    place-items: center;
+    background-color: var(--cor-itens-nav);
+    border-radius: 100rem;
+    width: var(--altura-itens-nav);
+    height: var(--altura-itens-nav);
+    padding: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.menu .perfil:hover,.menu .ranking:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
