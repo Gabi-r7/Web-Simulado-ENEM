@@ -1,5 +1,5 @@
 const carrocelInicial = document.querySelector('.carrocel');
-let quantiaCaixa = 3;
+let quantiaCaixa = 10;
 
 for(let i = 0; i < quantiaCaixa; i++){
     carrocelInicial.innerHTML += `
