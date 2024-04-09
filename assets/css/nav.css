@@ -80,3 +80,8 @@ nav {
     transition: transform 0.3s;
     cursor: pointer;
 }
+
+main {
+    margin-top: var(--altura-min-nav);
+    box-sizing: border-box;
+}
