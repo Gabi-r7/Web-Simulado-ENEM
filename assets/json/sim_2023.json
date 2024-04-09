@@ -43,12 +43,44 @@
             ]
         },
         "Humanas":{
-            "1":[
+            "46":[
                 {
                     "ImagemAuxiliar":"assets/img/2023/humanas-46.png",
                     "Descrição":"A definição do Sertão descrita no bordad associa esse recorte espacial a",
                     "Alternativas":["percursos e roteiros turísticos.","trajetos e movimentos holísticos.","vivências e itinerários sicioafetivos.","fronteiras e demarcações territorias.","profissões e interresses econômicos."],
                     "Resposta":2
+                }
+            ],
+            "47":[
+                {
+                    "DescriçãoAuxiliar":"Felizes tempos eram esses! As moças iam à missa de\nmadrugada. De dia ninguém as via e se alguma, em dia\nde festa, queria passear com a avó ou a tia, havia de ir de\ncadeirinhas. Bem razão têm os nossos velhos de chorar\npor esses tempos, em que as filhas não sabiam escrever,\ne por isso não mandavam nem recebiam bilhetinhos.\nNovo Correio de Modas, 1853, apud DONEGÁ, A. L. Publicar ficção em\nmeados do século XIX: um estudo das revistas femininas editadas\npelos irmãos Laemmert. Campinas: Unicamp, 2013 (adaptado).",
+                    "Descrição":"Na perspectiva do autor, as tradições e os costumes\nsociofamiliares sofreram alterações, no século XIX,\ndecorrentes de quais fatores?",
+                    "Alternativas":["Hábitos de leitura e mebilidade regional.","Circulação de impressos e trânsito religioso.","Valorização de língua e imigração estrangeira.","Práticas de letramento e transformação cultural","Flexibilização de ensino e reformismo pedagógico."],
+                    "Resposta":3
+                }
+            ],
+            "48":[
+                {
+                    "DescriçãoAuxiliar":"No Cerrado, o conhecimento local está sendo cada\nvez mais subordinado à lógica do agronegócio. De um\nlado, o capital impõe os conhecimentos biotecnológicos,\ncomo mecanismo de universalização de práticas agrícolas\ne de novas tecnologias, e de outro, o modelo capitalista\nsubordina homens e mulheres à lógica do mercado. Assim,\nas águas, as sementes, os minerais, as terras (bens\ncomuns) tornam-se propriedade privada. Além do mais,\nhá outros fatores negativos, como a mecanização pesada,\na “pragatização” dos seres humanos e não humanos, a\nviolência simbólica, a superexploração, as chuvas de\nveneno e a violência contra a pessoa.\nCALAÇA, M.; SILVA, E. B.; JESUS, J. N. Territorialização do agronegócio e subordinação\ndo campesinato no Cerrado. Élisée, Rev. Geo. UEG, n. 1, jan.-jun. 2021 (adaptado).",
+                    "Descrição":"Os elementos descritos no texto, a respeito da\nterritorialização da produção, demonstram que há um",
+                    "Alternativas":["cerco aos componeses, inviabilizando a manutenção das consições para a vida.","descaso aos latifundiários,impactando a plantação de alimentos para a exportação.","desprezo ao assalariado,afetando o engajamento dos sindicados para o trabalhador.","desrespeito aos governantes,compromentendo a criação de empregos para o lavrador.","assédio ao empresariado,difultando o investimento da maquinários para a produção."],
+                    "Resposta":0
+                }
+            ],
+            "49":[
+                {
+                    "DescriçãoAuxiliar":"TEXTO I\n\n   Com uma população de 25 milhões de habitantes\n(cerca de 60% de minorias muçulmanas, principalmente\nda etnia Uigur), Xinjiang é uma região estratégica para a\nChina. Faz fronteira com oito países, é uma artéria crucial\ndo megaprojeto de infraestrutura chinês Cinturão e Rota e\ntem as maiores reservas nacionais de carvão e gás natural.\nNINIO, M. Disponível em: https://oglobo.globo.com. Acesso em: 5 out. 2021 (adaptado)\n\nTEXTO II\n\n   Dentre as províncias da Região Oeste, Xinjiang se\ndestaca ao receber mais de 1,7 milhão de migrantes entre\n2000 e 2010. O principal motivo desse fluxo migratório\né que o governo fornece subsídios à população visando\naumentar a proporção de chineses da etnia Han em\nrelação à população local de etnias turca e muçulmana.\nALVES, F.; TOYOSHIMA, S. Disparidade socioeconômica e fluxo migratório chinês:\ninterpretação de eventos contemporâneos segundo os clássicos do desenvolvimento.\nRevista de Economia Contemporânea, n. 1, jan.-abr. 2017 (adaptado).",
+                    "Descrição":"A política demográfica para a província mencionada nos textos é parte da seguinte ação estratégica do governo chinês:",
+                    "Alternativas":["Promover a ocupação rural.","Favorecer a liberdade religiosa.","Descentralizar a gestão pública.","Incentivar a pluralidade cultural.","Assegurar a integridade territorial."],
+                    "Resposta":4
+                }
+            ],
+            "50":[
+                {
+                    "DescriçãoAuxiliar":"Superar a história da escravidão como principal marca\nda trajetória do negro no país tem sido uma tônica daqueles\nque se dedicam a pesquisar as heranças de origem afro\nà cultura brasileira. A esse esforço de reconstrução\nda própria história do país, alia-se agora a criação da\nplataforma digital Ancestralidades. “A história do negro\nno Brasil vai continuar sendo contada, e cada passo que\na gente dá para trás é um passo que a gente avança”, diz\nMárcio Black, idealizador da plataforma, sobre o estudo\nde figuras ainda encobertas pela perspectiva histórica\nimposta pelos colonizadores da América.\nFIORATI, G. Projeto joga luz sobre negros e revê perspectiva histórica.\nDisponível em: www1.folha.uol.com.br. Acesso em: 10 nov. 2021 (adaptado).",
+                    "Descrição":"Em relação ao conhecimento sobre a formação cultural brasileira,iniciativas como a descrita no texto favorecem o(a)",
+                    "Alternativas":["recuperação de tradicionalismo.","estímulo ao atropocentrismo.","reforço do etnocentrismo.","resgate do teocentrismo.","crítica so eurocentrismo."],
+                    "Resposta":4
                 }
             ]
         }
