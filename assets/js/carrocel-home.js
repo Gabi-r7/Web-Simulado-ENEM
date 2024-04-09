@@ -7,6 +7,8 @@ const anterior = document.querySelector('.anterior');
 
 anterior.style.display = 'none';
 
+let quantiaCaixa = 5;
+
 let larguraCaixa = caixa.offsetWidth;
 
 function moverCarrocel(direcao) {
