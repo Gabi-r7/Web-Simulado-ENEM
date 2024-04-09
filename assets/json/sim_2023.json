@@ -3,7 +3,7 @@
         "Linguagens":{
             "1":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/Captura de tela 2024-04-02 141056.png",
+                    "ImagemAuxiliar":"assets/img/2023/linguagens-1.png",
                     "Descrição":"Esse cartaz de campanha sugere que",
                     "Alternativas":["os lixões precisam de ampliação.","o desperdício degrada o ambiente.","os mercados doam alimentos perecíveis.","a desnutrição compromete o raciocínio.","as residências carecem de refrigeradores."],
                     "Resposta":1
@@ -19,9 +19,36 @@
             ],
             "3":[
                 {
-                    "Descrição":"Quem descobriu o Brasil?",
-                    "Alternativas":["Pedro Alvares Cabral", "Vitor Müller", "Enéias", "Eduardo","Pedro"],
+                    "DescriçãoAuxiliar":"We carry tears in our eyes: good-bye father, good-bye\n  [mother\n  We carry soil in small bags: may home never fade in our\n  [hearts\n  We carry carnage of mining, droughts, floods, genocides\n  We carry dust of our families and neighbors incinerated\n  [in mushroom clouds\n  We carry our islands sinking under the sea\n  We carry our hands, feet, bones, hearts and best minds\n  [for a new life\n  We carry diplomas: medicine, engineer, nurse,\n  [education, math, poetry, even if they mean\n  [nothing to the other shore\n  We carry railroads, plantations, laundromats,\n  [bodegas, taco trucks, farms, factories, nursing\n  [homes, hospitals, schools, temples... built on\n  [our ancestors’ backs\n  We carry old homes along the spine, new dreams in our\n  [chests\n  We carry yesterday, today and tomorrow\n  We’re orphans of the wars forced upon us\n  We’re refugees of the sea rising from industrial wastes\n  And we carry our mother tongues\n  [...]\n  As we drift... in our rubber boats... from shore... to shore...\n  [to shore...",
+                    "Descrição":"Ao retratar a trajetória de refugiados, o poema recorre à imagem de viagem marítima para destacar o(a)",
+                    "Alternativas":["risco de choques culturais","impacto do ensino de história","importância da luta ambiental","existência de experiências plurais","necessidades de cpacitação profissional"],
+                    "Resposta":3
+                }
+            ],
+            "4":[
+                {
+                    "DescriçãoAuxiliar":"pues estoy creando Spanglish\nbi-cultural systems\nscientificlexicographical\ninter-textualintegrations\ntwo expressions\nexistentially wired\ntwo dominant languages\ncontinentally abrazándose\nin colloquial combate\nimperio spanglish emerges\nsobre territorio bi-lingual\nlas novelas mexicanas\nmixing with radiorocknroll\nimmigrant/migrant\nnasal mispronouncements\nhip-hop, street salsa, spanish pop\nstandard english classroom\nwith computer technicalities\nspanglish is literally perfect",
+                    "Descrição":"Nesse poema de Tato Laviera, o eu lírico destaca uma",
+                    "Alternativas":["convergência linguístico-cultural","característica histórico-cultural.","tendência estilístico-literária.","discriminação cultural.","censura musical"],
                     "Resposta":0
+                }
+            ],
+            "5":[
+                {
+                    "ImagemAuxiliar":"assets/img/2023/linguagens-5.png",
+                    "Descrição":"Ao retratar o ambiente de trabalho em um escritório,esse carttum tem por objetivo",
+                    "Alternativas":["criticar um adrão de vestimenta.","destacar a falta de diversidade","indicar um modo de integração","elogiar um modelo de organização","salientar o espírito de cooperação"],
+                    "Resposta":1
+                }
+            ]
+        },
+        "Humanas":{
+            "1":[
+                {
+                    "ImagemAuxiliar":"assets/img/2023/humanas-46.png",
+                    "Descrição":"A definição do Sertão descrita no bordad associa esse recorte espacial a",
+                    "Alternativas":["percursos e roteiros turísticos.","trajetos e movimentos holísticos.","vivências e itinerários sicioafetivos.","fronteiras e demarcações territorias.","profissões e interresses econômicos."],
+                    "Resposta":2
                 }
             ]
         }
