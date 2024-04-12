@@ -1,3 +1,8 @@
+let params = new URLSearchParams(window.location.search);
+let ano = params.get('ano');
+let tipo = params.get('tipo');
+carregarPerguntas(ano, tipo);
+
 let perguntas = null;
 let indicePerguntaAtual = 0;
 
