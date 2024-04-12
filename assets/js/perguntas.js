@@ -52,7 +52,8 @@ function atualizarPergunta() {
     // Limpar o conteúdo anterior
     mainElement.innerHTML = '';
 
-    // Inserir no HTML
+    // Inserir no HTML --------------------------------------------------------------------------------------------------------
+
     let div = document.createElement('div');
     let h3 = document.createElement('div');
     h3.textContent = descricao;
@@ -73,6 +74,7 @@ function atualizarPergunta() {
     let ul = document.createElement('ul');
     alternativas.forEach((alternativa, index) => {
         let label = document.createElement('label');
+        label.classList.add('pergunta');
         let radio = document.createElement('input');
         radio.type = 'radio';
         radio.name = 'alternativa';

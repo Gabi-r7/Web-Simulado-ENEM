@@ -3,7 +3,7 @@ const nav = document.querySelector('nav');
 
 nav.innerHTML = `
     <div class="logo">
-        <div class="nomeLogo">SIMULANDO</div>
+        <a href="index.html" class="nomeLogo">SIMULANDO</a>
     </div>
     <div class="menu">
         <div class="ranking">
