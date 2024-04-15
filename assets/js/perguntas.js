@@ -23,6 +23,7 @@ let mainElement = document.querySelector('main');
 function atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
+        alert('Você acabou!');
         let tabela = document.createElement('table');
         let cabecalho = tabela.createTHead();
         let linhaCabecalho = cabecalho.insertRow();
@@ -52,8 +53,7 @@ function atualizarPergunta() {
     // Limpar o conteúdo anterior
     mainElement.innerHTML = '';
 
-    // Inserir no HTML --------------------------------------------------------------------------------------------------------
-
+    // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
     let h3 = document.createElement('div');
     h3.textContent = descricao;
