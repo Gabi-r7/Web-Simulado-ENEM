@@ -1,21 +1,28 @@
 let params = new URLSearchParams(window.location.search);
-let ano = params.get('ano');
-let tipo = params.get('tipo');
+let ano = params.get('ano').split(',');
+let tipo = params.get('tipo').split(',');
+console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
 
-function carregarPerguntas(ano, tipo) {
+function carregarPerguntas(anos, tipos) {
     fetch('assets/json/sim_2023.json')
         .then(response => response.json())
         .then(data => {
-            perguntas = [].concat(...Object.values(data[ano][tipo]));
+            perguntas = [];
+            for (let ano of anos) {
+                for (let tipo of tipos) {
+                    if (data[ano] && data[ano][tipo]) {
+                        perguntas = perguntas.concat(...Object.values(data[ano][tipo]));
+                    }
+                }
+            }
             atualizarPergunta();
         })
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
 }
-
 
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
