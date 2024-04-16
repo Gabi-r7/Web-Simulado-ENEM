@@ -83,6 +83,33 @@
                     "Resposta":4
                 }
             ]
+        },
+        "Ciências":{
+            "91":[
+                {
+                    "DescriçãoAuxiliar":"Na tirinha de Mauricio de Sousa, os personagens Cebolinha e Cascão fazem uma brincadeira utilizando duas latas\ne um barbante. Ao perceberem que o som pode ser transmitido através do barbante, resolvem alterar o comprimento do\nbarbante para ficar cada vez mais extenso. As demais condições permaneceram inalteradas durante a brincadeira.",
+                    "ImagemAuxiliar":"assests/img/2023/ciencias-91.png",
+                    "Descrição":"Na prática, à medida que se aumenta o comprimento do barbante, ocorre a redução de qual característica da onda sonora?",
+                    "Alternativas":["Altura","Período","Amplitude","Velocidade","Comprimento de onda"],
+                    "Resposta":2
+                }
+            ],
+            "92":[
+                {
+                   "DescriçãoAuxiliar":"Informações digitais — dados — são gravadas em discos ópticos, como CD e DVD, na forma de cavidades\nmicroscópicas. A gravação e a leitura óptica dessas informações são realizadas por um laser (fonte de luz monocromática).\nQuanto menores as dimensões dessas cavidades, mais dados são armazenados na mesma área do disco. O fator limitante\npara a leitura de dados é o espalhamento da luz pelo efeito de difração, fenômeno que ocorre quando a luz atravessa um\nobstáculo com dimensões da ordem de seu comprimento de onda. Essa limitação motivou o desenvolvimento de lasers\ncom emissão em menores comprimentos de onda, possibilitando armazenar e ler dados em cavidades cada vez menores.",
+                   "Descrição":"Em qual região espectral se situa o comprimento de onda do laser que otimiza o armazenamento e a leitura de dados em discos de uma mesma área?",
+                   "Alternativas":["Violeta","Azul","Verde","Vermelho","Infravermelho"],
+                   "Resposta":0
+                }
+            ],
+            "93":[
+                {
+                    "DescriçãoAuxiliar":"O bluetooth é uma tecnologia de comunicação sem fio, de curto alcance, presente em diferentes dispositivos\neletrônicos de consumo. Ela permite que aparelhos eletrônicos diferentes se conectem e troquem dados entre\nsi. No padrão bluetooth, denominado de Classe 2, as antenas transmitem sinais de potência igual a 2,4 mW e\npossibilitam conectar dois dispositivos distanciados até 10 m. Considere que essas antenas se comportam como\nfontes puntiformes que emitem ondas eletromagnéticas esféricas e que a intensidade do sinal é calculada pela\npotência por unidade de área. Considere 3 como valor aproximado para π.",
+                    "Descrição":"Para que o sinal de bluetooth seja detectado pelas antenas, o valor mínimo de sua intensidade, em W/m2 , é mais próximo de",
+                    "Alternativas":["2,0*10&#x00B-6","2,0*10&#x00B-5","2,0*2,4&#x00B-5","2,4*2,4&#x00B-3","2,4*10&#x00B-1"],
+                    "Resposta":0
+                }
+            ]
         }
     }
 }
