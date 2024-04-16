@@ -66,6 +66,13 @@ function atualizarPergunta() {
     h3.textContent = descricao;
     div.appendChild(h3);
 
+    let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
+
+    let numeroPerguntaElement = document.createElement('h2');
+    numeroPerguntaElement.textContent = `Pergunta número: ${numeroPergunta}`;
+    div.insertBefore(numeroPerguntaElement, h3);
+
+
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
         p.textContent = descricaoAuxiliar;
