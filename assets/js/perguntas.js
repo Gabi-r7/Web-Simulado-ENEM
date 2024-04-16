@@ -65,6 +65,8 @@ function atualizarPergunta() {
     let h3 = document.createElement('div');
     h3.textContent = descricao;
     div.appendChild(h3);
+    div.classList.add('questao');
+    h3.classList.add('pergunta');
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
@@ -79,9 +81,10 @@ function atualizarPergunta() {
     }
 
     let ul = document.createElement('ul');
+    ul.classList.add('perguntas');
     alternativas.forEach((alternativa, index) => {
         let label = document.createElement('label');
-        label.classList.add('pergunta');
+        label.classList.add('alternativa');
         let radio = document.createElement('input');
         radio.type = 'radio';
         radio.name = 'alternativa';
