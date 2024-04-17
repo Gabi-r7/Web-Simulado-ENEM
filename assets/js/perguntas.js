@@ -63,17 +63,11 @@ function atualizarPergunta() {
     // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
     let h3 = document.createElement('div');
-    h3.textContent = descricao;
-    div.appendChild(h3);
-    div.classList.add('questao');
-    h3.classList.add('pergunta');
-
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
-
     let numeroPerguntaElement = document.createElement('h2');
-    numeroPerguntaElement.textContent = `Pergunta número: ${numeroPergunta}`;
-    div.insertBefore(numeroPerguntaElement, h3);
-
+    
+    numeroPerguntaElement.textContent = `${numeroPergunta} / ${perguntas.length}`;
+    div.appendChild(numeroPerguntaElement);
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
@@ -86,6 +80,11 @@ function atualizarPergunta() {
         img.src = imagemAuxiliar;
         div.appendChild(img);
     }
+    
+    h3.textContent = descricao;
+    div.appendChild(h3);
+    div.classList.add('questao');
+    h3.classList.add('pergunta');
 
     let ul = document.createElement('ul');
     ul.classList.add('perguntas');
