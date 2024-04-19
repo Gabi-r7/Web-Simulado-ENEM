@@ -99,23 +99,46 @@ function atualizarPergunta() {
         label.appendChild(document.createTextNode(alternativa));
         ul.appendChild(label);
     });
+    div.appendChild(ul);
     
-    let button = document.createElement('button');
-    button.textContent = 'Próxima pergunta';
-    button.addEventListener('click', function() {
+    let buttonPrevious = document.createElement('button');
+    buttonPrevious.textContent = 'Pergunta Anterior';
+    buttonPrevious.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+        if (selectedOption === null) {
+            alert('Selecione uma alternativa para continuar');
+        }
+        if (selectedOption && indicePerguntaAtual > 0) {
+            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            perguntaAnterior();
+        }
+    });
+    div.appendChild(buttonPrevious);
+
+    let buttonNext = document.createElement('button');
+    buttonNext.textContent = 'Próxima pergunta';
+    buttonNext.addEventListener('click', function() {
+        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+        if (selectedOption === null) {
+            alert('Selecione uma alternativa para continuar');
+        }
         if (selectedOption) {
-            respostasDoUsuario.push(parseInt(selectedOption.value));
+            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
             proximaPergunta();
         }
     });
-    div.appendChild(ul);
-    div.appendChild(button);
+    div.appendChild(buttonNext);
     
+
     mainElement.appendChild(div);
 }
 
 function proximaPergunta() {
     indicePerguntaAtual++;
+    atualizarPergunta();
+}
+
+function perguntaAnterior() {
+    indicePerguntaAtual--;
     atualizarPergunta();
 }
