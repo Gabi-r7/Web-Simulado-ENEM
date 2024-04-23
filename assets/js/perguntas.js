@@ -73,7 +73,7 @@ function atualizarPergunta() {
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
-        p.textContent = descricaoAuxiliar;
+        p.innerHTML = descricaoAuxiliar;
         div.appendChild(p);
         p.classList.add('descricaoAuxiliar'); //class
     }
@@ -85,7 +85,7 @@ function atualizarPergunta() {
         img.classList.add('imagemAuxiliar'); //class
     }
     
-    h3.textContent = descricao;
+    h3.innerHTML = descricao;
     div.appendChild(h3);
     div.classList.add('questao'); //class
     h3.classList.add('pergunta'); //class
