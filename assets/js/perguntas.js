@@ -106,9 +106,11 @@ function atualizarPergunta() {
     div.appendChild(ul);
     
     let botoes = document.createElement('div');
-
+    div.appendChild(botoes);
     let buttonPrevious = document.createElement('button');
     botoes.appendChild(buttonPrevious);
+    botoes.classList.add('botoes'); //class
+
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.textContent = 'Pergunta Anterior';
     buttonPrevious.addEventListener('click', function() {
@@ -121,7 +123,6 @@ function atualizarPergunta() {
             perguntaAnterior();
         }
     });
-    div.appendChild(buttonPrevious);
 
     let buttonNext = document.createElement('button');
     botoes.appendChild(buttonNext);
@@ -137,7 +138,6 @@ function atualizarPergunta() {
             proximaPergunta();
         }
     });
-    div.appendChild(buttonNext);
     
 
     mainElement.appendChild(div);
