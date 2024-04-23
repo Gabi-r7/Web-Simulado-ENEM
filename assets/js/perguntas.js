@@ -139,7 +139,6 @@ function atualizarPergunta() {
         }
     });
     
-
     mainElement.appendChild(div);
 }
 
