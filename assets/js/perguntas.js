@@ -107,7 +107,7 @@ function atualizarPergunta() {
     
     let botoes = document.createElement('div');
     div.appendChild(botoes);
-    let buttonPrevious = document.createElement('button');
+    let buttonPrevious = document.createElement('span');
     botoes.appendChild(buttonPrevious);
     botoes.classList.add('botoes'); //class
 
@@ -124,7 +124,7 @@ function atualizarPergunta() {
         }
     });
 
-    let buttonNext = document.createElement('button');
+    let buttonNext = document.createElement('span');
     botoes.appendChild(buttonNext);
     buttonNext.classList.add('next'); //class
     buttonNext.textContent = 'Próxima pergunta';

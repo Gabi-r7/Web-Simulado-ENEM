@@ -1,3 +1,5 @@
+@import url(nav.css);
+
 .questao{
     background-color: blue;
     padding: 2rem;
@@ -22,4 +24,47 @@
     flex-direction: column;
     gap: 1rem;
     height: 100%;
+}
+
+
+
+.numeroPergunta{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: calc(0.5rem + var(--altura-min-nav));
+    padding: 0.2rem;
+    left: 0;
+    border-radius: 0 10px 10px 0;
+}  
+
+.botoes{
+    display: flex;
+    gap: 1rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.next{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    border: 0;
+}
+
+.previous{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    border: 0;
 }
