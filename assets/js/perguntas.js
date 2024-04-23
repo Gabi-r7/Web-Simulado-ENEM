@@ -105,7 +105,10 @@ function atualizarPergunta() {
     });
     div.appendChild(ul);
     
+    let botoes = document.createElement('div');
+
     let buttonPrevious = document.createElement('button');
+    botoes.appendChild(buttonPrevious);
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.textContent = 'Pergunta Anterior';
     buttonPrevious.addEventListener('click', function() {
@@ -121,6 +124,7 @@ function atualizarPergunta() {
     div.appendChild(buttonPrevious);
 
     let buttonNext = document.createElement('button');
+    botoes.appendChild(buttonNext);
     buttonNext.classList.add('next'); //class
     buttonNext.textContent = 'Próxima pergunta';
     buttonNext.addEventListener('click', function() {
