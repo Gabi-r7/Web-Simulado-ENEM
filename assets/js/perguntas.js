@@ -66,6 +66,8 @@ function atualizarPergunta() {
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
     let numeroPerguntaElement = document.createElement('h2');
     
+    numeroPerguntaElement.classList.add('numeroPergunta'); //class
+
     numeroPerguntaElement.textContent = `${numeroPergunta} / ${perguntas.length}`;
     div.appendChild(numeroPerguntaElement);
 
@@ -73,24 +75,26 @@ function atualizarPergunta() {
         let p = document.createElement('p');
         p.textContent = descricaoAuxiliar;
         div.appendChild(p);
+        p.classList.add('descricaoAuxiliar'); //class
     }
 
     if (imagemAuxiliar) {
         let img = document.createElement('img');
         img.src = imagemAuxiliar;
         div.appendChild(img);
+        img.classList.add('imagemAuxiliar'); //class
     }
     
     h3.textContent = descricao;
     div.appendChild(h3);
-    div.classList.add('questao');
-    h3.classList.add('pergunta');
+    div.classList.add('questao'); //class
+    h3.classList.add('pergunta'); //class
 
     let ul = document.createElement('ul');
-    ul.classList.add('perguntas');
+    ul.classList.add('alternativas'); //class
     alternativas.forEach((alternativa, index) => {
         let label = document.createElement('label');
-        label.classList.add('alternativa');
+        label.classList.add('alternativa'); //class
         let radio = document.createElement('input');
         radio.type = 'radio';
         radio.name = 'alternativa';
@@ -102,6 +106,7 @@ function atualizarPergunta() {
     div.appendChild(ul);
     
     let buttonPrevious = document.createElement('button');
+    buttonPrevious.classList.add('previous'); //class
     buttonPrevious.textContent = 'Pergunta Anterior';
     buttonPrevious.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
@@ -116,6 +121,7 @@ function atualizarPergunta() {
     div.appendChild(buttonPrevious);
 
     let buttonNext = document.createElement('button');
+    buttonNext.classList.add('next'); //class
     buttonNext.textContent = 'Próxima pergunta';
     buttonNext.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
