@@ -1,5 +1,9 @@
 @import url(nav.css);
 
+:root{
+    --largura-next-previous: 2rem;
+}
+
 .questao{
     background-color: blue;
     padding: 2rem;
@@ -43,28 +47,34 @@
 
 .botoes{
     display: flex;
-    gap: 1rem;
+    gap: 0.2rem;
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    box-sizing: border-box;
 }
 
-.next{
+.botoes > *{
+    width: var(--largura-next-previous);
     background-color: rgb(255, 255, 255);
     display: grid;
     place-items: center;
-    font-size: 2rem;
-    font-weight: bold;
     padding: 0.2rem;
     border: 0;
+    height: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+}
+.next{
+    border-radius: 0 100px 100px 0;
 }
 
 .previous{
-    background-color: rgb(255, 255, 255);
-    display: grid;
-    place-items: center;
-    font-size: 2rem;
+    border-radius: 100px 0 0 100px;
+}
+
+.botoes > * >span{
     font-weight: bold;
-    padding: 0.2rem;
-    border: 0;
+    font-size: 2rem;
 }

@@ -128,6 +128,8 @@ function atualizarPergunta() {
     botoes.appendChild(buttonNext);
     buttonNext.classList.add('next'); //class
     buttonNext.textContent = 'Próxima pergunta';
+    
+    // let next = document.querySelector('.next');
     buttonNext.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption === null) {
