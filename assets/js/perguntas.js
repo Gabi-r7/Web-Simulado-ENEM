@@ -107,12 +107,16 @@ function atualizarPergunta() {
     
     let botoes = document.createElement('div');
     div.appendChild(botoes);
-    let buttonPrevious = document.createElement('span');
+    let buttonPrevious = document.createElement('div');
     botoes.appendChild(buttonPrevious);
     botoes.classList.add('botoes'); //class
 
+    let spanPrevious = document.createElement('div');
+    spanPrevious.textContent = 'chevron_left';
+    spanPrevious.classList.add('material-symbols-outlined'); //class
+    buttonPrevious.appendChild(spanPrevious);
+
     buttonPrevious.classList.add('previous'); //class
-    buttonPrevious.textContent = 'Pergunta Anterior';
     buttonPrevious.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption === null) {
@@ -124,12 +128,15 @@ function atualizarPergunta() {
         }
     });
 
-    let buttonNext = document.createElement('span');
+    let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
     buttonNext.classList.add('next'); //class
-    buttonNext.textContent = 'Próxima pergunta';
+
+    let spanNext = document.createElement('div');
+    spanNext.textContent = 'chevron_right';
+    spanNext.classList.add('material-symbols-outlined'); //class
+    buttonNext.appendChild(spanNext);
     
-    // let next = document.querySelector('.next');
     buttonNext.addEventListener('click', function() {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption === null) {

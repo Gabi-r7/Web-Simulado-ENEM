@@ -74,7 +74,6 @@
     border-radius: 100px 0 0 100px;
 }
 
-.botoes > * >span{
-    font-weight: bold;
+.botoes div{
     font-size: 2rem;
 }
