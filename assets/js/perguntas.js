@@ -105,6 +105,12 @@ function atualizarPergunta() {
         radio.value = index;
         label.appendChild(radio);
         label.appendChild(document.createElement('p')).innerHTML = alternativa;
+        // function needsMathJax(str) {
+        //     return /\\\\\(.*\\\\\)|\\\\\[.*\\\\\]|\\\\frac|\\\\sqrt/.test(str);
+        // }
+        // if (needsMathJax(alternativa)) {
+        //     MathJax.typesetPromise([p]);
+        // }
         ul.appendChild(label);
     });
     div.appendChild(ul);
