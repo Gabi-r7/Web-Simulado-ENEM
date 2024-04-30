@@ -114,7 +114,7 @@
                 {
                     "DescriçãoAuxiliar":"Os solos amazônicos, ricos em silicato, não são apropriados para o cultivo por serem incapazes de reter nutrientes.<br>Contudo, descobertas arqueológicas têm demonstrado que os antigos habitantes da Amazônia dominavam a técnica<br>de preparo de um insumo agrícola natural, denominado terra preta. Esse insumo era constituído principalmente<br>de uma espécie de biocarvão (biochar) obtido da queima de matéria orgânica, como troncos de árvores, pedaços de<br>ossos e esterco, capaz de manter um solo fértil por anos.<br>Admite-se que o efeito do biocarvão na fertilização do solo estava, em parte, relacionado à presença de grupos<br>orgânicos do tipo carboxilato em sua superfície, carregados negativamente (—COO−). Esses grupos atraem íons<br>positivos necessários como nutrientes, tais quais os provenientes do potássio (K), do cálcio (Ca) e do magnésio (Mg),<br>além de micronutrientes, como zinco (Zn) e ferro (Fe). Essa ligação no solo fertilizado é predominantemente iônica,<br>conforme ilustra a figura, em que Mn+ representa os cátions metálicos. De acordo com a escala de Pauling, a<br>eletronegatividade do elemento oxigênio é igual a 3,44.",
                     "ImagemAuxiliar":"assets/img/2023/ciencias-94.png",
-                    "Descrição":"O cátion que resultará em uma interação de maior caráter iônico com o ânion carboxilato será aquele proveniente<br>do elemento",
+                    "Descrição":"O cátion que resultará em uma interação de maior caráter iônico com o ânion carboxilato será aquele proveniente do elemento",
                     "Alternativas":["potássio","cálcio","magnésio","zinco","ferro"],
                     "Resposta":0
                 }
@@ -125,6 +125,24 @@
                     "Descrição":"No processo de concentração do produto, é utilizada energia proveniente",
                     "Alternativas":["somente do calor latente de vaporização","somente do calor latente de condensação.","do calor sensível e do calor latente de vaporização.","do calor sensível e do calor latente de condensação.","do calor latente de condensação e do calor latente de vaporização."],
                     "Resposta":3
+                }
+            ]
+        },
+        "Matemática":{
+            "136":[
+                {
+                    "DescriçãoAuxiliar":"Alguns estudos comprovam que os carboidratos<br>fornecem energia ao corpo, preservam as proteínas<br>estruturais dos músculos durante a prática de atividade<br>física e ainda dão força para o cérebro coordenar os<br>movimentos, o que de fato tem impacto positivo no<br>desenvolvimento do praticante. O ideal é consumir 1 grama<br>de carboidrato para cada minuto de caminhada.<br>CIRINO, C. Boa pergunta: consumir carboidratos antes dos exercícios melhora o<br>desempenho do atleta? Revista Saúde! É Vital, n. 330, nov. 2010 (adaptado)",
+                    "Descrição":"Um casal realizará diariamente 30 minutos de caminhada,<br>ingerindo, antes dessa atividade, a quantidade ideal de<br>carboidratos recomendada. Para ter o consumo ideal apenas<br>por meio do consumo de pão de fôrma integral, o casal planeja<br>garantir o suprimento de pães para um período de 30 dias<br>ininterruptos.Sabe-sequecadapacotedessepãovemcom18<br>fatias, e que cada uma delas tem 15 gramas de carboidratos.<br>A quantidade mínima de pacotes de pão de fôrma<br>necessários para prover o suprimento a esse casal é",
+                    "Alternativas":["1","4","6","7","8"],
+                    "Resposta":3
+                }
+            ],
+            "137":[
+                {
+                    "ImagemAuxiliar":"assets/img/2023/matematica-137.png",
+                    "Descrição":"A opção a ser escolhida é aquela em que a medida<br>dos cabos seja a menor possível.<br>Qual será a medida, em metro, de cada um dos cabos a<br>serem instalados?",
+                    "Alternativas":["22/(3^(1/2))/3","11/u221A3/2","12/u221A3/2","12/u221A3/3","22"],
+                    "Resposta":2
                 }
             ]
         }
