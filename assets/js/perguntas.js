@@ -104,7 +104,7 @@ function atualizarPergunta() {
         radio.name = 'alternativa';
         radio.value = index;
         label.appendChild(radio);
-        label.appendChild(document.createTextNode(alternativa));
+        label.appendChild(document.createElement('p')).innerHTML = alternativa;
         ul.appendChild(label);
     });
     div.appendChild(ul);
