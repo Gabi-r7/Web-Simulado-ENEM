@@ -141,7 +141,7 @@
                 {
                     "ImagemAuxiliar":"assets/img/2023/matematica-137.png",
                     "Descrição":"A opção a ser escolhida é aquela em que a medida<br>dos cabos seja a menor possível.<br>Qual será a medida, em metro, de cada um dos cabos a<br>serem instalados?",
-                    "Alternativas":["22/(3^(1/2))/3","11/u221A3/2","12/u221A3/2","12/u221A3/3","22"],
+                    "Alternativas":["\( \frac{22\sqrt{3}}{3} \)","11/u221A3/2","12/u221A3/2","12/u221A3/3","22"],
                     "Resposta":2
                 }
             ]
