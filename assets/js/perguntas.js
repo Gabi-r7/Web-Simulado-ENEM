@@ -52,7 +52,7 @@ function atualizarPergunta() {
     }
 
     let pergunta = perguntas[indicePerguntaAtual];
-    let descricao = pergunta['Descrição'];
+    let perguntaTtl = pergunta['Descrição'];
     let descricaoAuxiliar = pergunta['DescriçãoAuxiliar'];
     let imagemAuxiliar = pergunta['ImagemAuxiliar'];
     let alternativas = pergunta['Alternativas'];
@@ -62,11 +62,15 @@ function atualizarPergunta() {
 
     // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
+    let auxiliares = document.createElement('div');
     let h3 = document.createElement('div');
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
     let numeroPerguntaElement = document.createElement('h2');
     
     numeroPerguntaElement.classList.add('numeroPergunta'); //class
+
+    mainElement.appendChild(auxiliares);
+    auxiliares.classList.add('auxiliares'); //class
 
     numeroPerguntaElement.textContent = `${numeroPergunta} / ${perguntas.length}`;
     div.appendChild(numeroPerguntaElement);
@@ -74,18 +78,18 @@ function atualizarPergunta() {
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
         p.innerHTML = descricaoAuxiliar;
-        div.appendChild(p);
+        auxiliares.appendChild(p);
         p.classList.add('descricaoAuxiliar'); //class
     }
 
     if (imagemAuxiliar) {
         let img = document.createElement('img');
         img.src = imagemAuxiliar;
-        div.appendChild(img);
+        auxiliares.appendChild(img);
         img.classList.add('imagemAuxiliar'); //class
     }
     
-    h3.innerHTML = descricao;
+    h3.innerHTML = perguntaTtl;
     div.appendChild(h3);
     div.classList.add('questao'); //class
     h3.classList.add('pergunta'); //class
