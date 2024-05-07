@@ -19,7 +19,6 @@
 body {
     margin: 0%;
     box-sizing: border-box;
-    font-size: 2rem; /* teste */
     background-color: var(--cor-fundo);
 }
 

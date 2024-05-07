@@ -18,5 +18,5 @@ nav.innerHTML = `
         </div>
     </div>`
 
-const ranking = document.querySelector('.ranking');
-const perfil = document.querySelector('.perfil');
+// const ranking = document.querySelector('.ranking');
+// const perfil = document.querySelector('.perfil');

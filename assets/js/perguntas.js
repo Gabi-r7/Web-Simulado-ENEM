@@ -62,30 +62,26 @@ function atualizarPergunta() {
 
     // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
-    let auxiliares = document.createElement('div');
     let h3 = document.createElement('div');
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
     let numeroPerguntaElement = document.createElement('h2');
     
     numeroPerguntaElement.classList.add('numeroPergunta'); //class
 
-    mainElement.appendChild(auxiliares);
-    auxiliares.classList.add('auxiliares'); //class
-
     numeroPerguntaElement.textContent = `${numeroPergunta} / ${perguntas.length}`;
-    div.appendChild(numeroPerguntaElement);
+    mainElement.appendChild(numeroPerguntaElement);
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
         p.innerHTML = descricaoAuxiliar;
-        auxiliares.appendChild(p);
+        div.appendChild(p);
         p.classList.add('descricaoAuxiliar'); //class
     }
 
     if (imagemAuxiliar) {
         let img = document.createElement('img');
         img.src = imagemAuxiliar;
-        auxiliares.appendChild(img);
+        div.appendChild(img);
         img.classList.add('imagemAuxiliar'); //class
     }
     
@@ -94,8 +90,8 @@ function atualizarPergunta() {
     div.classList.add('questao'); //class
     h3.classList.add('pergunta'); //class
 
-    let ul = document.createElement('ul');
-    ul.classList.add('alternativas'); //class
+    let listaAlternativas = document.createElement('div');
+    listaAlternativas.classList.add('alternativas'); //class
     alternativas.forEach((alternativa, index) => {
         let label = document.createElement('label');
         label.classList.add('alternativa'); //class
@@ -105,18 +101,19 @@ function atualizarPergunta() {
         radio.value = index;
         label.appendChild(radio);
         label.appendChild(document.createElement('p')).innerHTML = alternativa;
-        // function needsMathJax(str) {
-        //     return /\\\\\(.*\\\\\)|\\\\\[.*\\\\\]|\\\\frac|\\\\sqrt/.test(str);
-        // }
-        // if (needsMathJax(alternativa)) {
-        //     MathJax.typesetPromise([p]);
-        // }
-        ul.appendChild(label);
+        
+        
+        if(label.querySelector('p').textContent.includes('\\')) {
+            MathJax.typesetPromise([label.querySelector('p')]);
+            console.log('Inclui sabosta');
+        }
+    
+        listaAlternativas.appendChild(label);
     });
-    div.appendChild(ul);
+    div.appendChild(listaAlternativas);
     
     let botoes = document.createElement('div');
-    div.appendChild(botoes);
+    mainElement.appendChild(botoes);
     let buttonPrevious = document.createElement('div');
     botoes.appendChild(buttonPrevious);
     botoes.classList.add('botoes'); //class
