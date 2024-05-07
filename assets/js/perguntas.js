@@ -80,9 +80,11 @@ function atualizarPergunta() {
 
     if (imagemAuxiliar) {
         let img = document.createElement('img');
+        let divImgAux = document.createElement('div');
         img.src = imagemAuxiliar;
-        div.appendChild(img);
-        img.classList.add('imagemAuxiliar'); //class
+        div.appendChild(divImgAux);
+        divImgAux.appendChild(img);
+        divImgAux.classList.add('imagemAuxiliar'); //class
     }
     
     h3.innerHTML = perguntaTtl;

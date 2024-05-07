@@ -19,6 +19,7 @@ main{
 .questao{
     font-size: x-large;
     background-color: royalblue;
+    box-sizing: border-box;
 }
 
 .alternativas{
@@ -37,9 +38,15 @@ main{
 }
 
 .imagemAuxiliar{
-    padding: 1rem;
     border-radius: 10px;
     background-color: white;
+    padding: 1rem;
+}
+
+.imagemAuxiliar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .descricaoAuxiliar{
