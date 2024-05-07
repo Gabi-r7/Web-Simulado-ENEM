@@ -2,7 +2,8 @@
 
 :root{
     --largura-next-previous: 2rem;
-    --padding-main: calc(100vw / 3)
+    --padding-main: calc(100vw / 6);
+    --margin-itens-questao: 2rem;
 }
 
 main{
@@ -16,25 +17,41 @@ main{
 /* questao */
 
 .questao{
-    background-color: rgb(0, 17, 255);;
+    font-size: x-large;
+    background-color: royalblue;
 }
 
 .alternativas{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem;
 }
 
 .alternativa{
     background-color: rgb(255, 255, 255);
     cursor: pointer; 
     display: flex;
+    padding: 1rem;
     flex-direction: row;
+    border-radius: 10px;
 }
 
 .imagemAuxiliar{
-    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.descricaoAuxiliar{
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.pergunta{
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 /* botoes next e previous */
