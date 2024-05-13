@@ -131,8 +131,8 @@
         "Matematica":{
             "136":[
                 {
-                    "DescriçãoAuxiliar":"Alguns estudos comprovam que os carboidratos fornecem energia ao corpo, preservam as proteínas estruturais dos músculos durante a prática de atividade física e ainda dão força para o cérebro coordenar os movimentos, o que de fato tem impacto positivo no desenvolvimento do praticante. O ideal é consumir 1 grama de carboidrato para cada minuto de caminhada.<br>CIRINO, C. Boa pergunta: consumir carboidratos antes dos exercícios melhora o<br>desempenho do atleta? Revista Saúde! É Vital, n. 330, nov. 2010 (adaptado)",
-                    "Descrição":"Um casal realizará diariamente 30 minutos de caminhada, ingerindo, antes dessa atividade, a quantidade ideal de carboidratos recomendada. Para ter o consumo ideal apenas por meio do consumo de pão de fôrma integral, o casal planeja garantir o suprimento de pães para um período de 30 dias ininterruptos.Sabe-se que cada pacote desse pãovem com 18 fatias, e que cada uma delas tem 15 gramas de carboidratos.<br>A quantidade mínima de pacotes de pão de fôrma<br>necessários para prover o suprimento a esse casal é",
+                    "DescriçãoAuxiliar":"Alguns estudos comprovam que os carboidratos fornecem energia ao corpo, preservam as proteínas estruturais dos músculos durante a prática de atividade física e ainda dão força para o cérebro coordenar os movimentos, o que de fato tem impacto positivo no desenvolvimento do praticante. O ideal é consumir 1 grama de carboidrato para cada minuto de caminhada.<br>CIRINO, C. Boa pergunta: consumir carboidratos antes dos exercícios melhora o desempenho do atleta? Revista Saúde! É Vital, n. 330, nov. 2010 (adaptado)",
+                    "Descrição":"Um casal realizará diariamente 30 minutos de caminhada, ingerindo, antes dessa atividade, a quantidade ideal de carboidratos recomendada. Para ter o consumo ideal apenas por meio do consumo de pão de fôrma integral, o casal planeja garantir o suprimento de pães para um período de 30 dias ininterruptos.Sabe-se que cada pacote desse pãovem com 18 fatias, e que cada uma delas tem 15 gramas de carboidratos.<br>A quantidade mínima de pacotes de pão de fôrmanecessários para prover o suprimento a esse casal é:",
                     "Alternativas":["1","4","6","7","8"],
                     "Resposta":3
                 }
@@ -140,7 +140,7 @@
             "137":[
                 {
                     "ImagemAuxiliar":"assets/img/2023/matematica-137.png",
-                    "Descrição":"A opção a ser escolhida é aquela em que a medida dos cabos seja a menor possível.<br>Qual será a medida, em metro, de cada um dos cabos a<br>serem instalados?",
+                    "Descrição":"A opção a ser escolhida é aquela em que a medida dos cabos seja a menor possível.<br>Qual será a medida, em metro, de cada um dos cabos a serem instalados?",
                     "Alternativas":["\\( \\frac{22\\sqrt{3}}{3} \\)","\\( 11\\sqrt{2}\\)","\\(12\\sqrt{2}\\)","\\(12\\sqrt{3}\\)","22"],
                     "Resposta":2
                 }

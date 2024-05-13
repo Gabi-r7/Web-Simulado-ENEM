@@ -53,14 +53,20 @@ function atualizarPergunta() {
         perguntas.forEach((pergunta, index) => {
             let linha = tabela.insertRow();
             linha.classList.add('linhas'); //class
-            linha.insertCell().textContent = pergunta['Descrição'];
-            linha.insertCell().textContent = pergunta['Alternativas'][respostasDoUsuario[index]];
-            linha.insertCell().textContent = pergunta['Alternativas'][pergunta['Resposta']];
+            linha.insertCell().innerHTML = pergunta['Descrição'];
+            linha.insertCell().innerHTML = pergunta['Alternativas'][respostasDoUsuario[index]];
+            linha.insertCell().innerHTML = pergunta['Alternativas'][pergunta['Resposta']];
+
+            if(linha.textContent.includes('\\')) {
+                MathJax.typesetPromise([linha]);
+                console.log('Inclui sabosta');
+            }
         });
 
         mainElement.innerHTML = '';
         mainElement.appendChild(tabela);
         console.log(respostasDoUsuario);
+        
         return;
     }
 
