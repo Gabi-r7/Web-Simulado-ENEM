@@ -38,8 +38,11 @@ function atualizarPergunta() {
         linhaCabecalho.insertCell().textContent = 'Sua Resposta';
         linhaCabecalho.insertCell().textContent = 'Resposta Correta';
 
+
+
         perguntas.forEach((pergunta, index) => {
             let linha = tabela.insertRow();
+            linha.classList.add('linhas'); //class
             linha.insertCell().textContent = pergunta['Descrição'];
             linha.insertCell().textContent = pergunta['Alternativas'][respostasDoUsuario[index]];
             linha.insertCell().textContent = pergunta['Alternativas'][pergunta['Resposta']];

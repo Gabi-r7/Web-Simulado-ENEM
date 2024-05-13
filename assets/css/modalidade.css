@@ -3,7 +3,7 @@
 :root{
     --largura-next-previous: 2rem;
     --padding-main: calc(100vw / 6);
-    --margin-itens-questao: 2rem;
+    --margin-itens-questao: 1rem;
 }
 
 main{
@@ -20,6 +20,10 @@ main{
     font-size: x-large;
     background-color: royalblue;
     box-sizing: border-box;
+}
+
+.questao > *{
+    margin: var(--margin-itens-questao);
 }
 
 .alternativas{
@@ -109,4 +113,13 @@ main{
     padding: 0.2rem;
     left: 0;
     border-radius: 0 10px 10px 0;
+}
+
+table{
+    background-color: white;
+    width: 100%;
+}
+
+.linhas > *{
+    border: 2px solid black;  
 }
