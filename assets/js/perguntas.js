@@ -1,11 +1,19 @@
 let params = new URLSearchParams(window.location.search);
 let ano = params.get('ano').split(',');
 let tipo = params.get('tipo').split(',');
+let aleatorio = params.get('aleatorio');
 console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
+
+function embaralharArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 function carregarPerguntas(anos, tipos) {
     fetch('assets/json/sim_2023.json')
@@ -19,11 +27,13 @@ function carregarPerguntas(anos, tipos) {
                     }
                 }
             }
+            if (aleatorio) {
+                embaralharArray(perguntas);
+            }
             atualizarPergunta();
         })
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
 }
-
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 
