@@ -82,7 +82,8 @@ main{
     display: grid;
     place-items: center;
     padding: 0.2rem;
-    border: 0;height: 100%;
+    border: 0;
+    height: var(--largura-next-previous);
     cursor: pointer;
     font-weight: bold;
     font-size: larger;
