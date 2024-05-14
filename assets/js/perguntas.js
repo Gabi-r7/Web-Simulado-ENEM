@@ -160,7 +160,7 @@ function atualizarPergunta() {
 
     let customQuestion = document.createElement('input');
     customQuestion.type = 'text';
-    customQuestion.placeholder = 'N° questão';
+    customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
