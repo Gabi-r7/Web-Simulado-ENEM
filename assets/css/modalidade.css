@@ -21,7 +21,15 @@ main{
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background: white url('loading.gif') no-repeat center center;
+    background: rgb(0, 0, 0) url('loading.gif') no-repeat center center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+#loading.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* questao */

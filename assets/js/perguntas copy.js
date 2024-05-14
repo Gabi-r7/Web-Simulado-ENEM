@@ -12,7 +12,15 @@ window.onload = function() {
     setTimeout(function() {
         document.getElementById('loading').classList.add('hidden');
     }, 200);
-};
+}
+
+function mostrarTelaDeCarregamento() {
+    document.getElementById('loading').classList.remove('hidden');
+
+    setTimeout(function() {
+        document.getElementById('loading').classList.add('hidden');
+    }, 200);
+}
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -36,6 +44,7 @@ function carregarPerguntas(anos, tipos) {
             if (aleatorio) {
                 embaralharArray(perguntas);
             }
+            mostrarTelaDeCarregamento();
             atualizarPergunta();
         })
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
@@ -180,6 +189,7 @@ function atualizarPergunta() {
                 let numero = parseInt(customQuestion.value);
                 if (numero > 0 && numero <= perguntas.length) {
                     indicePerguntaAtual = numero - 1;
+                    mostrarTelaDeCarregamento();
                     atualizarPergunta();
                 }
             }
@@ -212,10 +222,12 @@ function atualizarPergunta() {
 
 function proximaPergunta() {
     indicePerguntaAtual++;
+    mostrarTelaDeCarregamento();
     atualizarPergunta();
 }
 
 function perguntaAnterior() {
     indicePerguntaAtual--;
+    mostrarTelaDeCarregamento();
     atualizarPergunta();
 }
