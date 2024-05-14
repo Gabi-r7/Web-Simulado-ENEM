@@ -3,7 +3,7 @@
 :root{
     --largura-next-previous: 2rem;
     --padding-main: calc(100vw / 6);
-    --margin-itens-questao: 2rem;
+    --margin-itens-questao: 1rem;
 }
 
 main{
@@ -14,12 +14,34 @@ main{
     padding: 1rem var(--padding-main) 1rem var(--padding-main);
 }
 
+#loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgb(0, 0, 0) url('loading.gif') no-repeat center center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+#loading.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* questao */
 
 .questao{
     font-size: x-large;
     background-color: royalblue;
     box-sizing: border-box;
+}
+
+.questao > *{
+    margin: var(--margin-itens-questao);
 }
 
 .alternativas{
@@ -78,7 +100,8 @@ main{
     display: grid;
     place-items: center;
     padding: 0.2rem;
-    border: 0;height: 100%;
+    border: 0;
+    height: var(--largura-next-previous);
     cursor: pointer;
     font-weight: bold;
     font-size: larger;
@@ -109,4 +132,13 @@ main{
     padding: 0.2rem;
     left: 0;
     border-radius: 0 10px 10px 0;
+}
+
+table{
+    background-color: white;
+    width: 100%;
+}
+
+.linhas > *{
+    border: 2px solid black;  
 }
