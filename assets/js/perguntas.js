@@ -7,6 +7,8 @@ carregarPerguntas(ano, tipo);
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
+let selectedOption = document.querySelector('input[name="alternativa"]');
+selectedOption = 'Não respondido';
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -50,7 +52,6 @@ function atualizarPergunta() {
         linhaCabecalho.insertCell().textContent = 'Resposta Correta';
 
         
-        
         perguntas.forEach((pergunta, index) => {
             
             let linha = tabela.insertRow();
@@ -68,8 +69,6 @@ function atualizarPergunta() {
         mainElement.innerHTML = '';
         mainElement.appendChild(tabela);
         console.log(respostasDoUsuario);
-        
-        return;
     }
 
     let pergunta = perguntas[indicePerguntaAtual];
@@ -103,13 +102,9 @@ function atualizarPergunta() {
         let img = document.createElement('img');
         let divImgAux = document.createElement('div');
         img.src = imagemAuxiliar;
-        // img.onload = function() {
-        //     document.getElementById('loading').classList.add('hidden');
-        // };
         div.appendChild(divImgAux);
         divImgAux.appendChild(img);
         divImgAux.classList.add('imagemAuxiliar'); //class
-        // document.getElementById('loading').classList.remove('hidden');
     }
     
     h3.innerHTML = perguntaTtl;
@@ -150,14 +145,14 @@ function atualizarPergunta() {
     spanPrevious.classList.add('material-symbols-outlined'); //class
     buttonPrevious.appendChild(spanPrevious);
 
+    
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.addEventListener('click', function() {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
-        // if (selectedOption === null) {
-        //     alert('Selecione uma alternativa para continuar');
-        // }
-        if (selectedOption && indicePerguntaAtual > 0) {
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+    
+        if (indicePerguntaAtual > 0) {
+            if(selectedOption !== 'Não respondido') {
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            }
             perguntaAnterior();
         }
     });
@@ -169,20 +164,16 @@ function atualizarPergunta() {
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            let selectedOption = document.querySelector('input[name="alternativa"]:checked');
-            // if (selectedOption === null) {
-            //     alert('Selecione uma alternativa para continuar');
-            // }
-            if (selectedOption) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-                let numero = parseInt(customQuestion.value);
-                if (numero > 0 && numero <= perguntas.length) {
-                    indicePerguntaAtual = numero - 1;
-                    atualizarPergunta();
-                }
+            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            let numero = parseInt(customQuestion.value);
+            if (numero > 0 && numero <= perguntas.length) {
+                indicePerguntaAtual = numero - 1;
+                atualizarPergunta();
             }
         }
     });
+            
+
 
 
     let buttonNext = document.createElement('div');
@@ -195,14 +186,10 @@ function atualizarPergunta() {
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
-        // if (selectedOption === null) {
-        //     alert('Selecione uma alternativa para continuar');
-        // }
-        if (selectedOption) {
+        if (selectedOption !== 'Não respondido') {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-            proximaPergunta();
         }
+        proximaPergunta();
     });
     
     mainElement.appendChild(div);
