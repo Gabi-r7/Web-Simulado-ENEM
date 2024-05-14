@@ -8,20 +8,6 @@ carregarPerguntas(ano, tipo);
 let perguntas = null;
 let indicePerguntaAtual = 0;
 
-window.onload = function() {
-    setTimeout(function() {
-        document.getElementById('loading').classList.add('hidden');
-    }, 200);
-}
-
-function mostrarTelaDeCarregamento() {
-    document.getElementById('loading').classList.remove('hidden');
-
-    setTimeout(function() {
-        document.getElementById('loading').classList.add('hidden');
-    }, 200);
-}
-
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -44,7 +30,6 @@ function carregarPerguntas(anos, tipos) {
             if (aleatorio) {
                 embaralharArray(perguntas);
             }
-            mostrarTelaDeCarregamento();
             atualizarPergunta();
         })
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
@@ -115,9 +100,15 @@ function atualizarPergunta() {
     }
 
     if (imagemAuxiliar) {
+        document.getElementById('loading').classList.remove('hidden');
         let img = document.createElement('img');
         let divImgAux = document.createElement('div');
         img.src = imagemAuxiliar;
+        img.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+            }, 200);
+        };
         div.appendChild(divImgAux);
         divImgAux.appendChild(img);
         divImgAux.classList.add('imagemAuxiliar'); //class
@@ -189,7 +180,6 @@ function atualizarPergunta() {
                 let numero = parseInt(customQuestion.value);
                 if (numero > 0 && numero <= perguntas.length) {
                     indicePerguntaAtual = numero - 1;
-                    mostrarTelaDeCarregamento();
                     atualizarPergunta();
                 }
             }
@@ -222,12 +212,10 @@ function atualizarPergunta() {
 
 function proximaPergunta() {
     indicePerguntaAtual++;
-    mostrarTelaDeCarregamento();
     atualizarPergunta();
 }
 
 function perguntaAnterior() {
     indicePerguntaAtual--;
-    mostrarTelaDeCarregamento();
     atualizarPergunta();
 }
