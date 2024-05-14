@@ -48,13 +48,14 @@ function atualizarPergunta() {
         linhaCabecalho.insertCell().textContent = 'Sua Resposta';
         linhaCabecalho.insertCell().textContent = 'Resposta Correta';
 
-
-
+        
+        
         perguntas.forEach((pergunta, index) => {
+            
             let linha = tabela.insertRow();
             linha.classList.add('linhas'); //class
             linha.insertCell().innerHTML = pergunta['Descrição'];
-            linha.insertCell().innerHTML = pergunta['Alternativas'][respostasDoUsuario[index]];
+            linha.insertCell().innerHTML = respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido';
             linha.insertCell().innerHTML = pergunta['Alternativas'][pergunta['Resposta']];
 
             if(linha.textContent.includes('\\')) {
@@ -155,6 +156,29 @@ function atualizarPergunta() {
             perguntaAnterior();
         }
     });
+
+
+    let customQuestion = document.createElement('input');
+    customQuestion.type = 'text';
+    customQuestion.placeholder = 'N° questão';
+    botoes.appendChild(customQuestion);
+    customQuestion.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+            if (selectedOption === null) {
+                alert('Selecione uma alternativa para continuar');
+            }
+            if (selectedOption) {
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+                let numero = parseInt(customQuestion.value);
+                if (numero > 0 && numero <= perguntas.length) {
+                    indicePerguntaAtual = numero - 1;
+                    atualizarPergunta();
+                }
+            }
+        }
+    });
+
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
