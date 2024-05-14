@@ -144,6 +144,32 @@
                     "Alternativas":["\\( \\frac{22\\sqrt{3}}{3} \\)","\\( 11\\sqrt{2}\\)","\\(12\\sqrt{2}\\)","\\(12\\sqrt{3}\\)","22"],
                     "Resposta":2
                 }
+            ],
+            "138":[
+                {
+                    "DescriçãoAuxiliar":"Um controlador de voo dispõe de um instrumento que descreve a altitude de uma aeronave em voo, em função da distância em solo. Essa distância em solo é a medida na horizontal entre o ponto de origem do voo até o ponto que representa a projeção ortogonal da posição da aeronave, em voo, no solo. Essas duas grandezas são dadas numa mesma unidade de medida<br>A tela do instrumento representa proporcionalmente as dimensões reais das distâncias associadas ao voo. A figura apresenta a tela do instrumento depois de concluída a viagem de um avião, sendo a medida do lado de cada quadradinho da malha igual a 1 cm.",
+                    "ImagemAuxiliar":"assets/img/2023/matematica-138.png",
+                    "Descrição":"Essa tela apresenta os dados de um voo cuja maior altitude alcançada foi de 5 km.<br> A escala em que essa tela representa as medidas reais é",
+                    "Alternativas":["1:5","1:11","1:55","1:5000","1:500000"],
+                    "Resposta":4
+                }
+            ],
+            "139":[
+                {
+                    "DescriçãoAuxiliar":"Uma pessoa pratica quatro atividades físicas — caminhar, correr, andar de bicicleta e jogar futebol — como parte de seu programa de emagrecimento. Essas atividades são praticadas semanalmente de acordo com o quadro, que apresenta o número de horas diárias por atividade.",
+                    "ImagemAuxiliar":"assets/img/2023/matematica-139.png",
+                    "Descrição":"O dia da semana em que será comemorado o aniversário é",
+                    "Alternativas":["segunda-feira.","terça-feira.","quarta-feira.","quinta-feira.","sexta-feira."],
+                    "Resposta":2
+                }
+            ],
+            "140":[
+                {
+                    "DescriçãoAuxiliar":"A cada bimestre, a diretora de uma escola compra uma quantidade de folhas de papel ofício proporcional ao número de alunos matriculados. No bimestre passado, ela comprou 6 000 folhas para serem utilizadas pelos 1 200 alunos matriculados. Neste bimestre, alguns alunos cancelaram suas matrículas e a escola tem, agora, 1 150 alunos. A diretora só pode gastar R$ 220,00 nessa compra, e sabe que o fornecedor da escola vende as folhas de papel ofício em embalagens de 100 unidades a R$ 4,00 a embalagem. Assim, será preciso convencer o fornecedor a dar um desconto à escola, de modo que seja possível comprar a quantidade total de papel ofício necessária para o bimestre.",
+                    "Descrição":"O desconto necessário no preço final da compra, em porcentagem, pertence ao intervalo",
+                    "Alternativas":["(5,0 ; 5,5).","(8,0 ; 8,5).","(11,5 ; 12,5).","(19,5 ; 20,5).","(3,5 ; 4,0)."],
+                    "Resposta":0
+                }
             ]
         }
     }
