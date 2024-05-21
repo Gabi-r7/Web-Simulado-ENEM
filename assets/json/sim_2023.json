@@ -3,7 +3,7 @@
         "Ingles":{
             "1":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-1.png",
+                    "ImagemAuxiliar":"assets/img/2023/ingles-1.png",
                     "Descrição":"Esse cartaz de campanha sugere que",
                     "Alternativas":["os lixões precisam de ampliação.","o desperdício degrada o ambiente.","os mercados doam alimentos perecíveis.","a desnutrição compromete o raciocínio.","as residências carecem de refrigeradores."],
                     "Resposta":1
@@ -35,7 +35,7 @@
             ],
             "5":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-5.png",
+                    "ImagemAuxiliar":"assets/img/2023/ingles-5.png",
                     "Descrição":"Ao retratar o ambiente de trabalho em um escritório,esse carttum tem por objetivo",
                     "Alternativas":["criticar um padrão de vestimenta.","destacar a falta de diversidade","indicar um modo de integração","elogiar um modelo de organização","salientar o espírito de cooperação"],
                     "Resposta":1
@@ -82,6 +82,48 @@
                     "Descrição":"A letra da canção Que quede claro, da banda cubana Orishas, revela o(a)",
                     "Alternativas":["indignação diante do desrespeito à diversidade.","violência característica das grandes metrópoles.","preconceito da sociedade com relação ao misticismo.","descuido da população com os sonhos dos imigrantes.","falta de segurança existente no transporte público urbano."],
                     "Resposta":0
+                }
+            ]
+        },
+        "Linguagens":{
+            "6":[
+                {
+                    "DescriçãoAuxiliar":"A sessão do Comitê Olímpico Internacional (COI) aprovou uma mudança histórica e inédita no lema olímpico, criado em 1894 pelo Barão Pierre de Coubertin para expressar os valores e a excelência do esporte. Mais de 120 anos depois, o lema tem sua primeira alteração para ressaltar a solidariedade e incluir a palavra “juntos”: mais rápido, mais alto, mais forte — juntos. A mudança foi aprovada por unanimidade pelos membros do COI e celebrada pelo presidente da entidade. <br>Disponível em: https://ge.globo.com. Acesso em: 10 nov. 2021 (adaptado)",
+                    "Descrição":"De acordo com o texto, a alteração do lema olímpico teve como objetivo a",
+                    "Alternativas":["unificação do lema anterior ao atual","aproximação entre o lema olímpico e o COI.","junção do lema olímpico com os princípios esportivos.","associação entre o lema olímpico e a cooperatividade.","vinculação entre o lema olímpico e os eventos atléticos."],
+                    "Resposta":3
+                }
+            ],
+            "7":[
+                {
+                    "DescriçãoAuxiliar":"Mais iluminada que outras<br>Tenho dois seios, estas duas coxas, duas mãos que mesão muito úteis, olhos escuros, estas duas sobrancelhas quepreencho com maquiagem comprada por dezenove e noventae orelhas que não aceitam bijuterias. Este corpo é um corpofaminto, dentado, cruel, capaz e violento. Movo os braçose multidões correm desesperadas. Caminho no escuro como rosto para baixo, pois cada parte isolada de mim tem suaprópria vida e não quero domá-las. Animal da caatinga. Fortedemais. Engolidora de espadas e espinhos.<br>Dizem e eu ouvi, mas depois também li, que o estadodo Ceará aboliu a escravidão quatro anos antes do restantedo país. Todos aqueles corpos que eram trazidos comseus dedos contados, seus calcanhares prontos e seusumbigos em fogo, todos eles foram interrompidos noporto. Um homem — dizem e eu ouvi e depois tambémli — liderou o levante. E todos esses corpos foram buscaroutros incômodos. Foram ser incomodados.<br>ARRAES, J. Redemoinho em dia quente. São Paulo: Alfaguara, 2019.",
+                    "Descrição":"Nesse texto, os recursos expressivos usados pela narradora",
+                    "Alternativas":["revelam as marcas da violência de raça e de gênero na construção da identidade.","questionam o pioneirismo do estado de Ceará no enfrentamento à escravidão.","reproduzem padrões estéticos em busca da valorização da autoestima faminina.","sugerem uma atmosfera onírica alinhada ao desejo de resgate de espiritualidade.","mimetizam, na paisagem, os corpos transformados pela violência da escravidão."],
+                    "Resposta":0
+                }
+            ],
+            "8":[
+                {
+                    "DescriçãoAuxiliar":"De quem é esta língua? <br>Uma pequena editora brasileira, a Urutau, acaba de lançar em Lisboa uma “antologia antirracista de poetas estrangeiros em Portugal”, com o título Volta para a tua terra. <br>O livro denuncia as diversas formas de racismo a que os imigrantes estão sujeitos. Alguns dos poetas brasileiros antologiados queixam-se do desdém com que um grande número de portugueses acolhe o português brasileiro. É uma queixa frequente. <br>“Aqui em Portugal eles dizem / — eles dizem — / que nosso português é errado, que nós não falamos português”, escreve a poetisa paulista Maria Giulia Pinheiro, para concluir: “Se a sua linguagem, a lusitana, / ainda conserva a palavra da opressão / ela não é a mais bonita do mundo./ Ela é uma das mais violentas”. <br>AGUALUSA, J. E. Disponível em: https://oglobo.globo.com.  Acesso em: 22 nov. 2021 (adaptado).",
+                    "Descrição":"O texto de Agualusa tematiza o preconceito em relação ao português brasileiro. Com base no trecho citado pelo autor, infere-se que esse preconceito se deve",
+                    "Alternativas":["à dificuldade de consolidação da literatura brasileira em outros países.","aos diferentes graus de instrução formal entre os falantes de língua portuguesa.","à existência de uma língua ideal que alguns falantes lusitanos creem ser a falada em Portugal.","ao intercâmbio cultural que ocorre entre os povos dos diferentes países de língua portuguesa.","à distância territorial entre os falantes do português que vivem em Portugal e no Brasil."],
+                    "Resposta":2
+                }
+            ],
+            "9":[
+                {
+                    "DescriçãoAuxiliar":"Na Idade Média, as notícias se propagavam com surpreendente eficácia.Segundo uma emérita professora de Sorbonne, um cavalo era capaz de percorrer 30 quilômetros por dia, mas o tempo podia se acelerar dependendo do interesse da notícia. As ordens mendicantes tinham um papel importante na disseminação de informações, assim como os jograis, os peregrinos e os vagabundos, porque todos eles percorriam grandes distâncias. As cidades também tinham correios organizados e selos para lacrar mensagens e tentar certificar a veracidade das correspondências. Graças a tudo isso, a circulação de boatos era intensa e politicamente relevante. Um exemplo clássico de fake news da era medieval é a história do rei que desaparece na batalha e reaparece muito depois, idoso e transformado. <br>Disponível em: www.elpais.com.br. Acesso em: 18 jun. 2018 (adaptado).",
+                    "Descrição":"A propagação sistemática de informações é um fenômeno recorrente na história e no desenvolvimento das sociedades. No texto, a eficácia dessa propagação está diretamente relacionada ao(à)",
+                    "Alternativas":["velocidade de circulação das notícias.","nível de letramento da população marginalizada.","poder de censura por parte dos srviços públicos.","legitimidade da voz dos representantes da nobreza.","diversidade dos meios disponíveis em uma época histórica."],
+                    "Resposta":4
+                }
+            ],
+            "10":[
+                {
+                    "DescriçãoAuxiliar":"Se a interferência de contas falsas em discussões políticas nas redes sociais já representava um perigo para os sistemas democráticos, sua sofisticação e maior semelhança com pessoas reais têm agravado o problema pelo mundo. <br>O perigo cresceu porque a tecnologia e os métodos evoluíram dos robôs, os “bots” — softwares com tarefas on-line automatizadas —, para os “ciborgues” ou “trolls”, contas controladas diretamente por humanos com ajuda de um pouco de automação. <br>Mas pesquisadores começam agora a observar outros padrões de comportamento: quando mensagens não são programadas, sua publicação se concentra só em horários de trabalho, já que é controlada por pessoas cuja profissão é exatamente essa, administrar um perfil falso durante o dia. <br>Outra pista: a pobreza vocabular das mensagens publicadas por esses perfis. Um funcionário de uma empresa que supostamente produzia e vendia perfis falsos explica que às vezes “faltava criatividade” para criar mensagens distintas controlando tantos perfis falsos ao mesmo tempo. <br>GRAGNANI, J. Disponível em: www.bbc.com. Acesso em: 16 dez. 2017",
+                    "Descrição":"De acordo com o texto, a análise de características da linguagem empregada por perfis automatizados contribui para o(a)",
+                    "Alternativas":["controle da atuação dos profissionais de TI.","desenvolvimento de tecnologia como os ''trolls''.","flexibilização dos turnos de trabalho dos controladores.","necessidade de regulamentação do funcionamento dos ''bots''.","identificação de padrões de disseminação de informações inverídicas."],
+                    "Resposta":4
                 }
             ]
         },
