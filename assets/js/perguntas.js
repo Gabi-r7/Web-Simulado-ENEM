@@ -7,8 +7,7 @@ carregarPerguntas(ano, tipo);
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
-let selectedOption = document.querySelector('input[name="alternativa"]');
-selectedOption = 'Não respondido';
+
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -150,7 +149,8 @@ function atualizarPergunta() {
     buttonPrevious.addEventListener('click', function() {
     
         if (indicePerguntaAtual > 0) {
-            if(selectedOption !== 'Não respondido') {
+            let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+            if(selectedOption !== null) {
                 respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
             }
             perguntaAnterior();
@@ -163,18 +163,21 @@ function atualizarPergunta() {
     customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
+    if (event.key === 'Enter') {
+        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+        if(selectedOption !== null) {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-            let numero = parseInt(customQuestion.value);
-            if (numero > 0 && numero <= perguntas.length) {
-                indicePerguntaAtual = numero - 1;
-                atualizarPergunta();
-            }
         }
-    });
+        let numero = parseInt(customQuestion.value);
+        if (numero > 0 && numero <= perguntas.length) {
+            indicePerguntaAtual = numero - 1;
+            atualizarPergunta();
+        } else {
+            console.error('Número de pergunta inválido');
+        }
+    }
+});
             
-
-
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
@@ -186,7 +189,9 @@ function atualizarPergunta() {
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-        if (selectedOption !== 'Não respondido') {
+        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
+        if (selectedOption !== null) {
+            console.log(selectedOption.value);
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
         }
         proximaPergunta();
