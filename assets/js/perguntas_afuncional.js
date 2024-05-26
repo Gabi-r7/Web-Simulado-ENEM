@@ -1,8 +1,3 @@
-let respostasDoUsuario = [];
-let mainElement = document.querySelector('main');
-console.log('Página carregada');
-
-
 let params = new URLSearchParams(window.location.search);
 let ano = params.get('ano').split(',');
 let tipo = params.get('tipo').split(',');
@@ -12,7 +7,6 @@ carregarPerguntas(ano, tipo);
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
-
 
 
 function embaralharArray(array) {
@@ -42,8 +36,8 @@ function carregarPerguntas(anos, tipos) {
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
         
 }
-
-
+let respostasDoUsuario = [];
+let mainElement = document.querySelector('main');
 
 function atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
@@ -83,7 +77,7 @@ function atualizarPergunta() {
     let alternativas = pergunta['Alternativas'];
 
     // Limpar o conteúdo anterior
-    //mainElement.innerHTML = '';
+    mainElement.innerHTML = '';
 
     // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
