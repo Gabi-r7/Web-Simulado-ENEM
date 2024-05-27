@@ -70,8 +70,7 @@ function atualizarPergunta() {
                 console.log('Inclui sabosta');
             }
         });
-
-        mainElement.innerHTML = '';
+        
         mainElement.appendChild(tabela);
         console.log(respostasDoUsuario);
     }
@@ -81,9 +80,6 @@ function atualizarPergunta() {
     let descricaoAuxiliar = pergunta['DescriçãoAuxiliar'];
     let imagemAuxiliar = pergunta['ImagemAuxiliar'];
     let alternativas = pergunta['Alternativas'];
-
-    // Limpar o conteúdo anterior
-    //mainElement.innerHTML = '';
 
     // Inserir no HTML ---------------------------------------------------------------------
     let div = document.createElement('div');
@@ -207,6 +203,7 @@ function atualizarPergunta() {
 }
 
 function proximaPergunta() {
+    mainElement.innerHTML = '';
     indicePerguntaAtual++;
     atualizarPergunta();
 }
