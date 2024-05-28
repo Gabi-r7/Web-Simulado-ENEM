@@ -11,9 +11,7 @@ console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
-let indicePerguntaAtual = 0;
-
-
+let indicePerguntaAtual = 0;''
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -23,7 +21,7 @@ function embaralharArray(array) {
 }
 
 function carregarPerguntas(anos, tipos) {
-    fetch('assets/json/sim_2023.json')
+    fetch('assets/json/arrayPerguntas.json')
         .then(response => response.json())
         .then(data => {
             perguntas = [];
