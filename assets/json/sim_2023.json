@@ -167,6 +167,46 @@
                     "Alternativas":["recuperação de tradicionalismo.","estímulo ao atropocentrismo.","reforço do etnocentrismo.","resgate do teocentrismo.","crítica so eurocentrismo."],
                     "Resposta":4
                 }
+            ],
+            "51":[
+                {
+                    "DescriçãoAuxiliar":"Escrito durante a Primeira Guerra Mundial, o seguinte trecho faz parte da carta enviada pelo secretário do exterior britânico, Sir Arthur James Balfour, ao banqueiro Lord Rotschild, presidente da Liga Sionista, em 2 de novembro de 1917, a carta ficou conhecida como Declaração Balfour: <br>“O governo de Sua Majestade vê com aprovação o estabelecimento na Palestina de um lar nacional para o povo judeu, e fará todos os esforços para facilitar tal objetivo. Nada será feito que possa prejudicar os direitos civis e religiosos das comunidades não judaicas na Palestina.” <br>GATTAZ, A. A Guerra da Palestina. São Paulo: Usina do Livro, 2002 (adaptado).",
+                    "Descrição":"A análise do resultado do processo em questão revela que o governo inglês foi incapaz de garantir seu objetivo de",
+                    "Alternativas":["promover o bem-estar social.","negociar o apoio muçulmano.","mediar os conflitos territoriais.","estimular a cooperação regional.","combater os governos autocráticos."],
+                    "Resposta":2
+                }
+            ],
+            "52":[
+                {
+                    "DescriçãoAuxiliar":"TEXTO I <br>Como presença consciente no mundo não posso escapar à responsabilidade ética no meu mover-me no mundo. Se sou puro produto da determinação genética ou cultural ou de classe, sou irresponsável pelo que faço no meu mover-me no mundo e, se careço de responsabilidade, não posso falar em ética. FREIRE, P. Pedagogia da autonomia: saberes necessários à prática educativa. São Paulo: Paz e Terra, 1996. <br>TEXTO II <br>Paulo Freire construiu uma pedagogia da esperança. Na sua concepção, a história não é algo pronto e acabado. As estruturas de opressão e as desigualdades, apesar de serem naturalizadas, são sócio e historicamente construídas. Daí a importância de os educandos tomarem consciência da sua realidade para, assim, transformá-la. <br>DEMARCHI, J. L. Paulo Freire. Disponível em: https://diplomatique.org.br. Acesso em: 6 out. 2021 (adaptado).",
+                    "Descrição":"Com base no conceito de ética pedagógica presente nos textos, os educandos tornam-se responsáveis pela",
+                    "Alternativas":["participação sociopolítica.","definição estético-cultural.","competição econômica local.","manutenção do sistema escolar.","capacitação de mobilidade individual."],
+                    "Resposta":0
+                }
+            ],
+            "53":[
+                {
+                    "DescriçãoAuxiliar":"A Cordilheira do Himalaia tem mais de 50 milhões de anos, sendo classificada como a maior cordilheira do planeta. Originário da língua sânscrito, comum na região, seu nome quer dizer “morada da neve”. É possível encontrar nessa cordilheira as quinze maiores montanhas do mundo. Ao todo, existem mais de cem picos, que contam com altitudes bem maiores que 7 000 m. O Everest, considerado o ponto mais alto da Terra, tem nada menos que 8 848 m de altitude, e continua crescendo, aproximadamente, 0,8 mm a cada ano. <br>Disponível em: https://meioambiente.culturamix.com. Acesso em: 12 nov. 2021 (adaptado).",
+                    "Descrição":"Qual dinâmica natural é responsável pelo fenômeno apresentado?",
+                    "Alternativas":["Derrame de lava vulcânica.","Encontro de placas tectônicas.","Ação do intemperismo químico.","Sedimentação de erosão eótica.","Derretimento de geleiras glaciais."],
+                    "Resposta":1
+                }
+            ],
+            "54":[
+                {
+                    "DescriçãoAuxiliar":"Eu poderia concluir que a raiva é um pensamento, que estar com raiva é pensar que alguém é detestável, e que esse pensamento, como todos os outros — assim como Descartes o mostrou —, não poderia residir em nenhum fragmento de matéria. A raiva seria, portanto, espírito. Porém, quando me volto para minha própria experiência da raiva, devo confessar que ela não estava fora do meu corpo, mas inexplicavelmente nele. <br>MERLEAU-PONTY, M. Quinta conversa: o homem visto de fora. São Paulo: Martins Fontes, 1948 (adaptado).",
+                    "Descrição":"No que se refere ao problema do corpo, a filosofia cartesiana apresenta-se como contraponto ao entendimento expresso no texto por",
+                    "Alternativas":["apresentar uma visão dualista.","comfirmar uma tese naturalista.","demonstrar uma premissa realista.","sustentar um argumento idealista.","defender uma posição intencionalista."],
+                    "Resposta":0
+                }
+            ],
+            "55":[
+                {
+                    "DescriçãoAuxiliar": "A diversão é o prolongamento do trabalho sob o capitalismo tardio. Ela é procurada por quem quer escapar ao processo de trabalho mecanizado para se pôr de novo em condições de enfrentá-lo. Mas, ao mesmo tempo, a mecanização atingiu um tal poderio sobre a pessoa em seu lazer e sobre a sua felicidade, ela determina tão profundamente a fabricação das mercadorias destinadas à diversão que essa pessoa não pode mais perceber outra coisa senão as cópias que reproduzem o próprio processo de trabalho. <br>ADORNO, T.; HORKHEIMER, M. Dialética do esclarecimento. Rio de Janeiro: Zahar, 1997",
+                    "Descrição":"No texto, o tempo livre é concebido como",
+                    "Alternativas":["consumo de produtos culturais elaborados no mesmo sistema produtivo do capitalismo.","forma de realizar as diversas potencialidades da natureza humana.","alternativa para equilibrar tensões psicológicas do dia a dia.","promoção da satisfação de necessidades artificiais.","mecanismo de organização do ócio e do prazer."],
+                    "Resposta":0
+                }
             ]
         },
         "Ciencias":{
