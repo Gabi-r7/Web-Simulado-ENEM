@@ -6,6 +6,10 @@
     --margin-itens-questao: 1rem;
 }
 
+.alternativa.selecionada{
+    background-color: rgb(209, 8, 8);
+}
+
 main{
     background-color: black;
     display: flex;

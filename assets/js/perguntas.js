@@ -113,25 +113,57 @@ function atualizarPergunta() {
 
     let listaAlternativas = document.createElement('div');
     listaAlternativas.classList.add('alternativas'); //class
-    alternativas.forEach((alternativa, index) => {
-        let label = document.createElement('label');
-        label.classList.add('alternativa'); //class
-        let radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'alternativa';
-        radio.value = index;
-        label.appendChild(radio);
-        label.appendChild(document.createElement('p')).innerHTML = alternativa;
-        
-        
-        if(label.querySelector('p').textContent.includes('\\')) {
-            MathJax.typesetPromise([label.querySelector('p')]);
-            console.log('Inclui sabosta');
+    let selectedOption = null;
+
+alternativas.forEach((alternativa, index) => {
+    let divAlternativa = document.createElement('div');
+    divAlternativa.classList.add('alternativa'); //class
+    divAlternativa.dataset.value = index; // Armazenar o índice como um atributo de dados
+    divAlternativa.innerHTML = alternativa;
+
+    if(divAlternativa.textContent.includes('\\')) {
+        MathJax.typesetPromise([divAlternativa]);
+        console.log('Inclui sabosta');
+    }
+
+    // Adicionar um ouvinte de evento 'click' à div
+    divAlternativa.addEventListener('click', function() {
+        if (selectedOption == this) {
+            selectedOption.classList.remove('selecionada');
+            selectedOption = null;
         }
-    
-        listaAlternativas.appendChild(label);
+        else {
+            if (selectedOption) {
+                selectedOption.classList.remove('selecionada'); //parei aqui (ainda não funciona responder)
+            }
+            selectedOption = this;
+            selectedOption.classList.add('selecionada');
+        }
     });
-    div.appendChild(listaAlternativas);
+
+    listaAlternativas.appendChild(divAlternativa);
+});
+div.appendChild(listaAlternativas);
+    
+    // alternativas.forEach((alternativa, index) => {
+    //     let label = document.createElement('label');
+    //     label.classList.add('alternativa'); //class
+    //     let checkbox = document.createElement('input');
+    //     checkbox.type = 'checkbox';
+    //     checkbox.name = 'alternativa';
+    //     checkbox.value = index;
+    //     label.appendChild(checkbox);
+    //     label.appendChild(document.createElement('p')).innerHTML = alternativa;
+        
+        
+    //     if(label.querySelector('p').textContent.includes('\\')) {
+    //         MathJax.typesetPromise([label.querySelector('p')]);
+    //         console.log('Inclui sabosta');
+    //     }
+    
+    //     listaAlternativas.appendChild(label);
+    // });
+    // div.appendChild(listaAlternativas);
     
     let botoes = document.createElement('div');
     mainElement.appendChild(botoes);
@@ -149,7 +181,6 @@ function atualizarPergunta() {
     buttonPrevious.addEventListener('click', function() {
     
         if (indicePerguntaAtual > 0) {
-            let selectedOption = document.querySelector('input[name="alternativa"]:checked');
             if(selectedOption !== null) {
                 respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
             }
@@ -163,21 +194,21 @@ function atualizarPergunta() {
     customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
-        if(selectedOption !== null) {
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+        if (event.key === 'Enter') {
+            if(selectedOption !== null) {
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            }
+            let numero = parseInt(customQuestion.value);
+            if (numero > 0 && numero <= perguntas.length) {
+                indicePerguntaAtual = numero - 1;
+                atualizarPergunta();
+            } else {
+                console.error('Número de pergunta inválido');
+            }
         }
-        let numero = parseInt(customQuestion.value);
-        if (numero > 0 && numero <= perguntas.length) {
-            indicePerguntaAtual = numero - 1;
-            atualizarPergunta();
-        } else {
-            console.error('Número de pergunta inválido');
-        }
-    }
-});
+    });
             
+    
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
@@ -189,7 +220,6 @@ function atualizarPergunta() {
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption !== null) {
             console.log(selectedOption.value);
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
