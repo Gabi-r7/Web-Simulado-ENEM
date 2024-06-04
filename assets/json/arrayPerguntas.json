@@ -165,6 +165,30 @@
                     "Alternativas":["exige a retomada das pesquisas por especialistas de diferentez áreas.","representa danos irreparáveis à memória e à identidade nacionais.","impossibilita o surgimento de novas pesquisas na área.","resulta na extinção da cultura de povos originários.","inviabiliza o estudo da língua do povo Tikuna."],
                     "Resposta":1
                 }
+            ],
+            "16":[
+                {
+                    "DescriçaõAuxiliar":"Mandioca, macaxeira, aipim e castelinha são nomes diferentes da mesma planta. Semáforo, sinaleiro e farol também significam a mesma coisa. O que muda é só o hábito cultural de cada região. A mesma coisa acontece com a Língua Brasileira de Sinais (Libras). Embora ela seja a comunicação oficial da comunidade surda no Brasil, existem sinais que variam em relação à região, à idade e até ao gênero de quem se comunica. A cor verde, por exemplo, possui sinais diferentes no Rio de Janeiro, Paraná e São Paulo. São os regionalismos na língua de sinais. <br>Essas variações são um dos temas da disciplina Linguística na língua de sinais, oferecida pela Universidade Estadual Paulista (Unesp) ao longo do segundo semestre. “Muitas pessoas pensam que a língua de sinais é universal, o que não é verdade”, explica a professora e chefe do Departamento de Linguística, Literatura e Letras Clássicas da Unesp. “Mesmo dentro de um mesmo país, ela sofre variação em relação à localização geográfica, à faixa etária e até ao gênero dos usuários”, completa a especialista. <br>Os surdos podem criar sinais diferentes para identificar lugares, objetos e conceitos. Em São Paulo, o sinal de “cerveja” é feito com um giro do punho como uma meia-volta. Em Minas, a bebida é citada quando os dedos indicador e médio batem no lado do rosto. Também ocorrem mudanças históricas. Um sinal pode sofrer alterações decorrentes dos costumes da geração que o utiliza. <br>Disponível em: www.educacao.sp.gov.br. Acesso em: 1 nov. 2021 (adaptado).",
+                    "Descrição":"Nesse texto, a Língua Brasileira de Sinais (Libras)",
+                    "Alternativas":["passa por fenômenos de variação linguística como qualquer outra língua.","B apresenta variações regionais, assumindo novo sentido para algumas palavras.","sofre mudança estrutural motivada pelo uso de sinais diferentes para algumaas palavras.","diferencia-se em todo o Brasil, desenvolvendo cada região a sua própiade sua própria  língua de sinais.","é ininteligível para parte dos usuários em razão das mudanças de sinais motivadas geograficamente."],
+                    "Resposta":0
+                }
+            ],
+            "17":[
+                {
+                    "DescriçaõAuxiliar":"Como é bom reencontrar os leitores da Revista da Cultura por meio de uma publicação com outro visual, conteúdo de qualidade e interesses ampliados! ]cultura[, este nome simples, e eu diria mesmo familiar, nasce entre dois colchetes voltados para fora. E não é por acaso: são sinais abertos, receptivos, propícios à circulação de ideias. O DNA da publicação se mantém o mesmo, afinal, por longos anos montamos nossas edições com assuntos saídos das estantes de uma grande livraria — e assim continuará sendo. Literatura, sociologia, filosofia, artes... nunca será difícil montar a pauta da revista porque os livros nos ensinam que monotonia é só para quem não lê. <br>HERZ, P. ]cultura[, n. 1, jun. 2018 (adaptado).",
+                    "Descrição":"O uso não padrão dos colchetes para nomear a revista atribui-lhes uma nova função e está correlacionado ao(à)",
+                    "Alternativas":["perfil de público-alvo, constituído por leitores exigentes e especializados em leitura acadêmica.","propósito do editor, chamando a atenção para o rigor normativo nos textos da revista.","exclusividade na seleção temática, direcionada para a área das ciências humanas.","identidade da revista, voltada para a recepção e a promoção de ideias circulantes em livros.","padrão editorial dos artigos, organizados em torno de uma proposta de design inovador."],
+                    "Resposta":3
+                }
+            ],
+            "18":[
+                {
+                    "DescriçaõAuxiliar":"TEXTO I <br>Alegria, alegria <br>O sol nas bancas de revista <br>Me enche de alegria e preguiça <br>Quem lê tanta notícia <br>Eu vou <br>Por entre fotos e nomes <br>Os olhos cheios de cores <br>O peito cheio de amores vãos <br>Eu vou <br>Por que não, por que não? <br>VELOSO, C. Alegria, alegria. Rio de Janeiro: Polygram, 1990 (fragmento). <br><br>TEXTO II <br>Anjos tronchos <br>Uns anjos tronchos do Vale do Silício <br>Desses que vivem no escuro em plena luz <br>Disseram vai ser virtuoso no vício <br>Das telas dos azuis mais do que azuis <br>Agora a minha história é um denso algoritmo <br>Que vende venda a vendedores reais <br>Neurônios meus ganharam novo outro ritmo <br>E mais, e mais, e mais, e mais, e mais <br>VELOSO, C. Meu coco. Rio de Janeiro: Sony, 2021 (fragmento).",
+                    "Descrição":"Embora oriundas de momentos históricos diferentes, essas letras de canção têm em comum a",
+                    "Alternativas":["referência às cores como elemento de crítica a hábitos contemporâneos.","percepção da profusão de informações gerada pela tecnologia.","contraposição entre os vícios e as virtudes da vida moderna.","busca constante pela liberdade de expressão individual.","crítica à finalidade comercial das notícias."],
+                    "Resposta":1
+                }
             ]
         },
         "Humanas":{
