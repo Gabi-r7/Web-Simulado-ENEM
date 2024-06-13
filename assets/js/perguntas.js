@@ -117,11 +117,17 @@ function atualizarPergunta() {
 
 alternativas.forEach((alternativa, index) => {
     let divAlternativa = document.createElement('div');
+    let divTextoAlternativa = document.createElement('div');
+    let divLedAlternativa = document.createElement('div');
     divAlternativa.classList.add('alternativa'); //class
+    divAlternativa.classList.add('tecla'); //class
+    divLedAlternativa.classList.add('led'); //class
     divAlternativa.dataset.value = index; // Armazenar o índice como um atributo de dados
-    divAlternativa.innerHTML = alternativa;
+    divTextoAlternativa.innerHTML = alternativa;
+    divAlternativa.appendChild(divTextoAlternativa);
+    divAlternativa.appendChild(divLedAlternativa);
 
-    if(divAlternativa.textContent.includes('\\')) {
+    if(divTextoAlternativa.textContent.includes('\\')) {
         MathJax.typesetPromise([divAlternativa]);
         console.log('Inclui sabosta');
     }
