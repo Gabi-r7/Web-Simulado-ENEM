@@ -43,7 +43,7 @@ function carregarPerguntas(anos, tipos) {
 
 
 
-function atualizarPergunta() {
+function  atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
         alert('Você acabou!');
@@ -71,6 +71,7 @@ function atualizarPergunta() {
         
         mainElement.appendChild(tabela);
         console.log(respostasDoUsuario);
+        return;
     }
 
     let pergunta = perguntas[indicePerguntaAtual];
@@ -185,11 +186,12 @@ div.appendChild(listaAlternativas);
     
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.addEventListener('click', function() {
-    
         if (indicePerguntaAtual > 0) {
             if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+                console.log(respostasDoUsuario);
             }
+            mainElement.innerHTML = '';
             perguntaAnterior();
         }
     });
@@ -202,7 +204,7 @@ div.appendChild(listaAlternativas);
     customQuestion.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
             }
             let numero = parseInt(customQuestion.value);
             if (numero > 0 && numero <= perguntas.length) {
@@ -227,8 +229,8 @@ div.appendChild(listaAlternativas);
     
     buttonNext.addEventListener('click', function() {
         if (selectedOption !== null) {
-            console.log(selectedOption.value);
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+            console.log(selectedOption.dataset.value);
         }
         proximaPergunta();
     });
