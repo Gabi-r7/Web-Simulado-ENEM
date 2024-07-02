@@ -11,12 +11,8 @@ console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
-<<<<<<< HEAD
 let indicePerguntaAtual = 0;
 
-=======
-let indicePerguntaAtual = 0;''
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -192,15 +188,9 @@ div.appendChild(listaAlternativas);
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.addEventListener('click', function() {
         if (indicePerguntaAtual > 0) {
-<<<<<<< HEAD
             let selectedOption = document.querySelector('input[name="alternativa"]:checked');
             if(selectedOption !== null) {
                 respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-            if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-                console.log(respostasDoUsuario);
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
             }
             mainElement.innerHTML = '';
             perguntaAnterior();
@@ -213,24 +203,10 @@ div.appendChild(listaAlternativas);
     customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
-<<<<<<< HEAD
     if (event.key === 'Enter') {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if(selectedOption !== null) {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-        if (event.key === 'Enter') {
-            if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            }
-            let numero = parseInt(customQuestion.value);
-            if (numero > 0 && numero <= perguntas.length) {
-                indicePerguntaAtual = numero - 1;
-                atualizarPergunta();
-            } else {
-                console.error('Número de pergunta inválido');
-            }
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
         }
         let numero = parseInt(customQuestion.value);
         if (numero > 0 && numero <= perguntas.length) {
@@ -242,10 +218,6 @@ div.appendChild(listaAlternativas);
     }
 });
             
-<<<<<<< HEAD
-=======
-    
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
@@ -257,16 +229,10 @@ div.appendChild(listaAlternativas);
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-<<<<<<< HEAD
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption !== null) {
             console.log(selectedOption.value);
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-        if (selectedOption !== null) {
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            console.log(selectedOption.dataset.value);
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
         }
         proximaPergunta();
     });
