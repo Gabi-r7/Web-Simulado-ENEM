@@ -11,8 +11,7 @@ console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
-let indicePerguntaAtual = 0;
-
+let indicePerguntaAtual = 0;''
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -188,9 +187,9 @@ div.appendChild(listaAlternativas);
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.addEventListener('click', function() {
         if (indicePerguntaAtual > 0) {
-            let selectedOption = document.querySelector('input[name="alternativa"]:checked');
             if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+                console.log(respostasDoUsuario);
             }
             mainElement.innerHTML = '';
             perguntaAnterior();
@@ -203,21 +202,21 @@ div.appendChild(listaAlternativas);
     customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
-        if(selectedOption !== null) {
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+        if (event.key === 'Enter') {
+            if(selectedOption !== null) {
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+            }
+            let numero = parseInt(customQuestion.value);
+            if (numero > 0 && numero <= perguntas.length) {
+                indicePerguntaAtual = numero - 1;
+                atualizarPergunta();
+            } else {
+                console.error('Número de pergunta inválido');
+            }
         }
-        let numero = parseInt(customQuestion.value);
-        if (numero > 0 && numero <= perguntas.length) {
-            indicePerguntaAtual = numero - 1;
-            atualizarPergunta();
-        } else {
-            console.error('Número de pergunta inválido');
-        }
-    }
-});
+    });
             
+    
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
@@ -229,10 +228,9 @@ div.appendChild(listaAlternativas);
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-        let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption !== null) {
-            console.log(selectedOption.value);
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
+            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+            console.log(selectedOption.dataset.value);
         }
         proximaPergunta();
     });
