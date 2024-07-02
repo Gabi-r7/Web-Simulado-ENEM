@@ -11,8 +11,6 @@
     --altura-min-nav: 8vh;
     --altura-itens-nav: 2.2rem;
     --cor-itens-nav: white;
-    --altura-caixa-carrocel: 50vh;
-    --largura-caixa-carrocel: 100vw;
     --cor-fundo: #ffffff;
 }
 
@@ -21,8 +19,6 @@ body {
     box-sizing: border-box;
     background-color: var(--cor-fundo);
 }
-
-
 
 nav {
     position: fixed;

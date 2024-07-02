@@ -6,6 +6,10 @@
     --margin-itens-questao: 1rem;
 }
 
+.alternativa.selecionada{
+    background-color: rgb(209, 8, 8);
+}
+
 main{
     background-color: black;
     display: flex;
@@ -48,15 +52,6 @@ main{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
-
-.alternativa{
-    background-color: rgb(255, 255, 255);
-    cursor: pointer; 
-    display: flex;
-    padding: 1rem;
-    flex-direction: row;
-    border-radius: 10px;
 }
 
 .imagemAuxiliar{
@@ -141,4 +136,75 @@ table{
 
 .linhas > *{
     border: 2px solid black;  
+}
+
+.tecla{
+    font-family: consolas;
+    font-size: 1rem;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 10px;
+    padding: 15px;
+    background: linear-gradient(180deg, #282828, #202020);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.747), 5px 10px 5px rgba(0, 0, 0, 0.566);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+}
+
+.tecla::before{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    background: linear-gradient(90deg, #232323, #4a4a4a);
+    border-radius: 10px;
+    box-shadow:-10px -10px 10px rgba(255,255,255,0.25), 10px 5px 10px rgba(0,0,0,0.15);
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0009;
+}
+
+.tecla div{
+    position: relative;
+    color: white;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.tecla:hover{
+    transform: scale(0.97);	
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.747), 3px 5px 3px rgba(0, 0, 0, 0.566);	
+}
+
+.led{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+    transition: background-color 0.12s, box-shadow 0.12s;
+
+}
+
+.tecla.selecionada{
+    transform: scale(0.97);	
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.747), 3px 5px 3px rgba(0, 0, 0, 0.566);
+}
+
+.tecla.selecionada .led{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    transition: background-color 0.12s, box-shadow 0.12s;
 }

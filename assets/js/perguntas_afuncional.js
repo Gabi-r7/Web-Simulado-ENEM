@@ -11,12 +11,9 @@ console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
-<<<<<<< HEAD
 let indicePerguntaAtual = 0;
 
-=======
-let indicePerguntaAtual = 0;''
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
+
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -26,7 +23,7 @@ function embaralharArray(array) {
 }
 
 function carregarPerguntas(anos, tipos) {
-    fetch('assets/json/arrayPerguntas.json')
+    fetch('assets/json/sim_2023.json')
         .then(response => response.json())
         .then(data => {
             perguntas = [];
@@ -43,12 +40,11 @@ function carregarPerguntas(anos, tipos) {
             atualizarPergunta();
         })
         .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
-        
 }
 
 
 
-function  atualizarPergunta() {
+function atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
         alert('Você acabou!');
@@ -76,7 +72,6 @@ function  atualizarPergunta() {
         
         mainElement.appendChild(tabela);
         console.log(respostasDoUsuario);
-        return;
     }
 
     let pergunta = perguntas[indicePerguntaAtual];
@@ -119,63 +114,25 @@ function  atualizarPergunta() {
 
     let listaAlternativas = document.createElement('div');
     listaAlternativas.classList.add('alternativas'); //class
-    let selectedOption = null;
-
-alternativas.forEach((alternativa, index) => {
-    let divAlternativa = document.createElement('div');
-    let divTextoAlternativa = document.createElement('div');
-    let divLedAlternativa = document.createElement('div');
-    divAlternativa.classList.add('alternativa'); //class
-    divAlternativa.classList.add('tecla'); //class
-    divLedAlternativa.classList.add('led'); //class
-    divAlternativa.dataset.value = index; // Armazenar o índice como um atributo de dados
-    divTextoAlternativa.innerHTML = alternativa;
-    divAlternativa.appendChild(divTextoAlternativa);
-    divAlternativa.appendChild(divLedAlternativa);
-
-    if(divTextoAlternativa.textContent.includes('\\')) {
-        MathJax.typesetPromise([divAlternativa]);
-        console.log('Inclui sabosta');
-    }
-
-    // Adicionar um ouvinte de evento 'click' à div
-    divAlternativa.addEventListener('click', function() {
-        if (selectedOption == this) {
-            selectedOption.classList.remove('selecionada');
-            selectedOption = null;
+    alternativas.forEach((alternativa, index) => {
+        let label = document.createElement('label');
+        label.classList.add('alternativa'); //class
+        let radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'alternativa';
+        radio.value = index;
+        label.appendChild(radio);
+        label.appendChild(document.createElement('p')).innerHTML = alternativa;
+        
+        
+        if(label.querySelector('p').textContent.includes('\\')) {
+            MathJax.typesetPromise([label.querySelector('p')]);
+            console.log('Inclui sabosta');
         }
-        else {
-            if (selectedOption) {
-                selectedOption.classList.remove('selecionada'); //parei aqui (ainda não funciona responder)
-            }
-            selectedOption = this;
-            selectedOption.classList.add('selecionada');
-        }
+    
+        listaAlternativas.appendChild(label);
     });
-
-    listaAlternativas.appendChild(divAlternativa);
-});
-div.appendChild(listaAlternativas);
-    
-    // alternativas.forEach((alternativa, index) => {
-    //     let label = document.createElement('label');
-    //     label.classList.add('alternativa'); //class
-    //     let checkbox = document.createElement('input');
-    //     checkbox.type = 'checkbox';
-    //     checkbox.name = 'alternativa';
-    //     checkbox.value = index;
-    //     label.appendChild(checkbox);
-    //     label.appendChild(document.createElement('p')).innerHTML = alternativa;
-        
-        
-    //     if(label.querySelector('p').textContent.includes('\\')) {
-    //         MathJax.typesetPromise([label.querySelector('p')]);
-    //         console.log('Inclui sabosta');
-    //     }
-    
-    //     listaAlternativas.appendChild(label);
-    // });
-    // div.appendChild(listaAlternativas);
+    div.appendChild(listaAlternativas);
     
     let botoes = document.createElement('div');
     mainElement.appendChild(botoes);
@@ -191,18 +148,12 @@ div.appendChild(listaAlternativas);
     
     buttonPrevious.classList.add('previous'); //class
     buttonPrevious.addEventListener('click', function() {
+    
         if (indicePerguntaAtual > 0) {
-<<<<<<< HEAD
             let selectedOption = document.querySelector('input[name="alternativa"]:checked');
             if(selectedOption !== null) {
                 respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-            if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-                console.log(respostasDoUsuario);
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
             }
-            mainElement.innerHTML = '';
             perguntaAnterior();
         }
     });
@@ -213,24 +164,10 @@ div.appendChild(listaAlternativas);
     customQuestion.placeholder = 'N°';
     botoes.appendChild(customQuestion);
     customQuestion.addEventListener('keydown', function(event) {
-<<<<<<< HEAD
     if (event.key === 'Enter') {
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if(selectedOption !== null) {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-        if (event.key === 'Enter') {
-            if(selectedOption !== null) {
-                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            }
-            let numero = parseInt(customQuestion.value);
-            if (numero > 0 && numero <= perguntas.length) {
-                indicePerguntaAtual = numero - 1;
-                atualizarPergunta();
-            } else {
-                console.error('Número de pergunta inválido');
-            }
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
         }
         let numero = parseInt(customQuestion.value);
         if (numero > 0 && numero <= perguntas.length) {
@@ -242,10 +179,6 @@ div.appendChild(listaAlternativas);
     }
 });
             
-<<<<<<< HEAD
-=======
-    
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);
@@ -257,16 +190,10 @@ div.appendChild(listaAlternativas);
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
-<<<<<<< HEAD
         let selectedOption = document.querySelector('input[name="alternativa"]:checked');
         if (selectedOption !== null) {
             console.log(selectedOption.value);
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.value);
-=======
-        if (selectedOption !== null) {
-            respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            console.log(selectedOption.dataset.value);
->>>>>>> e09217891118aadd904a4765ad97c8c17774ab99
         }
         proximaPergunta();
     });
