@@ -209,6 +209,7 @@ div.appendChild(listaAlternativas);
             let numero = parseInt(customQuestion.value);
             if (numero > 0 && numero <= perguntas.length) {
                 indicePerguntaAtual = numero - 1;
+                mainElement.innerHTML = '';
                 atualizarPergunta();
             } else {
                 console.error('Número de pergunta inválido');
