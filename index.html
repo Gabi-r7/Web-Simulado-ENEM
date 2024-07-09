@@ -29,45 +29,46 @@
         <section>
             <div class="modalidades">
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Linguagens">Linguagens</a>
+                    <input type="checkbox" id="linguagens" class="checkbox-custom" onclick="updateLink('Linguagens')">Linguagens</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Matematica">Matemática</a>
+                    <input type="checkbox" id="matematica" class="checkbox-custom" onclick="updateLink('Matematica')">Matemática</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Humanas">Humanas</a>
+                    <input type="checkbox" id="humanas" class="checkbox-custom" onclick="updateLink('Humanas')">Humanas</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Ciencias">Ciências</a>
+                    <input type="checkbox" id="ciencias" class="checkbox-custom" onclick="updateLink('Ciencias')">Ciências</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Ingles">Inglês</a>
+                    <input type="checkbox" id="ingles" class="checkbox-custom" onclick="updateLink('Ingles')">Inglês</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Espanhol">Espanhol</a>
+                    <input type="checkbox" id="espanhol" class="checkbox-custom" onclick="updateLink('Espanhol')">Espanhol</input>
                     <p></p>
                     <div></div>
                 </div>
                 <div>
-                    <a href="modalidade.html?ano=2023&tipo=Linguagens,Humanas,Ciencias,Matematica">Todas</a>
+                    <input type="checkbox" id="todas" class="checkbox-custom" onclick="updateLink('Linguagens,Humanas,Ciencias,Matematica')">Todas</input>
                     <p></p>
                     <div></div>
                 </div>
             </div>
             <div class="checkbox-div"> 
-                <input type="checkbox" id="check" class="checkbox-custom">Modo aleatório</input>
+                <input type="checkbox" id="check" class="checkbox-custom" onclick="updateLink('aleatorio')">Modo aleatório</input>
                 <label for="check" class="checkbox-label"></label>
             </div>
+            <button onclick="confirm()">Confirmar</button>
         </section>
         <section class="sectionTexto"> 
             <div>
