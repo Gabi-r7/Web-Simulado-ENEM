@@ -11,7 +11,7 @@ console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
 let perguntas = null;
-let indicePerguntaAtual = 0;''
+let indicePerguntaAtual = 0;
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
