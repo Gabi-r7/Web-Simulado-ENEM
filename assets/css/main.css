@@ -1,6 +1,7 @@
 :root{
     --cor-fundo: black;
     --cor-secundaria: rgb(57, 56, 61);
+    --cor-terciaria: rgb(97, 94, 107);
 }
 
 body{
@@ -16,15 +17,27 @@ main{
     box-sizing: border-box;
 }
 
-main section{
-    display: flex;
-    flex-direction: column;
+main section:nth-child(1){
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     justify-content: space-between;
-    height: 100%;
+    gap: 2rem;
 }
 
-main section div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.main-div{
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.modalidades{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5vw,auto));
+    gap: 1rem;
+}
+
+.modalidades>div{
+    background-color: var(--cor-terciaria);
+    border-radius: 20px;
+    padding: 1rem;
 }
