@@ -16,7 +16,7 @@ main{
     box-sizing: border-box;
 }
 
-main>div{
+main section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,9 +42,6 @@ main>div{
     color: rgb(47, 252, 255);
 }
 
-#botoesModalidades{
-    padding: 2rem;
-}
 
 .carrossel {
     position: relative;
@@ -86,8 +83,9 @@ main>div{
     bottom: 10px;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    bottom: 0px;
 }
 
 .ponto {
@@ -106,7 +104,11 @@ main>div{
 
 .ponto.ativo {
     background-color: #000000;
-} 
+}
+
+#botoesModalidades{
+    padding: 2rem;
+}
 
 .checkbox-custom {
     opacity: 0;
