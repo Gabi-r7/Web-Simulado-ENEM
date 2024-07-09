@@ -1,30 +1,21 @@
+let tipo = []; // Declaração no escopo global
+let ano = [];
+let urlConc = '';
 function updateLink(categoria) {
-    // Seleciona todos os checkboxes com a classe 'checkbox-custom'
+    if (isNaN(categoria)) {
+        tipo = [categoria];
+    }
+    else {
+        ano = categoria;
+    }
     const checkboxes = document.querySelectorAll('.checkbox-custom');
-
-    // Filtra apenas os checkboxes que estão marcados
     const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
-
-    // Extrai o valor 'onclick' de cada checkbox marcado
-    const categorias = selecionados.map(checkbox => checkbox.getAttribute('onclick').match(/\('(.*)'\)/)[1]);
-
-    // Aqui você pode fazer algo com as categorias selecionadas, como atualizar um link
-    // Por exemplo, vamos apenas imprimir as categorias selecionadas no console
-    console.log(categorias);
-
-    // Supondo que você queira atualizar um link com base nas categorias selecionadas
-    // Você pode fazer algo assim:
-    let urlConc = categorias.join(',');
-
-    // Atualiza o href de um link específico (você precisa ter um elemento de link com um id específico no seu HTML)
-    
-
-    // Para demonstração, vamos imprimir a URL atualizada no console
-    console.log(urlConc);
+    tipo = selecionados.map(checkbox => checkbox.getAttribute('onclick').match(/\('(.*)'\)/)[1]); // Atualiza a variável global
 }
 
-function confirm(){
-    let urlConc = categorias.join(',');
+function confirm() {
+    urlConc += tipo.join(',');
+    urlConc += '&ano=' + ano;   
     console.log(urlConc);
     window.location.href = "modalidade.html?tipo=" + urlConc;
 }
