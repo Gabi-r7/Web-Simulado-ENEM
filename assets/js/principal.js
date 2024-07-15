@@ -4,18 +4,37 @@ let urlConc = '';
 function updateLink(categoria) {
     if (isNaN(categoria)) {
         tipo = [categoria];
+        const checkboxes = document.querySelectorAll('.checkbox-custom');
+        const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        tipo = selecionados.map(checkbox => {
+            const match = checkbox.getAttribute('onclick') ? checkbox.getAttribute('onclick').match(/\('(.*)'\)/) : null;
+            return match ? match[1] : null;
+        }).filter(Boolean); // Remove valores nulos ou undefined do array resultante
+    } else {
+        // Verifica se o ano já foi selecionado
+        if (ano.includes(categoria)) {
+            // Remove o ano se já estiver selecionado
+            ano = ano.filter(item => item !== categoria);
+        } else {
+            // Adiciona o ano se não estiver selecionado
+            ano.push(categoria);
+        }
     }
-    else {
-        ano = categoria;
-    }
-    const checkboxes = document.querySelectorAll('.checkbox-custom');
-    const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
-    tipo = selecionados.map(checkbox => checkbox.getAttribute('onclick').match(/\('(.*)'\)/)[1]); // Atualiza a variável global
+    console.log(tipo);
 }
 
 function confirm() {
+    if (tipo.length === 0 || tipo.includes('aleatorio') && tipo.length === 1) {
+        alert('Selecione pelo menos uma modalidade');
+        return;
+    }
+    if (ano.length === 0) {
+        alert('Selecione pelo menos um ano');
+        return;
+    }
+
     urlConc += tipo.join(',');
-    urlConc += '&ano=' + ano;   
+    urlConc += '&ano=' + ano;  
     console.log(urlConc);
     window.location.href = "modalidade.html?tipo=" + urlConc;
 }

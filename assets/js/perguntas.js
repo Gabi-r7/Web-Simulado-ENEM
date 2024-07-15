@@ -6,7 +6,6 @@ console.log('Página carregada');
 let params = new URLSearchParams(window.location.search);
 let ano = params.get('ano') ? params.get('ano').split(',') : [];
 let tipo = params.get('tipo') ? params.get('tipo').split(',') : [];
-let aleatorio = params.get('aleatorio');
 console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
 
@@ -32,7 +31,7 @@ function carregarPerguntas(anos, tipos) {
                     }
                 }
             }
-            if (aleatorio) {
+            if (tipo.includes('aleatorio')) {
                 embaralharArray(perguntas);
             }
             atualizarPergunta();
