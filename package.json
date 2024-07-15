@@ -1,9 +1,7 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "prisma": "^5.16.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "prisma": "^5.16.2"
   },
   "name": "ppo",
   "version": "1.0.0",
@@ -14,5 +12,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
 }
