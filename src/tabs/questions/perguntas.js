@@ -20,7 +20,7 @@ function embaralharArray(array) {
 }
 
 function carregarPerguntas(anos, tipos) {
-    fetch('assets/json/arrayPerguntas.json')
+    fetch('/src/assets/json/arrayPerguntas.json')
         .then(response => response.json())
         .then(data => {
             perguntas = [];

@@ -4,11 +4,11 @@ import path from 'path';
 const app = express();
 
 // Middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/src', express.static(path.join(__dirname, '..', 'src')));
 
 // Rota de exemplo
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'));
+    res.sendFile(path.join(__dirname, '..', 'src/tabs/initial/index.html'));
 });
 
 // Iniciar o servidor
