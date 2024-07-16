@@ -16,7 +16,7 @@ model User {
   wrong_answers Int @default(0)
   correct_answers Int @default(0)
   favorite_category String?
-  
+  experience Int @default(0)
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
