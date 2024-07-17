@@ -17,6 +17,13 @@ nav.innerHTML = `
                     person
                 </span>
             </div>
+            <div class="cadastrar">    
+                <a href="/src/tabs/signUp/cadastro.html">
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+                </a>
+            </div>
         </div>
     </div>`
 

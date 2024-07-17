@@ -1,8 +1,9 @@
 /* Estilos básicos para a página de login */
 
+@import url(/src/assets/css/nav.css);
+
 body {
     background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
 }
 
 container {
