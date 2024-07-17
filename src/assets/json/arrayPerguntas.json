@@ -3,7 +3,7 @@
         "Ingles":{
             "1":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/ingles-1.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ingles-1.png",
                     "Descrição":"Esse cartaz de campanha sugere que",
                     "Alternativas":["os lixões precisam de ampliação.","o desperdício degrada o ambiente.","os mercados doam alimentos perecíveis.","a desnutrição compromete o raciocínio.","as residências carecem de refrigeradores."],
                     "Resposta":1
@@ -35,7 +35,7 @@
             ],
             "5":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/ingles-5.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ingles-5.png",
                     "Descrição":"Ao retratar o ambiente de trabalho em um escritório,esse carttum tem por objetivo",
                     "Alternativas":["criticar um padrão de vestimenta.","destacar a falta de diversidade","indicar um modo de integração","elogiar um modelo de organização","salientar o espírito de cooperação"],
                     "Resposta":1
@@ -45,7 +45,7 @@
         "Espanhol":{
             "1":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/espanhol-1.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/espanhol-1.png",
                     "DescriçãoAuxiliar":"TEXTO II<br> Ishaan Awashi es un niño de 8 años cuyo mundo está plagado de maravillas que nadie más parece apreciar: colores, peces, perros y cometas, que simplemente no son importantes en la vida de los adultos, que parecen más interesados en cosas como los deberes, las notas o la limpieza. E Ishaan parece no poder hacer nada bien en clase. Cuando los problemas que ocasiona superan a sus padres, es internado en un colegio para que le disciplinen. Las cosas no mejoran en el nuevo colegio, donde Ishaan tiene además que aceptar estar lejos de sus padres. Hasta que un día, el nuevo profesor de arte, Ram Shankar Nikumbh, entra en escena, se interesa por el pequeño Ishaan y todo cambia.<br> Disponível em: https://elfinalde.com. Acesso em: 26 out. 2021 (adaptado)",
                     "Descrição":"O filme Como estrellas en la tierra aborda o tema da dislexia. Relacionando o cartaz do filme com a sinopse, constata-se que o(a)",
                     "Alternativas":["olhar diferenciado para com o outro gera mudanças.","estudante com dislexia apresenta um tom questionador.","abordagem para lidar com a dislexia é pautada na disciplina.","contato com os pais prejudica o acompanhamento da dislexia.","mudança de interesses ocorre na transição da infância para a vida adulta."],
@@ -232,7 +232,7 @@
             ],
             "24":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-24.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/linguagens-24.png",
                     "Descrição":"Esse anúncio publicitário, veiculado durante o contexto da pandemia de covid-19, tem por finalidade",
                     "Alternativas":["divulgar o canal telefônico de atendimento a casos de violência contra a mulher.","informar sobre a atuação de uma entidade defensora da mulher vítima de violência.","evidenciar o trabalho da Defensoria Pública em relação ao problema do abuso contra a mulher.","alertar a sociedade sobre o aumento da violência contra a mulher em decorrência do coronavírus.","incentivar o público feminino a denunciar crimes de violência contra a mulher durante o período de isolamento."],
                     "Resposta":4
@@ -308,7 +308,7 @@
             "33":
             [
                 {
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-33.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/linguagens-33.png",
                     "DescriçaõAuxiliar":"TEXTO II <br>Em 1933, a obra Eternos caminhantes ingressou em uma das primeiras edições das exposições de Arte Degenerada, promovida por membros do partido nazista alemão. Nos anos seguintes, ela voltaria a ser exibida na mostra denominada Exposição da Vergonha, promovida por pequenos grupos abastados. Em 1937, essa obra foi confiscada pelo Ministério da Propaganda daquele país, na grande ação nacional-socialista contra a “Arte Degenerada”. <br>SCHWARTZ, J. Perseguição à Arte Moderna em tempos de guerra. São Paulo: Museu Lasar Segall, 2018 (adaptado).",
                     "Descrição":"Quase cinquenta obras de LasarSegall foram confiscadas pelo regime totalitário alemão na primeira metade do século XX, entre elas a obra Eternos caminhantes, considerada degenerada por",
                     "Alternativas":["representar uma estética tida como inconveniente para o ideário político vigente.","manifestar um posicionamento político-cultural concebido por grupos de oposição.","expressar a cultura artística por meio da representação parcial do corpo humano.","apresentar uma composição que antecipa o imaginário artístico germânico.","estimular discussões sobre o papel da arte na construção coletiva de cultura."],
@@ -319,7 +319,7 @@
             [
                 {
                     "DescriçaõAuxiliar":"TEXTO I <br>Logo no início de Gira, um grupo de sete bailarinas ocupa o centro da cena. Mãos cruzadas sobre a lateral esquerda do quadril, olhos fechados, troncos que pendulam sobre si mesmos em vaguíssimas órbitas, tudo nelas sugere o transe. Está estabelecido o caráter volátil do que se passará no palco dali para frente. Mas engana-se quem pensa que vai assistir a uma representação mimética dos cultos afro-brasileiros.",
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-34.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/linguagens-34.png",
                     "Descrição":"No diálogo que estabelece com religiões afro-brasileiras, sintetizado na descrição e na imagem do espetáculo, a dança exprime uma",
                     "Alternativas":["crítica aos movimentos padronizados do balé clássico.","representação contemporânea de rituais ancestrais extintos.","reelaboração estética erudita de práticas religiosas populares.","releitura irônica da atmosfera mística presente no culto a entidades.","oposição entre o resgate de tradições e a efemeridade da vida humana."],
                     "Resposta":2
@@ -409,7 +409,7 @@
             "44":
             [
                 {
-                    "ImagemAuxiliar":"assets/img/2023/linguagens-44.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/linguagens-44.png",
                     "Descrição":"Essa campanha publicitária do Ministério da Saúde visa",
                     "Alternativas":["divulgar um conjunto de benefícios proporcionados pela amamentação.","apresentar tratamentos para infecções respiratórias em bebês.","defender o direito das mulheres de amamentar em público.","orientar sobre os exercícios para uma boa amamentação.","informar sobre o aumento de anticorpos nas mães."],
                     "Resposta":0
@@ -428,7 +428,7 @@
         "Humanas":{
             "46":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/humanas-46.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/humanas-46.png",
                     "Descrição":"A definição do Sertão descrita no bordad associa esse recorte espacial a",
                     "Alternativas":["percursos e roteiros turísticos.","trajetos e movimentos holísticos.","vivências e itinerários sicioafetivos.","fronteiras e demarcações territorias.","profissões e interresses econômicos."],
                     "Resposta":2
@@ -508,7 +508,7 @@
             ],
             "56":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/ciencias-56.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ciencias-56.png",
                     "Descrição":"A charge ilustra um anseio presente na sociedade contemporânea, que se caracteriza pela",
                     "Alternativas":["situação de revolta individual.","satisfação de desejos pessoais.","participação em ações decisórias.","permanência em passividade social.","conivência em interesses partidários. "],
                     "Resposta":2
@@ -580,7 +580,7 @@
             ],
             "65":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/ciencias-65.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ciencias-65.png",
                     "DescriçãoAuxiliar":"Nas reportagens publicadas sobre a inauguração do Museu de Arte de São Paulo, em 1947, quando ele ainda ocupava um edifício na rua Sete de Abril, Lina Bo Bardi não foi mencionada nenhuma vez. A arquiteta era responsável pelo projeto do museu que mudaria para sempre a posição de São Paulo no circuito mundial das artes. Mas não houve nenhum registro disso. O louvor se concentrou em seu marido e parceiro profissional, o respeitado crítico de arte Pietro Maria Bardi. Passados 75 anos, a mulher então ignorada recebeu um Leão de Ouro póstumo, a maior homenagem da Bienal de Arquitetura de Veneza, e tem agora sua história contada em duas biografias de peso, que procuram destrinchar uma carreira marcada pela ousadia e pela contradição. <br>PORTO, W. Lina Bo Bardi tem sua arquitetura contraditória destrinchada em biografias. Disponível em: www1.folha.uol.com.br. Acesso em: 10 nov. 2021 (adaptado).",
                     "Descrição":"As transformações pelas quais passaram as sociedades ocidentais e que possibilitaram o reconhecimento recente do trabalho da arquiteta mencionada no texto foram resultado das mobilizações sociais pela",
                     "Alternativas":["equidade de gênero.","liberdade de expressão.","admissibilidade de voto.","igualdade de oportunidade.","reciprocidade de tratamento."],
@@ -632,7 +632,7 @@
             "91":[
                 {
                     "DescriçãoAuxiliar":"Na tirinha de Mauricio de Sousa, os personagens Cebolinha e Cascão fazem uma brincadeira utilizando duas latas e um barbante. Ao perceberem que o som pode ser transmitido através do barbante, resolvem alterar o comprimento do barbante para ficar cada vez mais extenso. As demais condições permaneceram inalteradas durante a brincadeira.",
-                    "ImagemAuxiliar":"assets/img/2023/ciencias-91.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ciencias-91.png",
                     "Descrição":"Na prática, à medida que se aumenta o comprimento do barbante, ocorre a redução de qual característica da onda sonora?",
                     "Alternativas":["Altura","Período","Amplitude","Velocidade","Comprimento de onda"],
                     "Resposta":2
@@ -657,7 +657,7 @@
             "94":[
                 {
                     "DescriçãoAuxiliar":"Os solos amazônicos, ricos em silicato, não são apropriados para o cultivo por serem incapazes de reter nutrientes. Contudo, descobertas arqueológicas têm demonstrado que os antigos habitantes da Amazônia dominavam a técnica de preparo de um insumo agrícola natural, denominado terra preta. Esse insumo era constituído principalmente de uma espécie de biocarvão (biochar) obtido da queima de matéria orgânica, como troncos de árvores, pedaços de ossos e esterco, capaz de manter um solo fértil por anos.<br>Admite-se que o efeito do biocarvão na fertilização do solo estava, em parte, relacionado à presença de grupos orgânicos do tipo carboxilato em sua superfície, carregados negativamente (—COO−). Esses grupos atraem íons positivos necessários como nutrientes, tais quais os provenientes do potássio (K), do cálcio (Ca) e do magnésio (Mg), além de micronutrientes, como zinco (Zn) e ferro (Fe). Essa ligação no solo fertilizado é predominantemente iônica, conforme ilustra a figura, em que Mn+ representa os cátions metálicos. De acordo com a escala de Pauling, a eletronegatividade do elemento oxigênio é igual a 3,44.",
-                    "ImagemAuxiliar":"assets/img/2023/ciencias-94.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/ciencias-94.png",
                     "Descrição":"O cátion que resultará em uma interação de maior caráter iônico com o ânion carboxilato será aquele proveniente do elemento",
                     "Alternativas":["potássio","cálcio","magnésio","zinco","ferro"],
                     "Resposta":0
@@ -683,7 +683,7 @@
             ],
             "137":[
                 {
-                    "ImagemAuxiliar":"assets/img/2023/matematica-137.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/matematica-137.png",
                     "Descrição":"A opção a ser escolhida é aquela em que a medida dos cabos seja a menor possível.<br>Qual será a medida, em metro, de cada um dos cabos a serem instalados?",
                     "Alternativas":["\\( \\frac{22\\sqrt{3}}{3} \\)","\\( 11\\sqrt{2}\\)","\\(12\\sqrt{2}\\)","\\(12\\sqrt{3}\\)","22"],
                     "Resposta":2
@@ -692,7 +692,7 @@
             "138":[
                 {
                     "DescriçãoAuxiliar":"Um controlador de voo dispõe de um instrumento que descreve a altitude de uma aeronave em voo, em função da distância em solo. Essa distância em solo é a medida na horizontal entre o ponto de origem do voo até o ponto que representa a projeção ortogonal da posição da aeronave, em voo, no solo. Essas duas grandezas são dadas numa mesma unidade de medida<br>A tela do instrumento representa proporcionalmente as dimensões reais das distâncias associadas ao voo. A figura apresenta a tela do instrumento depois de concluída a viagem de um avião, sendo a medida do lado de cada quadradinho da malha igual a 1 cm.",
-                    "ImagemAuxiliar":"assets/img/2023/matematica-138.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/matematica-138.png",
                     "Descrição":"Essa tela apresenta os dados de um voo cuja maior altitude alcançada foi de 5 km.<br> A escala em que essa tela representa as medidas reais é",
                     "Alternativas":["1:5","1:11","1:55","1:5000","1:500000"],
                     "Resposta":4
@@ -701,7 +701,7 @@
             "139":[
                 {
                     "DescriçãoAuxiliar":"Uma pessoa pratica quatro atividades físicas — caminhar, correr, andar de bicicleta e jogar futebol — como parte de seu programa de emagrecimento. Essas atividades são praticadas semanalmente de acordo com o quadro, que apresenta o número de horas diárias por atividade.",
-                    "ImagemAuxiliar":"assets/img/2023/matematica-139.png",
+                    "ImagemAuxiliar":"/src/assets/img/2023/matematica-139.png",
                     "Descrição":"O dia da semana em que será comemorado o aniversário é",
                     "Alternativas":["segunda-feira.","terça-feira.","quarta-feira.","quinta-feira.","sexta-feira."],
                     "Resposta":2

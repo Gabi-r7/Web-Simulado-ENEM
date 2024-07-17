@@ -4,7 +4,7 @@ const nav = document.querySelector('nav');
 nav.innerHTML = `
     <div>
         <div class="logo">
-            <a href="index.html" class="nomeLogo">SIMULANDO</a>
+            <a href="/src/tabs/initial/index.html" class="nomeLogo">SIMULANDO</a>
         </div>
         <div class="menu">
             <div class="ranking">

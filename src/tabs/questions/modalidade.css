@@ -1,4 +1,4 @@
-@import url(nav.css);
+@import url(/src/assets/css/nav.css);
 
 :root{
     --largura-next-previous: 2rem;
