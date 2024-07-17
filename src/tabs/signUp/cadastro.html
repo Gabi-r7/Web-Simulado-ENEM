@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Cadastro</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/src/tabs/signUp/cadastro.css'>
+    <script type="module" defer async src='/src/tabs/signUp/cadastro.js'></script>
 </head>
 <body>
     <h1>Cadastro</h1>
     
-    <form>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        
-        <input type="submit" value="Cadastrar">
-    </form>
+    <container>
+        <div class="form-group">
+            <label>Login:</label>
+            <input type="text" placeholder="Digite o seu login aqui" id="login">
+            <label>Email:</label>
+            <input type="email" placeholder="Digite seu email aqui" id="email">
+            <label>Confirme o seu email:</label>
+            <input type="email" placeholder="Confirme o seu email aqui" id="confirmEmail">
+            <label>Senha:</label>
+            <input type="password" placeholder="Digite a sua senha aqui" id="senha">
+            <label>Confirme a sua senha:</label>
+            <input type="password" placeholder="Confirme a sua senha aqui" id="confirmSenha">
+        </div>
+        <div class="botoes">
+            <button onclick="cadastrar()">Cadastrar</button>
+            <button onclick="window.location.href = '/src/tabs/login/login.html';">Já tenho cadastro</button>
+        </div>
+    </container>
 </body>
 </html>

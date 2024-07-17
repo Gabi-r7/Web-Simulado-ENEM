@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/src/tabs/login/login.css'>
+    <script type="module" defer async src='/src/tabs/login/login.js'></script>
+</head>
+<body>
+    <h1>Login</h1>
+    
+    <container>
+        <div class="form-group">
+            <label>Login:</label>
+            <input type="text" placeholder="Digite o seu login aqui" id="login">
+            <label>Senha:</label>
+            <input type="password" placeholder="Digite a sua senha aqui" id="senha">
+        </div>
+        <div class="botoes">
+            <button onclick="cadastrar()">Logar</button>
+            <button onclick="window.location.href = '/src/tabs/signUp/cadastro.html';">Não tenho login</button>
+        </div>
+    </container>
+</body>
+</html>
