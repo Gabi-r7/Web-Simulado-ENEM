@@ -1,12 +1,21 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
 
 const routes = express.Router();
+const secretKey = process.env.SECRET_KEY || 'G4bR13lC0d3bL0X';
+
+routes.use(cookieParser());
+
+const createToken = (user: any) => {
+    return jwt.sign({ id: user.id }, secretKey, { expiresIn: '1h' });
+};
 
 routes.post('/register', async (req, res) => {
     const { login, email, confirmEmail, password, confirmPassword } = req.body;
-    
+
     const existingUser = await prisma.user.findUnique({
         where: {
             login
@@ -19,7 +28,7 @@ routes.post('/register', async (req, res) => {
             data: null    
         });
     }
-    
+
     if (!login || !email || !confirmEmail || !password || !confirmPassword) {
         return res.status(400).json({
             status: 'error',
@@ -59,7 +68,15 @@ routes.post('/register', async (req, res) => {
             password: hashedPassword
         }
     });
-    return res.status(201).send(user);
+
+    const token = createToken(user);
+    res.cookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 3600000 });
+
+    return res.status(201).json({
+        status: 'success',
+        message: 'Usuário criado com sucesso',
+        data: user
+    });
 });
 
 routes.post('/login', async (req, res) => {
@@ -85,7 +102,11 @@ routes.post('/login', async (req, res) => {
             data: null
         });
     }
-    //res.cookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict' });
+        
+
+    const token = createToken(user);
+    res.cookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 3600000 });
+
     return res.status(200).json({
         status: 'success',
         message: 'Login realizado com sucesso',
@@ -94,8 +115,7 @@ routes.post('/login', async (req, res) => {
 });
 
 routes.post('/logout', (req, res) => {
-    
-    //res.clearCookie('auth_token');
+    res.clearCookie('auth_token');
     res.status(200).json({
         status: 'success',
         message: 'Logout realizado com sucesso',
