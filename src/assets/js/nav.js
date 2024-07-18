@@ -24,6 +24,13 @@ nav.innerHTML = `
                     </span>
                 </a>
             </div>
+            <div class="logout">
+                <a href="/src/tabs/logout">
+                    <span class="material-symbols-outlined">
+                        exit_to_app
+                    </span>
+                </a>
+            </div>
         </div>
     </div>`
 

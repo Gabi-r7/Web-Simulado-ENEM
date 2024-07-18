@@ -22,55 +22,106 @@
     
 </head>
 <body>
+
     <nav>
     </nav>
+
     <main>
+
         <section>
+
             <div class="modalidades main-div">
+
                 <div>
-                    <input type="checkbox" id="linguagens" class="checkbox-custom" onclick="updateLink('Linguagens')">Linguagens</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="linguagens" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="linguagens" class="checkbox-custom" onclick="updateLink('Linguagens')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Linguagens</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="matematica" class="checkbox-custom" onclick="updateLink('Matematica')">Matemática</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="matematica" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="matematica" class="checkbox-custom" onclick="updateLink('Matematica')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Matemática</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="humanas" class="checkbox-custom" onclick="updateLink('Humanas')">Humanas</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="humanas" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="humanas" class="checkbox-custom" onclick="updateLink('Humanas')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Humanas</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="ciencias" class="checkbox-custom" onclick="updateLink('Ciencias')">Ciências</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="ciencias" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="ciencias" class="checkbox-custom" onclick="updateLink('Ciencias')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Ciências</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="ingles" class="checkbox-custom" onclick="updateLink('Ingles')">Inglês</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="ingles" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="ingles" class="checkbox-custom" onclick="updateLink('Ingles')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Inglês</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="espanhol" class="checkbox-custom" onclick="updateLink('Espanhol')">Espanhol</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="espanhol" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="espanhol" class="checkbox-custom" onclick="updateLink('Espanhol')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Espanhol</span>
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" id="todas" class="checkbox-custom" onclick="updateLink('Linguagens,Humanas,Ciencias,Matematica')">Todas</input>
-                    <label for="check" class="checkbox-label"></label>
+                    <label for="todas" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="todas" class="checkbox-custom" onclick="updateLink('Linguagens,Humanas,Ciencias,Matematica')"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Todas</span>
+                    </label>
                 </div>
             </div>
-            <div class="checkbox-div main-div> 
-                <label for="check" class="checkbox-custom-label">
-                  <input type="checkbox" id="check" class="checkbox-custom" onclick="updateLink('aleatorio')">
-                  Modo aleatório
+
+            <div class="random main-div"> 
+                <label for="random" class="checkbox-custom-label">
+                    <div>
+                        <input type="checkbox" id="random" class="checkbox-custom" onclick="updateLink('aleatorio')">
+                        <div></div>
+                    </div>
+                    <span class="checkbox-text">Aleatório</span>
                 </label>
             </div>
+
         </section>
+
         <section class="anos">
+
             <div class="checkbox-div">
                 <input type="checkbox" id="2023" class="checkbox-custom" onclick="updateLink(2023)">2023</input>
                 <label for="2023" class="checkbox-label"></label>
             </div>
+
         </section>
+
         <button onclick="confirm()">Confirmar</button>
+
         <section class="sectionTexto"> 
+
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
             </div>
@@ -107,8 +158,11 @@
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
             </div>
+
         </section>
+
     </main>
+
 </body>
 <script async defer src='/src/assets/js/nav.js'></script>
 </html>
