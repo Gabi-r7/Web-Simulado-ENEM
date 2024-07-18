@@ -27,11 +27,20 @@
     </nav>
 
     <main>
-
         <section>
+            <div class="anos main-div">
+                <div>
+                    <label for="2023" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="2023" class="checkbox-custom" onclick="updateLink(2023)"></input>
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">2023</span>
+                    </label>
+                </div>
+            </div>
 
             <div class="modalidades main-div">
-
                 <div>
                     <label for="linguagens" class="checkbox-label">
                         <div>
@@ -41,6 +50,7 @@
                         <span class="checkbox-text">Linguagens</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="matematica" class="checkbox-label">
                         <div>
@@ -50,6 +60,7 @@
                         <span class="checkbox-text">Matemática</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="humanas" class="checkbox-label">
                         <div>
@@ -59,6 +70,7 @@
                         <span class="checkbox-text">Humanas</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="ciencias" class="checkbox-label">
                         <div>
@@ -68,6 +80,7 @@
                         <span class="checkbox-text">Ciências</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="ingles" class="checkbox-label">
                         <div>
@@ -77,6 +90,7 @@
                         <span class="checkbox-text">Inglês</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="espanhol" class="checkbox-label">
                         <div>
@@ -86,6 +100,7 @@
                         <span class="checkbox-text">Espanhol</span>
                     </label>
                 </div>
+
                 <div>
                     <label for="todas" class="checkbox-label">
                         <div>
@@ -97,28 +112,20 @@
                 </div>
             </div>
 
-            <div class="random main-div"> 
-                <label for="random" class="checkbox-custom-label">
-                    <div>
-                        <input type="checkbox" id="random" class="checkbox-custom" onclick="updateLink('aleatorio')">
-                        <div></div>
-                    </div>
-                    <span class="checkbox-text">Aleatório</span>
-                </label>
+            <div class="start main-div"> 
+                <div>
+                    <label for="random" class="checkbox-label">
+                        <div>
+                            <input type="checkbox" id="random" class="checkbox-custom" onclick="updateLink('aleatorio')">
+                            <div></div>
+                        </div>
+                        <span class="checkbox-text">Aleatório</span>
+                    </label>
+                </div>
+
+                <button onclick="confirm()">Confirmar</button>
             </div>
-
         </section>
-
-        <section class="anos">
-
-            <div class="checkbox-div">
-                <input type="checkbox" id="2023" class="checkbox-custom" onclick="updateLink(2023)">2023</input>
-                <label for="2023" class="checkbox-label"></label>
-            </div>
-
-        </section>
-
-        <button onclick="confirm()">Confirmar</button>
 
         <section class="sectionTexto"> 
 

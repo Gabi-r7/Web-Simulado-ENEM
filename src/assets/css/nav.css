@@ -18,7 +18,7 @@ nav{
     left: 0;
     width: var(--nav-width);
     height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 nav>div{

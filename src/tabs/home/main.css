@@ -17,17 +17,17 @@ body{
 
 main{
     margin-left: var(--nav-width);
-    padding: 2rem;
+    padding: 1rem;
     box-sizing: border-box;
 }
 
-/* section */
+/* section 1*/
 
 main section:nth-child(1){
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .main-div{
@@ -36,18 +36,27 @@ main section:nth-child(1){
     padding: 1rem;
 }
 
-/* modalidades */
-
-.modalidades{
+main section:nth-child(1) .main-div{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
     gap: 1rem;
 }
 
-.modalidades>div{
+main section:nth-child(1) .main-div > div{
     background-color: var(--cor-terciaria);
     border-radius: 10px;
     padding: 1rem;
+}
+
+.start > button{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: rgb(40, 234, 50);
 }
 
 /* checkbox */
