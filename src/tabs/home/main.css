@@ -16,7 +16,7 @@ body{
 }
 
 main{
-    margin-left: var(--nav-width);
+    margin-left: var(--nav-min-width);
     padding: 1rem;
     box-sizing: border-box;
 }
@@ -38,7 +38,7 @@ main section:nth-child(1){
 
 main section:nth-child(1) .main-div{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
     gap: 1rem;
 }
 

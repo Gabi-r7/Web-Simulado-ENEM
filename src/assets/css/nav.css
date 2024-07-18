@@ -1,14 +1,15 @@
 
 .material-symbols-outlined {
     font-variation-settings:
-        'FILL' 1,
+        'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
 }
 
+
 :root{
-    --nav-width: 20vw;
+    --nav-min-width: 18vw;
 }
 
 nav{
@@ -16,24 +17,80 @@ nav{
     position: fixed;
     top: 0;
     left: 0;
-    width: var(--nav-width);
+    min-width: var(--nav-min-width);
     height: 100vh;
     padding: 1rem;
+    color : white;
 }
 
-nav>div{
+
+nav > div{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem;
     height: 100%;
     width: 100%;
     background-color: var(--cor-secundaria);
     border-radius: 20px;
 }
 
+nav .logo > a{
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    text-align: center;
+}
+
+nav > div > div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.nav-op{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    align-items: center;
+}
+
+.material-symbols-outlined{
+    font-size: 2rem;
+}
+
+.nav-op .text-icon{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.7rem;
+}
+
+.nav-op > a{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    align-items: center;
+    color: white;
+}
+
+.nav-op > button{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    align-items: center;
+    color: white;
+    border: none;
+    background-color: transparent;
+    padding: 0%;
+}
+
 a {
     text-decoration: none;
-    color: var(--cor-primaria);
-    font-size: 1.5rem;
-    margin: 1rem 0;
+    font-size: 1.8rem;
+    color: white;
 }
