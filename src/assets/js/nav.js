@@ -36,10 +36,12 @@ nav.innerHTML = `
         
         <div class="user">
             <div class="nav-op">
-                <span class="material-symbols-outlined">
-                    person
-                </span>
-                <span class="text-icon">Perfil</span>
+                <a href="/src/tabs/account/profile.html">
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                    <span class="text-icon">Perfil</span>
+                </a>
             </div>
             <div class="nav-op">    
                 <a href="/src/tabs/signUp/cadastro.html">
