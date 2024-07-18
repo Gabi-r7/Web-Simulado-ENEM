@@ -26,22 +26,33 @@
     <h1>Cadastro</h1>
     
     <container>
-        <div class="form-group">
-            <label>Login:</label>
-            <input type="text" placeholder="Digite o seu login aqui" id="login">
-            <label>Email:</label>
-            <input type="email" placeholder="Digite seu email aqui" id="email">
-            <label>Confirme o seu email:</label>
-            <input type="email" placeholder="Confirme o seu email aqui" id="confirmEmail">
-            <label>Senha:</label>
-            <input type="password" placeholder="Digite a sua senha aqui" id="senha">
-            <label>Confirme a sua senha:</label>
-            <input type="password" placeholder="Confirme a sua senha aqui" id="confirmSenha">
-        </div>
-        <div class="botoes">
-            <button onclick="cadastrar()">Cadastrar</button>
-            <button onclick="window.location.href = '/src/tabs/login/login.html';">Já tenho cadastro</button>
-        </div>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="login">Login:</label>
+                <input type="text" placeholder="Digite o seu login aqui" id="login">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Digite seu email aqui" id="email">
+            </div>
+            <div class="form-group">
+                <label for="confirmEmail">Confirme o seu email:</label>
+                <input type="email" placeholder="Confirme o seu email aqui" id="confirmEmail">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" placeholder="Digite a sua senha aqui" id="password">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirme a sua senha:</label>
+                <input type="password" placeholder="Confirme a sua senha aqui" id="confirmPassword">
+            </div>
+            <input type="submit" value="Cadastrar"></input>
+        </form>
+        <button onclick="window.location.href = '/src/tabs/login/login.html';">Já tenho cadastro</button>
+    </container>
+</body>
+</html>
     </container>
 </body>
 </html>
