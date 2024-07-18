@@ -36,23 +36,20 @@ nav.innerHTML = `
 
 // const ranking = document.querySelector('.ranking');
 // const perfil = document.querySelector('.perfil');
-function logout() {
-    fetch('/logout', {
+async function logout() {
+    const response = await fetch('/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         }
     })
-    .then(response => {
-        if (response.ok) {
-            // Logout bem-sucedido
-            console.log('Logout realizado com sucesso');
-            window.location.href = '/src/tabs/home/index.html'; 
-        } else {
-            console.error('Erro ao fazer logout');
-        }
-    })
-    .catch(error => {
-        console.error('Erro na rede ao fazer logout:', error);
-    });
+
+    const responseJson = await response.json();
+    if (responseJson.ok) {
+        alert(responseJson.message);
+        window.location.href = '/src/tabs/home/index.html';
+    }
+    else {
+        alert(responseJson.message);
+    }
 }

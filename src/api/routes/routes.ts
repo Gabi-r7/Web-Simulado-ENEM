@@ -4,15 +4,60 @@ import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
 
+// Instância do express
 const routes = express.Router();
+
+// Chave secreta para criação de token
 const secretKey = process.env.SECRET_KEY || 'G4bR13lC0d3bL0X';
 
+// Middleware para parsear cookies
 routes.use(cookieParser());
 
+// Função para criar token
 const createToken = (user: any) => {
     return jwt.sign({ id: user.id }, secretKey, { expiresIn: '1h' });
 };
 
+
+// Função para verificar token
+const authenticate = async (req: any, res: any, next: any) => {
+    const token = req.cookies.auth_token;
+
+    if (!token) {
+        return res.status(401).json({
+            status: 'error',
+            message: 'Não autorizado',
+            data: null
+        });
+    }
+
+    jwt.verify(token, secretKey, async (err: any, decoded: any) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError') {
+                return res.status(401).json({
+                    status: 'error',
+                    message: 'Token expirado, faça login novamente',
+                    data: null
+                });
+            }
+        
+            return res.status(401).json({
+                status: 'error',
+                message: 'Token inválido',
+                data: null
+            });
+        }
+        req.user = decoded;
+        next();
+    });
+}
+
+
+//
+//                              ROTAS
+//
+
+//           ROTA CADASTRO DE USUÁRIO
 routes.post('/register', async (req, res) => {
     const { login, email, confirmEmail, password, confirmPassword } = req.body;
 
@@ -79,8 +124,17 @@ routes.post('/register', async (req, res) => {
     });
 });
 
+
+//           ROTA LOGIN DE USUÁRIO
 routes.post('/login', async (req, res) => {
     const { login, password } = req.body;
+    if (!login || !password) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Preencha todos os campos',
+            data: null
+        });
+    }
 
     const user = await prisma.user.findUnique({
         where: {
@@ -102,7 +156,14 @@ routes.post('/login', async (req, res) => {
             data: null
         });
     }
-        
+    
+    if (req.cookies.auth_token) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Você já está logado',
+            data: null
+        });
+    }
 
     const token = createToken(user);
     res.cookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 3600000 });
@@ -114,7 +175,19 @@ routes.post('/login', async (req, res) => {
     });
 });
 
+routes.post('/profile', authenticate, async (req, res) => {
+    //codiguin
+});
+
+//           ROTA LOGOUT DE USUÁRIO
 routes.post('/logout', (req, res) => {
+    if (!req.cookies.auth_token) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Você não está logado',
+            data: null
+        });
+    }
     res.clearCookie('auth_token');
     res.status(200).json({
         status: 'success',
