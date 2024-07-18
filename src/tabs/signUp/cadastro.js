@@ -17,6 +17,7 @@ document.getElementById('register-form').addEventListener('submit', async (event
         body: JSON.stringify(data),
     });
 
+    console.log(response);
     const responseJson = await response.json();
     if (responseJson.ok) {
         alert(responseJson.message);

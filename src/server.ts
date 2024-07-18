@@ -9,6 +9,11 @@ const app = express();
 // Middleware para servir arquivos estáticos
 app.use('/src', express.static(path.join(__dirname, '..', 'src')));
 
+// Rota inicial
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'src/tabs/home/index.html'));
+});
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
