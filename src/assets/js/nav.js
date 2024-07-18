@@ -13,9 +13,11 @@ nav.innerHTML = `
                 </span>
             </div>
             <div class="perfil">
-                <span class="material-symbols-outlined">
-                    person
-                </span>
+                <a href="/src/tabs/account/profile.html">
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </a>
             </div>
             <div class="cadastrar">    
                 <a href="/src/tabs/signUp/cadastro.html">
