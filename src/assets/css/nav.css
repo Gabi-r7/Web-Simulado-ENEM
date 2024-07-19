@@ -11,10 +11,14 @@
     --cor-fundo: black;
     --cor-secundaria: rgb(57, 56, 61);
     --cor-terciaria: rgb(97, 94, 107);
+    --size-character: 1.2rem;
+}
+
+*{
+    box-sizing: border-box;
 }
 
 nav{
-    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +30,6 @@ nav{
 
 
 nav > div{
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

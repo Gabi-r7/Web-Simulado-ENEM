@@ -2,7 +2,6 @@
 
 body{
     margin: 0%;
-    box-sizing: border-box;
     background-color: var(--cor-fundo);
     color: white;
 }
@@ -10,7 +9,6 @@ body{
 main{
     margin-left: var(--nav-min-width);
     padding: 1rem;
-    box-sizing: border-box;
 }
 
 /* section 1*/
@@ -68,7 +66,6 @@ main section:nth-child(1) .main-div > div{
 }
 
 .checkbox-label div > div{
-    box-sizing: border-box;
     content: '';
     height: 1.2rem;
     width: 1.2rem;

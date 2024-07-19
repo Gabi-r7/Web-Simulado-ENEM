@@ -2,7 +2,6 @@
 
 body{
     margin: 0%;
-    box-sizing: border-box;
     background-color: var(--cor-fundo);
     color: white;
 }
@@ -10,16 +9,90 @@ body{
 main{
     margin-left: var(--nav-min-width);
     padding: 1rem;
-    box-sizing: border-box;
+    font-size: var(--size-character);
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: normal;
 }
 
 /* section 1*/
+
+main > section:nth-child(1){
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    gap: 1rem;
+}
 
 .main-div{
     background-color: var(--cor-secundaria);
     border-radius: 20px;
     padding: 1rem;
 }
+
+.img-account{
+    height: 20rem;
+    width: 20rem;
+}
+
+.img-account > div{
+    background-color: var(--cor-terciaria);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.img-account img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.img-account > div > label{
+    position: absolute;
+    background-color: var(--cor-terciaria);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    gap: 1rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.img-account > div:hover > label{
+    opacity: 1;
+    transition: 0.2s;
+}
+
+/* .img-account input{
+    position: absolute;
+    opacity: 0;
+} */
+
+.data-account{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.data-account > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.data-account > div > div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
 
 /* checkbox */
 
