@@ -46,29 +46,58 @@ function  atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
         alert('Você acabou!');
-        let tabela = document.createElement('table');
-        let cabecalho = tabela.createTHead();
-        let linhaCabecalho = cabecalho.insertRow();
-        linhaCabecalho.insertCell().textContent = 'Pergunta';
-        linhaCabecalho.insertCell().textContent = 'Sua Resposta';
-        linhaCabecalho.insertCell().textContent = 'Resposta Correta';
+        let gabarito = document.createElement('div');
+        gabarito.classList.add('main-div'); // Class
+        gabarito.classList.add('gabarito'); // Class
 
-        
+        let legendaGabarito = document.createElement('h2');
+        legendaGabarito.classList.add('legenda-gabarito'); // Class
+        legendaGabarito.innerHTML = 'Gabarito';
+        gabarito.appendChild(legendaGabarito);        
+
         perguntas.forEach((pergunta, index) => {
-            
-            let linha = tabela.insertRow();
-            linha.classList.add('linhas'); //class
-            linha.insertCell().innerHTML = pergunta['Descrição'];
-            linha.insertCell().innerHTML = respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido';
-            linha.insertCell().innerHTML = pergunta['Alternativas'][pergunta['Resposta']];
+            let divLinha = document.createElement('div');
+            divLinha.classList.add('linha'); // Class
+            divLinha.classList.add('border'); // Class
 
-            if(linha.textContent.includes('\\')) {
-                MathJax.typesetPromise([linha]);
+            // Criar div para a descrição da pergunta
+            let divPergunta = document.createElement('div');
+            divPergunta.innerHTML = pergunta['Descrição'];
+            divLinha.appendChild(divPergunta);
+
+            // Criar div para a resposta do usuário
+            let divRespostaUsuario = document.createElement('div');
+            divRespostaUsuario.classList.add('resposta-usuario'); // Class
+            divRespostaUsuario.innerHTML = "Marcada: " + (respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido');
+            divLinha.appendChild(divRespostaUsuario);
+            
+            if(pergunta['Alternativas'][respostasDoUsuario[index]] === pergunta['Alternativas'][pergunta['Resposta']]){
+                divRespostaUsuario.classList.add('acertou'); // Class
+            }
+            else{
+                divRespostaUsuario.classList.add('errou'); // Class
+            }
+            
+            // Criar div para a resposta correta
+            let divRespostaCorreta = document.createElement('div');
+            divRespostaCorreta.classList.add('resposta-correta'); // Class
+            divRespostaCorreta.innerHTML = "Resposta: " + (pergunta['Alternativas'][pergunta['Resposta']]);
+            divLinha.appendChild(divRespostaCorreta);
+
+            // Adiciona a linha à div principal
+            gabarito.appendChild(divLinha);
+
+            // Se a linha contém '\', processa com MathJax
+            if (divLinha.textContent.includes('\\')) {
+                MathJax.typesetPromise([divLinha]);
                 console.log('Inclui sabosta');
             }
+
+
         });
-        
-        mainElement.appendChild(tabela);
+
+        // Adiciona a div principal ao elemento principal na página
+        mainElement.appendChild(gabarito);
         console.log(respostasDoUsuario);
         return;
     }

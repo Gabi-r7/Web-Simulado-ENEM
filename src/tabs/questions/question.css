@@ -19,10 +19,9 @@ main{
     gap: 1rem;
 }
 
-/* questao */
-
-.alternativa.selecionada{
-    background-color: rgb(209, 8, 8);
+.border{
+    border-bottom:1px solid rgba(255, 255, 255, 0.189);
+    padding-bottom: 1rem;
 }
 
 .main-div{
@@ -32,6 +31,13 @@ main{
     border:1px solid rgba(255, 255, 255, 0.189);
 }
 
+/* questao */
+
+.alternativa.selecionada{
+    background-color: rgb(209, 8, 8);
+}
+
+
 .questao{
     width: 100%;
     display: flex;
@@ -39,9 +45,6 @@ main{
     gap: 2rem;
 }
 
-.border{
-    border-bottom:1px solid rgba(255, 255, 255, 0.189);;
-}
 
 .alternativas{
     display: flex;
@@ -116,12 +119,36 @@ main{
     transition: 0.2s;
 }
 
-/* num sei */
+/* gabarito */
 
-table{
-    width: 100%;
+.gabarito{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+} 
+
+.legendaGabarito{
+    font-size: 2rem;
 }
 
-.linhas > *{
-    border: 2px solid black;  
+.linha{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.resposta-usuario,
+.resposta-correta{
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    padding: 0.5rem;
+}
+
+.resposta-usuario.acertou{
+    background-color: rgb(46, 195, 53);
+}
+
+.resposta-usuario.errou{
+    background-color: rgb(179, 26, 26);
 }
