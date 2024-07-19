@@ -1,0 +1,52 @@
+/* corpo */
+
+body{
+    margin: 0%;
+    box-sizing: border-box;
+    background-color: var(--cor-fundo);
+    color: white;
+}
+
+main{
+    margin-left: var(--nav-min-width);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* section 1*/
+
+.main-div{
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+/* checkbox */
+
+.checkbox-label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom{
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label div > div{
+    box-sizing: border-box;
+    content: '';
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid white;
+}

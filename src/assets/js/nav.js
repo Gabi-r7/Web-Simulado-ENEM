@@ -9,10 +9,12 @@ nav.innerHTML = `
 
         <div class="menu">
             <div class="nav-op">
-                <span class="material-symbols-outlined">
-                    home
-                </span>
-                <span class="text-icon">Inicio</span>
+                <a href="/src/tabs/home/index.html">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                    <span class="text-icon">Inicio</span>
+                </a>
             </div>
             <div class="nav-op">
                 <span class="material-symbols-outlined">
@@ -36,7 +38,7 @@ nav.innerHTML = `
         
         <div class="user">
             <div class="nav-op">
-                <a href="/src/tabs/account/profile.html">
+                <a href="/src/tabs/account/account.html">
                     <span class="material-symbols-outlined">
                         person
                     </span>
