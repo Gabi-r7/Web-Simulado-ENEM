@@ -72,29 +72,36 @@ function  atualizarPergunta() {
         console.log(respostasDoUsuario);
         return;
     }
-
+    
     let pergunta = perguntas[indicePerguntaAtual];
     let perguntaTtl = pergunta['Descrição'];
     let descricaoAuxiliar = pergunta['DescriçãoAuxiliar'];
     let imagemAuxiliar = pergunta['ImagemAuxiliar'];
     let alternativas = pergunta['Alternativas'];
-
+    
     // Inserir no HTML ---------------------------------------------------------------------
+    let dataQuestion = document.createElement('div');
     let div = document.createElement('div');
     let h3 = document.createElement('div');
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
     let numeroPerguntaElement = document.createElement('h2');
     
-    numeroPerguntaElement.classList.add('numeroPergunta'); //class
-
-    numeroPerguntaElement.textContent = `${numeroPergunta} / ${perguntas.length}`;
-    mainElement.appendChild(numeroPerguntaElement);
+    
+    numeroPerguntaElement.textContent = `Questão ${numeroPergunta} / ${perguntas.length}`;
+    
+    mainElement.appendChild(dataQuestion);
+    dataQuestion.appendChild(numeroPerguntaElement);
+    
+    dataQuestion.classList.add('data-question'); //class
+    dataQuestion.classList.add('main-div'); //class
+    numeroPerguntaElement.classList.add('numero-pergunta'); //class
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
         p.innerHTML = descricaoAuxiliar;
         div.appendChild(p);
         p.classList.add('descricaoAuxiliar'); //class
+        p.classList.add('border'); //class
     }
 
     if (imagemAuxiliar) {
@@ -104,12 +111,15 @@ function  atualizarPergunta() {
         div.appendChild(divImgAux);
         divImgAux.appendChild(img);
         divImgAux.classList.add('imagemAuxiliar'); //class
+        divImgAux.classList.add('border'); //class
     }
     
     h3.innerHTML = perguntaTtl;
     div.appendChild(h3);
     div.classList.add('questao'); //class
+    div.classList.add('main-div') //class
     h3.classList.add('pergunta'); //class
+    h3.classList.add('border'); //class
 
     let listaAlternativas = document.createElement('div');
     listaAlternativas.classList.add('alternativas'); //class
@@ -118,14 +128,10 @@ function  atualizarPergunta() {
 alternativas.forEach((alternativa, index) => {
     let divAlternativa = document.createElement('div');
     let divTextoAlternativa = document.createElement('div');
-    let divLedAlternativa = document.createElement('div');
     divAlternativa.classList.add('alternativa'); //class
-    divAlternativa.classList.add('tecla'); //class
-    divLedAlternativa.classList.add('led'); //class
     divAlternativa.dataset.value = index; // Armazenar o índice como um atributo de dados
     divTextoAlternativa.innerHTML = alternativa;
     divAlternativa.appendChild(divTextoAlternativa);
-    divAlternativa.appendChild(divLedAlternativa);
 
     if(divTextoAlternativa.textContent.includes('\\')) {
         MathJax.typesetPromise([divAlternativa]);
@@ -170,9 +176,16 @@ div.appendChild(listaAlternativas);
     //     listaAlternativas.appendChild(label);
     // });
     // div.appendChild(listaAlternativas);
+
+    
+    
+    // Botões de navegação
     
     let botoes = document.createElement('div');
-    mainElement.appendChild(botoes);
+    dataQuestion.appendChild(botoes);
+
+    //buttonPrevious
+
     let buttonPrevious = document.createElement('div');
     botoes.appendChild(buttonPrevious);
     botoes.classList.add('botoes'); //class
@@ -216,7 +229,7 @@ div.appendChild(listaAlternativas);
         }
     });
             
-    
+    //buttonNext
 
     let buttonNext = document.createElement('div');
     botoes.appendChild(buttonNext);

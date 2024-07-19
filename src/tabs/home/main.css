@@ -37,6 +37,13 @@ main section:nth-child(1) .main-div > div{
     background-color: var(--cor-terciaria);
     border-radius: 10px;
     padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    transition: 0.2s;
+}
+
+main section:nth-child(1) .main-div > div:hover{
+    transform: translateY(-0.2rem);
+    transition: 0.2s;
 }
 
 .start > button{

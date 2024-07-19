@@ -36,7 +36,7 @@ function confirm() {
     urlConc += tipo.join(',');
     urlConc += '&ano=' + ano;  
     console.log(urlConc);
-    window.location.href = "/src/tabs/questions/modalidade.html?tipo=" + urlConc;
+    window.location.href = "/src/tabs/questions/question.html?tipo=" + urlConc;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
