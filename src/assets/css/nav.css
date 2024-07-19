@@ -8,7 +8,7 @@
 
 :root{
     --nav-min-width: 18vw;
-    --cor-fundo: black;
+    --cor-fundo: rgb(29, 29, 29);
     --cor-secundaria: rgb(57, 56, 61);
     --cor-terciaria: rgb(97, 94, 107);
     --size-character: 1.2rem;
@@ -39,6 +39,7 @@ nav > div{
     width: 100%;
     background-color: var(--cor-secundaria);
     border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.189);
 }
 
 nav .logo > a{

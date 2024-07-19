@@ -27,6 +27,7 @@ main > section:nth-child(1){
     background-color: var(--cor-secundaria);
     border-radius: 20px;
     padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
 }
 
 .img-account{
