@@ -1,4 +1,3 @@
-
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
@@ -7,9 +6,11 @@
         'opsz' 24
 }
 
-
 :root{
     --nav-min-width: 18vw;
+    --cor-fundo: black;
+    --cor-secundaria: rgb(57, 56, 61);
+    --cor-terciaria: rgb(97, 94, 107);
 }
 
 nav{
