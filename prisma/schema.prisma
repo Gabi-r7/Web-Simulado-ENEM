@@ -17,6 +17,7 @@ model User {
   correct_answers Int @default(0)
   favorite_category String?
   experience Int @default(0)
+  profileImage String? @default("/src/assets/img/default_profile/profile.jpg")
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

@@ -1,3 +1,4 @@
+import multer from 'multer';
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -18,6 +19,18 @@ const createToken = (user: any) => {
     return jwt.sign({ id: user.id }, secretKey, { expiresIn: '1h' });
 };
 
+// Configuração do multer
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'profileImgUploads/'); // Diretório onde as imagens serão salvas
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.mimetype.split('/')[1]);
+    }
+});
+// Instância do multer
+const upload = multer({ storage: storage });
 
 // Função para verificar token
 const authenticate = async (req: any, res: any, next: any) => {
@@ -58,8 +71,9 @@ const authenticate = async (req: any, res: any, next: any) => {
 //
 
 //           ROTA CADASTRO DE USUÁRIO
-routes.post('/register', async (req, res) => {
+routes.post('/register', upload.single('profileImage'), async (req, res) => {
     const { login, email, confirmEmail, password, confirmPassword } = req.body;
+    const profileImagePath = req.file ? req.file.path : null;
 
     const existingUser = await prisma.user.findUnique({
         where: {
@@ -110,7 +124,8 @@ routes.post('/register', async (req, res) => {
         data: {
             login,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            profileImage: profileImagePath
         }
     });
 
@@ -175,6 +190,8 @@ routes.post('/login', async (req, res) => {
     });
 });
 
+
+//           ROTA PERFIL DE USUÁRIO
 routes.get('/profile', authenticate, async (req: any, res: any) => {
     const userId = req.user.id;
 
@@ -186,7 +203,8 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
                 login: true,
                 email: true,
                 password: true,
-                experience: true
+                experience: true,
+                profileImage: true,
             }
         });
 
@@ -209,6 +227,7 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
         });
     }
 });
+
 
 //           ROTA LOGOUT DE USUÁRIO
 routes.post('/logout', (req, res) => {

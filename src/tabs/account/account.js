@@ -17,6 +17,7 @@ async function fetchUserProfile() {
             document.getElementById('login').innerText = user.login;
             document.getElementById('email').innerText = user.email;
             document.getElementById('password').innerText = user.password;
+            document.getElementById('profileImg').src = user.profileImage;
         } else {
             alert(result.message);
             window.location.href = '/src/tabs/login/login.html';
