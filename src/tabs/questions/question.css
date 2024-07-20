@@ -128,8 +128,10 @@ main{
     width: 100%;
 } 
 
-.legendaGabarito{
-    font-size: 2rem;
+.legenda-gabarito{
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;
 }
 
 .linha{

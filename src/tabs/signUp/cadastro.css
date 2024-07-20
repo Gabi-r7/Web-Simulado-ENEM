@@ -1,41 +1,70 @@
-/* Estilos básicos para a página de login */
-
-@import url(/src/assets/css/nav.css);
-
-body {
-    background-color: #f2f2f2;
+body{
+    margin: 0%;
+    background-color: var(--cor-fundo);
+    color: rgb(255, 255, 255);
 }
 
-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    align-items: center;
+main{
+    margin-left: var(--nav-min-width);
+    padding: 1rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    font-size: var(--size-character);
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    gap: 1rem;
 }
 
-.botoes {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.border{
+    border-bottom:1px solid rgba(255, 255, 255, 0.189);
+    padding-bottom: 1rem;
 }
 
-.botoes > :nth-of-type(1) {
-    width: 48%;
+.main-div{
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    width: 60dvw;
 }
 
-h1 {
+.legenda-cadastro{
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.button-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.button-login button{
+    background-color: var(--cor-terciaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.189);
+    transition: transform 0.2s;
+}
+
+.button-login button:hover{
+    transform: translateY(-0.2rem);
+    transition: transform 0.2s;
+}
+
+#register-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
 }
 
 label {
@@ -47,27 +76,35 @@ input[type="email"],
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
-button, input[type="submit"] {
+.cadastrar > div{
     width: 100%;
-    padding: 10px;
+    padding: 0.5rem;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+input[type="submit"] {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
 button:hover, input[type="submit"]:hover {
-    background-color: #0056b3;
+    transform: translateY(-0.2rem);
+    transition: 0.2s;
 }
 
 .error-message {
     color: red;
     margin-top: 10px;
-}  
+}

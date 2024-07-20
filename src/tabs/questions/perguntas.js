@@ -50,10 +50,11 @@ function  atualizarPergunta() {
         gabarito.classList.add('main-div'); // Class
         gabarito.classList.add('gabarito'); // Class
 
-        let legendaGabarito = document.createElement('h2');
+        let legendaGabarito = document.createElement('div');
         legendaGabarito.classList.add('legenda-gabarito'); // Class
+        legendaGabarito.classList.add('main-div'); // Class
         legendaGabarito.innerHTML = 'Gabarito';
-        gabarito.appendChild(legendaGabarito);        
+        mainElement.appendChild(legendaGabarito);        
 
         perguntas.forEach((pergunta, index) => {
             let divLinha = document.createElement('div');

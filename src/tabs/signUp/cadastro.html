@@ -12,8 +12,10 @@
      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      
      <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
      
      <!-- links de arquivos -->
     <link rel='stylesheet' type='text/css' media='screen' href='/src/tabs/signUp/cadastro.css'>
@@ -22,37 +24,48 @@
     <script defer src='/src/assets/js/nav.js'></script>
 </head>
 <body>
-    <nav></nav>
-    <h1>Cadastro</h1>
+    <nav>
+    </nav>
     
-    <container>
-        <form id="register-form">
-            <div class="form-group">
+    <main>
+        <div class="legenda-cadastro main-div">Cadastro</div>
+
+        <div class="main-div button-login">
+            <div>Já possui uma conta?</div>
+            <button onclick="window.location.href = '/src/tabs/login/login.html';">Login</button>
+        </div>
+        
+        <form id="register-form" class="main-div">
+            <div class="form-group border">
                 <label for="login">Login:</label>
                 <input type="text" placeholder="Digite o seu login aqui" id="login">
             </div>
-            <div class="form-group">
+
+            <div class="form-group border">
                 <label for="email">Email:</label>
                 <input type="email" placeholder="Digite seu email aqui" id="email">
             </div>
-            <div class="form-group">
+
+            <div class="form-group border">
                 <label for="confirmEmail">Confirme o seu email:</label>
                 <input type="email" placeholder="Confirme o seu email aqui" id="confirmEmail">
             </div>
-            <div class="form-group">
+
+            <div class="form-group border">
                 <label for="password">Senha:</label>
                 <input type="password" placeholder="Digite a sua senha aqui" id="password">
             </div>
-            <div class="form-group">
+
+            <div class="form-group border">
                 <label for="confirmPassword">Confirme a sua senha:</label>
                 <input type="password" placeholder="Confirme a sua senha aqui" id="confirmPassword">
             </div>
-            <input type="submit" value="Cadastrar"></input>
+
+            <div class="cadastrar">
+                <input type="submit"></input>
+                <div>Cadastrar</div>
+            </div>
         </form>
-        <button onclick="window.location.href = '/src/tabs/login/login.html';">Já tenho cadastro</button>
-    </container>
-</body>
-</html>
-    </container>
+    </main>
 </body>
 </html>

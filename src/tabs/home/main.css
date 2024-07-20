@@ -9,6 +9,11 @@ body{
 main{
     margin-left: var(--nav-min-width);
     padding: 1rem;
+    font-size: var(--size-character);
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    gap: 1rem;
 }
 
 /* section 1*/

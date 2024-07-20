@@ -22,21 +22,33 @@
     <script defer src='/src/assets/js/nav.js'></script>
 </head>
 <body>
-    <nav></nav>
-    <h1>Login</h1>
-    <container>
-        <form id="login-form">
-            <div class="form-group">
+    <nav>
+    </nav>
+
+    <main>
+        <div class="legenda-login main-div">Cadastro</div>
+
+        <div class="main-div button-cadastro">
+            <div>Ainda não possui uma conta?</div>
+            <button onclick="window.location.href = '/src/tabs/signUp/cadastro.html';">Cadastro</button>
+        </div>
+        
+        <form id="login-form" class="main-div">
+            <div class="form-group border">
                 <label for="login">Login:</label>
                 <input type="text" id="login" placeholder="Digite o seu login aqui">
             </div>
-            <div class="form-group">
+
+            <div class="form-group border">
                 <label for="password">Senha:</label>
                 <input type="password" id="password" placeholder="Digite a sua senha aqui">
             </div>
-            <input type="submit"></input>    
-            </form>
-            <button onclick="window.location.href = '/src/tabs/signUp/cadastro.html';">Não tenho cadastro</button>
-    </container>
+
+            <div class="logar">
+                <input type="submit"></input>
+                <div>Logar</div>
+            </div>   
+        </form>
+    </main>
 </body>
 </html>
