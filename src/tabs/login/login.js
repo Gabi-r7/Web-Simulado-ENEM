@@ -14,7 +14,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     });
 
     const responseJson = await response.json();
-    if (responseJson.ok) {
+    if (responseJson.status === 'success') {
         alert(responseJson.message);
         window.location.href = '/src/tabs/home/index.html';
     }

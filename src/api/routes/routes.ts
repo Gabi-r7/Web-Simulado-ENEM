@@ -175,8 +175,39 @@ routes.post('/login', async (req, res) => {
     });
 });
 
-routes.post('/profile', authenticate, async (req, res) => {
-    //codiguin
+routes.get('/profile', authenticate, async (req: any, res: any) => {
+    const userId = req.user.id;
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: { id: userId },
+            select: {
+                id: true,
+                login: true,
+                email: true,
+                password: true,
+                experience: true
+            }
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                status: 'error',
+                message: 'Usuário não encontrado',
+                data: null
+            });
+        }
+        res.status(200).json({
+            status: 'success',
+            data: user
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: 'error',
+            message: 'Erro ao buscar dados do usuário',
+            data: null
+        });
+    }
 });
 
 //           ROTA LOGOUT DE USUÁRIO
