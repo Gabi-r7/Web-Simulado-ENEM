@@ -61,6 +61,11 @@ function  atualizarPergunta() {
             divLinha.classList.add('linha'); // Class
             divLinha.classList.add('border'); // Class
 
+            // Criar div para número da pergunta
+            let divNumero = document.createElement('div');
+            divNumero.innerHTML = `Questão ${index + 1}`;
+            divLinha.appendChild(divNumero);
+
             // Criar div para a descrição da pergunta
             let divPergunta = document.createElement('div');
             divPergunta.innerHTML = pergunta['Descrição'];
