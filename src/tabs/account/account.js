@@ -28,4 +28,41 @@ async function fetchUserProfile() {
     }
 }
 
+
+async function modifyUserProfile(field, value) {
+    const login = document.getElementById('login').innerText;
+    const email = document.getElementById('email').innerText;
+    const password = document.getElementById('password').innerText;
+    const profileImage = document.getElementById('profileImg').src;
+
+    const data = {
+        login,
+        email,
+        password,
+        profileImage
+    };
+
+    // Update the specified field with the new value
+    data[field] = value;
+
+    try {
+        const response = await fetch('/modify', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao modificar dados do perfil');
+        }
+
+        const result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', fetchUserProfile);

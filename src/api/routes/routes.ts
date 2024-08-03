@@ -229,6 +229,57 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
 });
 
 
+//           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
+//não fiz pra imagem
+routes.put('/modify', authenticate, async (req: any, res: any) => {
+    const userId = req.user.id;
+    const { login, email, password } = req.body;
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: { id: userId },
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                status: 'error',
+                message: 'Usuário não encontrado',
+                data: null
+            });
+        }
+
+        if (login) {
+            user.login = login;
+        }
+
+        if (email) {
+            user.email = email;
+        }
+
+        if (password) {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            user.password = hashedPassword;
+        }
+
+        const updatedUser = await prisma.user.update({
+            where: { id: userId },
+            data: user,
+        });
+
+        res.status(200).json({
+            status: 'success',
+            message: 'Usuário atualizado com sucesso',
+            data: updatedUser
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: 'error',
+            message: 'Erro ao atualizar usuário',
+            data: null
+        });
+    }
+});
+
 //           ROTA LOGOUT DE USUÁRIO
 routes.post('/logout', (req, res) => {
     if (!req.cookies.auth_token) {
