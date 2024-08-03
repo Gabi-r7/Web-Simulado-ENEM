@@ -4,6 +4,10 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
+const path = require('path');
+const fs = require('fs');
+
+let questionState: { [key: string]: any } = {};
 
 // Instância do express
 const routes = express.Router();
@@ -189,6 +193,79 @@ routes.post('/login', async (req, res) => {
         data: null
     });
 });
+
+
+routes.post('/start', (req, res) => {
+    const { sessionId, ano, tipo } = req.body;
+    const filePath = path.join(__dirname, '..', '..', 'assets', 'json', 'arrayPerguntas.json');
+    
+    fs.readFile(filePath, 'utf-8', (err: NodeJS.ErrnoException | null, data: string) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).json({ error: 'Failed to load questions' });
+        }
+
+        const questions = JSON.parse(data);
+        if (!questions[ano] || !questions[ano][tipo]) {
+            return res.status(400).json({ error: 'Invalid year or type' });
+        }
+
+        const filteredQuestions = questions[ano][tipo];
+        const questionList = Object.values(filteredQuestions).flat();
+        questionState[sessionId] = {
+            questions: questionList,
+            currentIndex: 0,
+            userAnswers: []
+        };
+
+        
+        res.json({ question: questionList[0] });
+    });
+});
+
+routes.post('/next', (req, res) => {
+    const { sessionId, answer } = req.body;
+    if (questionState[sessionId]) {
+        const state = questionState[sessionId];
+        state.userAnswers[state.currentIndex] = answer;
+        state.currentIndex++;
+
+        if (state.currentIndex >= state.questions.length) {
+            return res.json({ fim: true });
+        } else {
+            res.json({ pergunta: state.questions[state.currentIndex] });
+        }
+    } else {
+        res.status(400).json({ error: 'Invalid session ID' });
+    }
+});
+
+routes.post('/previous', (req, res) => {
+    const { sessionId } = req.body;
+    if (questionState[sessionId]) {
+        const state = questionState[sessionId];
+        state.currentIndex = Math.max(0, state.currentIndex - 1);
+        res.json({ pergunta: state.questions[state.currentIndex] });
+    } else {
+        res.status(400).json({ error: 'Invalid session ID' });
+    }
+});
+
+routes.post('/checkAnswers', (req, res) => {
+    const { sessionId } = req.body;
+    if (questionState[sessionId]) {
+        const state = questionState[sessionId];
+        const resultados = state.questions.map((q: any, index: number) => ({
+            correta: q.Resposta === state.userAnswers[index],
+            respostaCorreta: q.Resposta
+        }));
+
+        res.json(resultados);
+    } else {
+        res.status(400).json({ error: 'Invalid session ID' });
+    }
+});
+
 
 
 //           ROTA PERFIL DE USUÁRIO
