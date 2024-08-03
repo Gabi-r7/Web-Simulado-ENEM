@@ -4,6 +4,11 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
+import fs from 'fs';
+import path from 'path';
+import { json } from 'stream/consumers';
+
+let questionState: { [key: string]: any } = {};
 
 // Instância do express
 const routes = express.Router();
@@ -228,6 +233,124 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
     }
 });
 
+routes.post('/startQuiz', (req, res) => {
+    const { sessionId, ano, tipo } = req.body;
+    fs.readFile(path.join(__dirname, '..', '..', '/assets/json/arrayPerguntas.json'), 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo JSON:', err);
+            return res.status(500).json({ error: 'Erro ao carregar as perguntas' });
+        }
+
+        const jsonData = JSON.parse(data);
+        let perguntas: any[] = [];
+
+        // const anos: string[] = Array.isArray(ano) ? ano : [ano];
+        // const tipos: string[] = Array.isArray(tipo) ? tipo : [tipo];
+
+        // anos.forEach((ano: string) => {
+        //     tipos.forEach((tipo: string) => {
+        //         if (jsonData[ano] && jsonData[ano][tipo]) {
+        //             jsonData[ano][tipo].forEach((pergunta: any) => {
+        //                 let perguntaSemResposta = { ...pergunta };
+        //                 delete perguntaSemResposta.Resposta;
+        //                 perguntas.push(perguntaSemResposta);
+        //             });
+        //         }
+        //     });
+        // });
+
+        perguntas = jsonData[ano][tipo];
+
+        
+
+        console.log(perguntas);
+
+        // anos.forEach((a: string) => {
+        //     tipos.forEach((t: string) => {
+        //         let perguntaSemResposta = { ...jsonData[a][t] };
+        //         delete perguntaSemResposta.Resposta
+        //         perguntas.push(perguntaSemResposta);
+        //     });
+        // });
+        
+        // anos.forEach((a: string) => {
+        //     tipos.forEach((t: string) => {
+        //         perguntas = perguntas.concat(jsonData[a][t]);
+        //     });
+        // });
+
+        if (tipo.includes('aleatorio')) {
+            perguntas.sort(() => Math.random() - 0.5);
+        }
+
+        questionState[sessionId] = {
+            perguntas,
+            indicePerguntaAtual: 0,
+            respostasDoUsuario: []
+        };
+
+        res.json({ perguntas });
+    });
+});
+
+routes.post('/nextQuestion', (req, res) => {
+    const { sessionId, resposta } = req.body;
+    if (questionState[sessionId]) {
+        let state = questionState[sessionId];
+        state.respostasDoUsuario[state.indicePerguntaAtual] = resposta;
+        state.indicePerguntaAtual++;
+        
+        if (state.indicePerguntaAtual >= state.perguntas.length) {
+            return res.json({ fim: true });
+        }
+
+        res.json({ pergunta: state.perguntas[state.indicePerguntaAtual] });
+    } else {
+        res.status(404).json({ error: 'Sessão não encontrada' });
+    }
+});
+
+routes.post('/previousQuestion', (req, res) => {
+    const { sessionId } = req.body;
+    if (questionState[sessionId]) {
+        let state = questionState[sessionId];
+        if (state.indicePerguntaAtual > 0) {
+            state.indicePerguntaAtual--;
+            res.json({ pergunta: state.perguntas[state.indicePerguntaAtual] });
+        } else {
+            res.status(400).json({ error: 'Não há perguntas anteriores' });
+        }
+    } else {
+        res.status(404).json({ error: 'Sessão não encontrada' });
+    }
+});
+
+routes.post('/checkAnswers', (req, res) => {
+    const { sessionId } = req.body;
+    if (questionState[sessionId]) {
+        const { respostasDoUsuario, perguntas } = questionState[sessionId];
+        fs.readFile(path.join(__dirname, 'assets', 'json', 'arrayPerguntas.json'), 'utf-8', (err, data) => {
+            if (err) {
+                console.error('Erro ao ler o arquivo JSON:', err);
+                return res.status(500).json({ error: 'Erro ao carregar as perguntas' });
+            }
+
+            const jsonData = JSON.parse(data);
+            let resultados = respostasDoUsuario.map((resposta: any, index: number) => {
+                let perguntaOriginal = jsonData[perguntas[index].Ano][perguntas[index].Tipo].find((p: any) => p.Descrição === perguntas[index].Descrição);
+                return {
+                    correta: resposta === perguntaOriginal.Resposta,
+                    respostaUsuario: resposta,
+                    respostaCorreta: perguntaOriginal.Resposta
+                };
+            });
+
+            res.json(resultados);
+        });
+    } else {
+        res.status(404).json({ error: 'Sessão não encontrada' });
+    }
+});
 
 //           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
 //não fiz pra imagem
