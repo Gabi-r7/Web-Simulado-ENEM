@@ -192,28 +192,6 @@ alternativas.forEach((alternativa, index) => {
 });
 div.appendChild(listaAlternativas);
     
-    // alternativas.forEach((alternativa, index) => {
-    //     let label = document.createElement('label');
-    //     label.classList.add('alternativa'); //class
-    //     let checkbox = document.createElement('input');
-    //     checkbox.type = 'checkbox';
-    //     checkbox.name = 'alternativa';
-    //     checkbox.value = index;
-    //     label.appendChild(checkbox);
-    //     label.appendChild(document.createElement('p')).innerHTML = alternativa;
-        
-        
-    //     if(label.querySelector('p').textContent.includes('\\')) {
-    //         MathJax.typesetPromise([label.querySelector('p')]);
-    //         console.log('Inclui sabosta');
-    //     }
-    
-    //     listaAlternativas.appendChild(label);
-    // });
-    // div.appendChild(listaAlternativas);
-
-    
-    
     // Botões de navegação
     
     let botoes = document.createElement('div');
