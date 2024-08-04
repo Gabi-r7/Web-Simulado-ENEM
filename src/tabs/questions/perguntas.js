@@ -16,6 +16,8 @@ function generateSessionId() {
 
 let indicePerguntaAtual = 0;
 let perguntas = [];
+let totalPerguntas = 0;
+let arrayPerguntas = [];
 
 async function startQuiz(ano, tipo) {
     console.log('ano:', ano, 'tipo:', tipo);
@@ -28,66 +30,15 @@ async function startQuiz(ano, tipo) {
             body: JSON.stringify({ sessionId, ano, tipo })
         });
         const data = await response.json();
-        console.log('data:', data);
         perguntas = data.question;
-        console.log('perguntas:', perguntas);
+        totalPerguntas = data.length;
+        arrayPerguntas.push(perguntas);
         atualizarPergunta(perguntas);
     } catch (error) {
         console.error('Erro ao iniciar o quiz:', error);
     }
 }
 
-async function nextQuestion(resposta) {
-    try {
-        const response = await fetch('/next', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ sessionId, resposta })
-        });
-        const data = await response.json();
-        if (data.fim) {
-            enviarRespostas();
-        } else {
-            atualizarPergunta(data.pergunta);
-        }
-    } catch (error) {
-        console.error('Erro ao obter a próxima pergunta:', error);
-    }
-}
-
-async function previousQuestion() {
-    try {
-        const response = await fetch('/previous', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ sessionId })
-        });
-        const data = await response.json();
-        atualizarPergunta(data.pergunta);
-    } catch (error) {
-        console.error('Erro ao obter a pergunta anterior:', error);
-    }
-}
-
-async function enviarRespostas() {
-    try {
-        const response = await fetch('/checkAnswers', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ sessionId })
-        });
-        const resultados = await response.json();
-        exibirGabarito(resultados);
-    } catch (error) {
-        console.error('Erro ao enviar respostas:', error);
-    }
-}
 
 function atualizarPergunta(pergunta) {
     mainElement.innerHTML = '';
@@ -102,7 +53,8 @@ function atualizarPergunta(pergunta) {
     let h3 = document.createElement('div');
     let numeroPerguntaElement = document.createElement('h2');
 
-    numeroPerguntaElement.textContent = `Questão ${indicePerguntaAtual + 1} / ${perguntas.length}`;
+    console.log(indicePerguntaAtual);
+    numeroPerguntaElement.textContent = `Questão ${indicePerguntaAtual + 1} / ${totalPerguntas}`;
 
     mainElement.appendChild(dataQuestion);
     dataQuestion.appendChild(numeroPerguntaElement);
@@ -256,6 +208,8 @@ async function nextQuestion(resposta) {
         if (data.fim) {
             enviarRespostas();
         } else {
+            indicePerguntaAtual++;
+            arrayPerguntas.push(data.pergunta);
             atualizarPergunta(data.pergunta);
         }
     } catch (error) {
@@ -273,6 +227,8 @@ async function previousQuestion() {
             body: JSON.stringify({ sessionId })
         });
         const data = await response.json();
+        arrayPerguntas.pop();
+        indicePerguntaAtual--;
         atualizarPergunta(data.pergunta);
     } catch (error) {
         console.error('Erro ao obter a pergunta anterior:', error);
@@ -310,14 +266,15 @@ function exibirGabarito(resultados) {
     legendaGabarito.innerHTML = 'Gabarito';
     mainElement.appendChild(legendaGabarito);
 
-    resultados.forEach((pergunta, index) => {
+    for (let i = 0; i < resultados.length; i++) {
+        let pergunta = arrayPerguntas[i];
         let divLinha = document.createElement('div');
         divLinha.classList.add('linha'); // Class
         divLinha.classList.add('border'); // Class
 
         // Criar div para número da pergunta
         let divNumero = document.createElement('div');
-        divNumero.innerHTML = `Questão ${index + 1}`;
+        divNumero.innerHTML = `Questão ${i + 1}`;
         divLinha.appendChild(divNumero);
 
         // Criar div para a descrição da pergunta
@@ -328,10 +285,10 @@ function exibirGabarito(resultados) {
         // Criar div para a resposta do usuário
         let divRespostaUsuario = document.createElement('div');
         divRespostaUsuario.classList.add('resposta-usuario'); // Class
-        divRespostaUsuario.innerHTML = "Marcada: " + (respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido');
+        divRespostaUsuario.innerHTML = "Marcada: " + (respostasDoUsuario[i] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[i]] : 'Não respondido');
         divLinha.appendChild(divRespostaUsuario);
 
-        if (pergunta['Alternativas'][respostasDoUsuario[index]] === pergunta['Alternativas'][pergunta['Resposta']]) {
+        if (pergunta['Alternativas'][respostasDoUsuario[i]] === pergunta['Alternativas'][resultados[i].respostaCorreta]) {
             divRespostaUsuario.classList.add('acertou'); // Class
         } else {
             divRespostaUsuario.classList.add('errou'); // Class
@@ -340,7 +297,7 @@ function exibirGabarito(resultados) {
         // Criar div para a resposta correta
         let divRespostaCorreta = document.createElement('div');
         divRespostaCorreta.classList.add('resposta-correta'); // Class
-        divRespostaCorreta.innerHTML = "Resposta: " + (pergunta['Alternativas'][pergunta['Resposta']]);
+        divRespostaCorreta.innerHTML = "Resposta: " + (pergunta['Alternativas'][resultados[i].respostaCorreta]); //parei aqui pergunta['Alternativa'][resultados[i][1]]
         divLinha.appendChild(divRespostaCorreta);
 
         // Adiciona a linha à div principal
@@ -351,7 +308,7 @@ function exibirGabarito(resultados) {
             MathJax.typesetPromise([divLinha]);
             console.log('Inclui sabosta');
         }
-    });
+    };
 
     // Adiciona a div principal ao elemento principal na página
     mainElement.appendChild(gabarito);

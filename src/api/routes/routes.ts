@@ -196,7 +196,8 @@ routes.post('/login', async (req, res) => {
 
 
 routes.post('/start', (req, res) => {
-    const { sessionId, ano, tipo } = req.body;
+    let aleatorio = false;
+    let { sessionId, ano, tipo } = req.body;
     const filePath = path.join(__dirname, '..', '..', 'assets', 'json', 'arrayPerguntas.json');
     
     fs.readFile(filePath, 'utf-8', (err: NodeJS.ErrnoException | null, data: string) => {
@@ -205,21 +206,40 @@ routes.post('/start', (req, res) => {
             return res.status(500).json({ error: 'Failed to load questions' });
         }
 
+        if (tipo.includes('aleatorio')){
+            aleatorio = true;
+            tipo = tipo.filter((t: string) => t !== 'aleatorio');
+        }
+        
         const questions = JSON.parse(data);
-        if (!questions[ano] || !questions[ano][tipo]) {
-            return res.status(400).json({ error: 'Invalid year or type' });
+    
+        let filteredQuestions: any[] = [];
+        for (let i = 0; i < tipo.length; i++) {
+            console.log(tipo[i]);
+            filteredQuestions = questions[ano][tipo[i]]; //não sei como fazer isso funcionar sem concatenar
+            console.log(filteredQuestions); //parei aqui
         }
 
-        const filteredQuestions = questions[ano][tipo];
-        const questionList = Object.values(filteredQuestions).flat();
+        const questionList = Object.values(filteredQuestions).flat(); //parei aqui
+        console.log(questionList);
+        if (aleatorio) {
+            questionList.sort(() => Math.random() - 0.5);
+        }
+        const questionListCopy = JSON.parse(JSON.stringify(questionList));
+        questionListCopy.forEach((q: any) => {
+            q.Resposta = '';
+        });
+        
+        
         questionState[sessionId] = {
-            questions: questionList,
+            questions: questionListCopy,
+            questionsWithAnswers: questionList,
             currentIndex: 0,
             userAnswers: []
         };
 
         
-        res.json({ question: questionList[0] });
+        res.json({ question: questionListCopy[0], length: questionListCopy.length });
     });
 });
 
@@ -255,11 +275,11 @@ routes.post('/checkAnswers', (req, res) => {
     const { sessionId } = req.body;
     if (questionState[sessionId]) {
         const state = questionState[sessionId];
-        const resultados = state.questions.map((q: any, index: number) => ({
+        const resultados = state.questionsWithAnswers.map((q: any, index: number) => ({
             correta: q.Resposta === state.userAnswers[index],
             respostaCorreta: q.Resposta
         }));
-
+        console.log(resultados);
         res.json(resultados);
     } else {
         res.status(400).json({ error: 'Invalid session ID' });
