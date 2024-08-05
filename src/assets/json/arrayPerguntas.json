@@ -1,7 +1,7 @@
 {
     "2023":{
         "Ingles":{
-            "1":[
+            "0":[
                 {
                     "ImagemAuxiliar":"/src/assets/img/2023/ingles-1.png",
                     "Descrição":"Esse cartaz de campanha sugere que",
@@ -9,7 +9,7 @@
                     "Resposta":1
                 }
             ],
-            "2":[
+            "1":[
                 {
                     "DescriçãoAuxiliar":"No man is an island,<br>Entire of itself;<br>Every man is a piece of the continent,<br>A part of the main.",
                     "Descrição":"Nesse poema, a expressão “No man is an island” ressalta o(a)",
@@ -17,7 +17,7 @@
                     "Resposta":1
                 }
             ],
-            "3":[
+            "2":[
                 {
                     "DescriçãoAuxiliar":"We carry tears in our eyes: good-bye father, good-bye<br>  [mother<br>  We carry soil in small bags: may home never fade in our<br>  [hearts<br>  We carry carnage of mining, droughts, floods, genocides<br>  We carry dust of our families and neighbors incinerated<br>  [in mushroom clouds<br>  We carry our islands sinking under the sea<br>  We carry our hands, feet, bones, hearts and best minds<br>  [for a new life<br>  We carry diplomas: medicine, engineer, nurse,<br>  [education, math, poetry, even if they mean<br>  [nothing to the other shore<br>  We carry railroads, plantations, laundromats,<br>  [bodegas, taco trucks, farms, factories, nursing<br>  [homes, hospitals, schools, temples... built on<br>  [our ancestors’ backs<br>  We carry old homes along the spine, new dreams in our<br>  [chests<br>  We carry yesterday, today and tomorrow<br>  We’re orphans of the wars forced upon us<br>  We’re refugees of the sea rising from industrial wastes<br>  And we carry our mother tongues<br>  [...]<br>  As we drift... in our rubber boats... from shore... to shore...<br>  [to shore...",
                     "Descrição":"Ao retratar a trajetória de refugiados, o poema recorre à imagem de viagem marítima para destacar o(a)",
@@ -25,7 +25,7 @@
                     "Resposta":3
                 }
             ],
-            "4":[
+            "3":[
                 {
                     "DescriçãoAuxiliar":"pues estoy creando Spanglish<br>bi-cultural systems<br>scientificlexicographical<br>inter-textualintegrations<br>two expressions<br>existentially wired<br>two dominant languages<br>continentally abrazándose<br>in colloquial combate<br>imperio spanglish emerges<br>sobre territorio bi-lingual<br>las novelas mexicanas<br>mixing with radiorocknroll<br>immigrant/migrant<br>nasal mispronouncements<br>hip-hop, street salsa, spanish pop<br>standard english classroom<br>with computer technicalities<br>spanglish is literally perfect",
                     "Descrição":"Nesse poema de Tato Laviera, o eu lírico destaca uma",
@@ -33,7 +33,7 @@
                     "Resposta":0
                 }
             ],
-            "5":[
+            "4":[
                 {
                     "ImagemAuxiliar":"/src/assets/img/2023/ingles-5.png",
                     "Descrição":"Ao retratar o ambiente de trabalho em um escritório,esse carttum tem por objetivo",
@@ -43,7 +43,7 @@
             ]
         },
         "Espanhol":{
-            "1":[
+            "0":[
                 {
                     "ImagemAuxiliar":"/src/assets/img/2023/espanhol-1.png",
                     "DescriçãoAuxiliar":"TEXTO II<br> Ishaan Awashi es un niño de 8 años cuyo mundo está plagado de maravillas que nadie más parece apreciar: colores, peces, perros y cometas, que simplemente no son importantes en la vida de los adultos, que parecen más interesados en cosas como los deberes, las notas o la limpieza. E Ishaan parece no poder hacer nada bien en clase. Cuando los problemas que ocasiona superan a sus padres, es internado en un colegio para que le disciplinen. Las cosas no mejoran en el nuevo colegio, donde Ishaan tiene además que aceptar estar lejos de sus padres. Hasta que un día, el nuevo profesor de arte, Ram Shankar Nikumbh, entra en escena, se interesa por el pequeño Ishaan y todo cambia.<br> Disponível em: https://elfinalde.com. Acesso em: 26 out. 2021 (adaptado)",
@@ -52,7 +52,7 @@
                     "Resposta":0
                 }
             ],
-            "2":[
+            "1":[
                 {
                     "DescriçãoAuxiliar":"Me niego rotundamente<br> A negar mi voz,<br> Mi sangre y mi piel.<br> Y me niego rotundamente<br> A dejar de ser yo,<br> A dejar de sentirme bien<br> Cuando miro mi rostro en el espejo<br> Con mi boca<br> Rotundamente grande,<br> Y mi nariz<br> Rotundamente hermosa,<br> Y mis dientes<br> Rotundamente blancos,<br> Y mi piel valientemente negra.<br> Y me niego categóricamente<br> A dejar de hablar<br> Mi lengua, mi acento y mi historia.<br> Y me niego absolutamente<br> A ser parte de los que callan,<br> De los que temen,<br> De los que lloran.<br> Porque me acepto<br> Rotundamente libre,<br> Rotundamente negra,<br> Rotundamente hermosa.<br>CAMPBELL BARR, S. Disponível em: https://negracubanateniaqueser.com. Acesso em: 25 out. 2021",
                     "Descrição":"Para enfatizar características e atitudes que reforçam a identidade da mulher negra, o poema da escritora costarriquenha apresenta",
@@ -60,7 +60,7 @@
                     "Resposta":0
                 }
             ],
-            "3":[
+            "2":[
                 {
                     "DescriçãoAuxiliar":"“Caramelos” en sus suelos<br>Las tierras de España, tu vista enamoran;<br>sus gentes; te amistan; ¿“cocinas”?, ¡“te molan”!<br>¿El plato común?, ¡pues «tortilla/patatas»!;<br>en bares, figones, o tascas, ¡las «tapas»!;<br>“sabor nacional”, ¡el «gazpacho», sus «vinos»,<br>«sangría», y «jamón» de sabrosos cochinos!<br>(Cual “sellos”, te grabas sus «Típicos Platos»;<br>¡sabrás por dó pasas, por sólo tu olfato!,<br>¡si en cada lugar, un sabor peculiar,<br>“al paso” cautiva tu buen paladar!).<br>¡Son más que “recetas”!, ¡será “alegoría”!,<br>¡será “identidad”! (¡hay “reserva” en su «Guía»!);<br>son platos allende un “timón conductor”,<br>¡son mar, ríos, sierras!, ¡son valles, son flor!,<br>¡y aportan “Conventos” a gastronomía,<br>sus «dulces»! (sabor “celestial”, ¡de ambrosía!).<br>QUIROZ Y LÓPEZ, M. Disponível em: https://pt.calameo.com. Acesso em: 25 out. 2021.",
                     "Descrição":"Nesse poema, o eu poético enaltece a",
@@ -68,7 +68,7 @@
                     "Resposta":4
                 }
             ],
-            "4":[
+            "3":[
                 {
                     "DescriçãoAuxiliar":"Técnicas de manipulación y el resultado <br>Manipular es sembrar en la conciencia y en la mente de la gente ideas, actitudes, conceptos y aspiraciones — incluso falsas e inmorales — que sirvan a los objetivos de sus manipuladores. <br>Manipular es una de las primeras cosas que aprendemos en la vida. A muy temprana edad, los bebés descubren el poder del llanto, el berrinche, los pataleos, la risa o alguna “gracia” como recursos para demandar atención, exigir comida, pedir ayuda o simplemente mantener ocupada a la gente. Nuestras actitudes de adultos reflejan lo mucho o poco que algunos maduraron, procesaron y rebasaron ese periodo. <br>Para que exista un manipulador, debe haber una base de ciudadanos indefensos, dóciles, desinformados. El manipulador es celoso, a veces casi paranoico; no admite cuestionamientos ni quiere que nadie ocupe su espacio, sabe que su vigencia depende de presencia controladora. Todos los días, hay que marcar la línea de discurso, incidir en el debate. El ridículo vale la pena si con ello se logra una cortina de humo. <br>Disponível em: www.forbes.com.mx. Acesso em: 7 out. 2021 (adaptado)",
                     "Descrição":"Nesse texto, a expressão “cortina de humo” revela que o manipulador",
@@ -76,7 +76,7 @@
                     "Resposta":1
                 }
             ],
-            "5":[
+            "4":[
                 {
                     "DescriçãoAuxiliar":"Que quede claro<br>Cómo es posible que se cierren<br>tantas bocas, tantos ojos,<br>tantas puertas, muchas mentes ante un<br>acto xenofóbico sin precedentes.<br>Presidentes, ministros, cancilleres,<br>autoridades, responsables.<br>¿Quién pagará el daño causado a familiares?<br>Por un loco del estrada sin modales. [...]<br>Se alejó de aquel lugar donde su color era<br>mucho más que su color, era su raza.<br>Persiguiendo un sueño que desapareció,<br>que se fusionó y terminó en una pesadilla. [...]<br>Déjame que te cuente esta historia<br>que sucedió en el metro de Barcelona,<br>cuando aquella mañana la injusticia<br>y xenofobia se juntaron de la mano,<br>protagonizando una de las más feas escenas de racismo.<br>En aquel vagón viajaba un ángel de color diferente,<br>en su camino se interpuso aquel inconsciente,<br>que aún sabiendo lo que hacía,<br>seguía hablando con su gente.<br>Le dio al ángel dos patadas en su cara,<br>se rió de ella sin cambiar la mirada.<br>Y aún anda suelto, aún anda suelto...<br>ORISHAS. In: Cosita buena. Delaware: Suerte Publishing LLC, 2008 (fragmento).",
                     "Descrição":"A letra da canção Que quede claro, da banda cubana Orishas, revela o(a)",
@@ -86,7 +86,7 @@
             ]
         },
         "Linguagens":{
-            "6":[
+            "0":[
                 {
                     "DescriçãoAuxiliar":"A sessão do Comitê Olímpico Internacional (COI) aprovou uma mudança histórica e inédita no lema olímpico, criado em 1894 pelo Barão Pierre de Coubertin para expressar os valores e a excelência do esporte. Mais de 120 anos depois, o lema tem sua primeira alteração para ressaltar a solidariedade e incluir a palavra “juntos”: mais rápido, mais alto, mais forte — juntos. A mudança foi aprovada por unanimidade pelos membros do COI e celebrada pelo presidente da entidade. <br>Disponível em: https://ge.globo.com. Acesso em: 10 nov. 2021 (adaptado)",
                     "Descrição":"De acordo com o texto, a alteração do lema olímpico teve como objetivo a",
@@ -94,7 +94,7 @@
                     "Resposta":3
                 }
             ],
-            "7":[
+            "1":[
                 {
                     "DescriçãoAuxiliar":"Mais iluminada que outras<br>Tenho dois seios, estas duas coxas, duas mãos que mesão muito úteis, olhos escuros, estas duas sobrancelhas quepreencho com maquiagem comprada por dezenove e noventae orelhas que não aceitam bijuterias. Este corpo é um corpofaminto, dentado, cruel, capaz e violento. Movo os braçose multidões correm desesperadas. Caminho no escuro como rosto para baixo, pois cada parte isolada de mim tem suaprópria vida e não quero domá-las. Animal da caatinga. Fortedemais. Engolidora de espadas e espinhos.<br>Dizem e eu ouvi, mas depois também li, que o estadodo Ceará aboliu a escravidão quatro anos antes do restantedo país. Todos aqueles corpos que eram trazidos comseus dedos contados, seus calcanhares prontos e seusumbigos em fogo, todos eles foram interrompidos noporto. Um homem — dizem e eu ouvi e depois tambémli — liderou o levante. E todos esses corpos foram buscaroutros incômodos. Foram ser incomodados.<br>ARRAES, J. Redemoinho em dia quente. São Paulo: Alfaguara, 2019.",
                     "Descrição":"Nesse texto, os recursos expressivos usados pela narradora",
