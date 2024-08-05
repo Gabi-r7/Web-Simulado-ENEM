@@ -212,7 +212,8 @@ routes.post('/start', (req, res) => {
         }
         
         const questions = JSON.parse(data);
-    
+        console.log(questions);
+
         let filteredQuestions: any[] = [];
         for (let i = 0; i < tipo.length; i++) {
             console.log(tipo[i]);
