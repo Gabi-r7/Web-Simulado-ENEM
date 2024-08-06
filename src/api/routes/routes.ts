@@ -1,13 +1,12 @@
+
 import multer from 'multer';
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
-const path = require('path');
-const fs = require('fs');
-
-let questionState: { [key: string]: any } = {};
+import fs from 'fs';
+import path from 'path';
 
 // Instância do express
 const routes = express.Router();
@@ -195,100 +194,6 @@ routes.post('/login', async (req, res) => {
 });
 
 
-routes.post('/start', (req, res) => {
-    let aleatorio = false;
-    let { sessionId, ano, tipo } = req.body;
-    const filePath = path.join(__dirname, '..', '..', 'assets', 'json', 'arrayPerguntas.json');
-    
-    fs.readFile(filePath, 'utf-8', (err: NodeJS.ErrnoException | null, data: string) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            return res.status(500).json({ error: 'Failed to load questions' });
-        }
-
-        if (tipo.includes('aleatorio')){
-            aleatorio = true;
-            tipo = tipo.filter((t: string) => t !== 'aleatorio');
-        }
-        
-        const questions = JSON.parse(data);
-        console.log(questions);
-
-        let filteredQuestions: any[] = [];
-        for (let i = 0; i < tipo.length; i++) {
-            console.log(tipo[i]);
-            filteredQuestions = questions[ano][tipo[i]]; //não sei como fazer isso funcionar sem concatenar
-            console.log(filteredQuestions); //parei aqui
-        }
-
-        const questionList = Object.values(filteredQuestions).flat(); //parei aqui
-        console.log(questionList);
-        if (aleatorio) {
-            questionList.sort(() => Math.random() - 0.5);
-        }
-        const questionListCopy = JSON.parse(JSON.stringify(questionList));
-        questionListCopy.forEach((q: any) => {
-            q.Resposta = '';
-        });
-        
-        
-        questionState[sessionId] = {
-            questions: questionListCopy,
-            questionsWithAnswers: questionList,
-            currentIndex: 0,
-            userAnswers: []
-        };
-
-        
-        res.json({ question: questionListCopy[0], length: questionListCopy.length });
-    });
-});
-
-routes.post('/next', (req, res) => {
-    const { sessionId, answer } = req.body;
-    if (questionState[sessionId]) {
-        const state = questionState[sessionId];
-        state.userAnswers[state.currentIndex] = answer;
-        state.currentIndex++;
-
-        if (state.currentIndex >= state.questions.length) {
-            return res.json({ fim: true });
-        } else {
-            res.json({ pergunta: state.questions[state.currentIndex] });
-        }
-    } else {
-        res.status(400).json({ error: 'Invalid session ID' });
-    }
-});
-
-routes.post('/previous', (req, res) => {
-    const { sessionId } = req.body;
-    if (questionState[sessionId]) {
-        const state = questionState[sessionId];
-        state.currentIndex = Math.max(0, state.currentIndex - 1);
-        res.json({ pergunta: state.questions[state.currentIndex] });
-    } else {
-        res.status(400).json({ error: 'Invalid session ID' });
-    }
-});
-
-routes.post('/checkAnswers', (req, res) => {
-    const { sessionId } = req.body;
-    if (questionState[sessionId]) {
-        const state = questionState[sessionId];
-        const resultados = state.questionsWithAnswers.map((q: any, index: number) => ({
-            correta: q.Resposta === state.userAnswers[index],
-            respostaCorreta: q.Resposta
-        }));
-        console.log(resultados);
-        res.json(resultados);
-    } else {
-        res.status(400).json({ error: 'Invalid session ID' });
-    }
-});
-
-
-
 //           ROTA PERFIL DE USUÁRIO
 routes.get('/profile', authenticate, async (req: any, res: any) => {
     const userId = req.user.id;
@@ -325,6 +230,46 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
         });
     }
 });
+
+routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
+    let aleatorio = false;
+    let { ano, tipo } = req.body;
+    const filePath = path.join(__dirname, '..', '..', 'assets', 'json', 'arrayPerguntas.json');
+    
+    fs.readFile(filePath, 'utf-8', (err: NodeJS.ErrnoException | null, data: string) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).json({ error: 'Failed to load questions' });
+        }
+
+        console.log(ano, tipo);
+        if (tipo.indexOf('aleatorio') !== -1) {
+            aleatorio = true;
+            tipo = tipo.filter((t: string) => t !== 'aleatorio');
+        }
+        
+        const questions = JSON.parse(data);
+
+        let filteredQuestions: any[] = [];
+        for (let i = 0; i < tipo.length; i++) {
+            filteredQuestions = filteredQuestions.concat(...Object.values(questions[ano][tipo[i]]));
+        }
+
+        const questionList = Object.values(filteredQuestions).flat(); //parei aqui
+        console.log(questionList);
+        if (aleatorio) {
+            questionList.sort(() => Math.random() - 0.5);
+        }
+        const questionListCopy = JSON.parse(JSON.stringify(questionList));
+        questionListCopy.forEach((q: any) => {
+            q.Resposta = '';
+        });
+        
+        
+        res.json({ question: questionListCopy });
+    });
+});
+    
 
 
 //           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
