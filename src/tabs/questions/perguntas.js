@@ -46,15 +46,24 @@ async function carregarPerguntas(ano, tipo) {
         body: JSON.stringify({ ano, tipo })
     });
     const data = await response.json();
-    perguntas = data.question;
+    perguntas = data['questionListCopy'];
+    console.log(perguntas);
     atualizarPergunta();
 }
-
-
 
 function  atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
+        const response = fetch('/checkAnswers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ respostasDoUsuario })
+        });
+        const data = response.json();
+
+
         alert('Você acabou!');
         let gabarito = document.createElement('div');
         gabarito.classList.add('main-div'); // Class

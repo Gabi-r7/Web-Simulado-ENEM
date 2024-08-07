@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
 import fs from 'fs';
 import path from 'path';
+import { ALL } from 'dns';
 
 // Instância do express
 const routes = express.Router();
@@ -255,7 +256,7 @@ routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
             filteredQuestions = filteredQuestions.concat(...Object.values(questions[ano][tipo[i]]));
         }
 
-        const questionList = Object.values(filteredQuestions).flat(); //parei aqui
+        let questionList = Object.values(filteredQuestions).flat(); //parei aqui
         console.log(questionList);
         if (aleatorio) {
             questionList.sort(() => Math.random() - 0.5);
@@ -264,12 +265,27 @@ routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
         questionListCopy.forEach((q: any) => {
             q.Resposta = '';
         });
+
+        res.cookie('questionList', JSON.stringify(questionListCopy), { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 3600000 });
         
+
         
-        res.json({ question: questionListCopy });
+        res.json({ questionListCopy });
     });
 });
-    
+
+routes.post('/checkAnswers', (req, res) => {
+    const { respostasDoUsuario } = req.body;
+    const questionList = JSON.parse(req.cookies.questionList);
+    const resultados = questionList.map((q: any, index: number) => ({
+        correta: q.Resposta === respostasDoUsuario[index],
+        respostaCorreta: q.Resposta
+    }));
+    console.log(resultados);
+    res.json(resultados);
+    res.status(400).json({ error: 'Invalid session ID' });
+});
+
 
 
 //           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
