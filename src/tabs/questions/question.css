@@ -24,11 +24,87 @@ main{
     padding-bottom: 1rem;
 }
 
+/* section 1 */
+
+main section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
 .main-div{
+    display: flex;
+    flex-direction: column;
     background-color: var(--cor-secundaria);
     border-radius: 20px;
     padding: 1rem;
     border:1px solid rgba(255, 255, 255, 0.189);
+    gap: 2rem;
+}
+
+.border{
+    border-bottom:1px solid rgba(255, 255, 255, 0.189);
+    padding-bottom: 1rem;
+}
+
+main section:nth-child(1) .main-div > div{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+    gap: 1rem;
+}
+
+main section:nth-child(1) .main-div > div > div{
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+}
+
+main section:nth-child(1) .main-div > div > div:hover{
+    transform: translateY(-0.2rem);
+    transition: 0.2s;
+}
+
+.start > button{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: rgb(40, 234, 50);
+}
+
+/* checkbox */
+
+.checkbox-label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom{
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label div > div{
+    content: '';
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid white;
 }
 
 /* questao */

@@ -20,7 +20,7 @@ nav.innerHTML = `
                 <span class="material-symbols-outlined">
                     quiz
                 </span>
-                <span class="text-icon">Questões</span>
+                <a class="text-icon" href="/src/tabs/questions/question.html">Questões</a>
             </div>
             <div class="nav-op">
                 <span class="material-symbols-outlined">

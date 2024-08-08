@@ -37,6 +37,107 @@
     </nav>
     
     <main>
+        <section>
+            <div class="main-div">
+                <div class="anos border">
+                    <div>
+                        <label for="2023" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="2023" class="checkbox-custom" onclick="updateLink(2023)"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">2023</span>
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="modalidades border">
+                    <div>
+                        <label for="linguagens" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="linguagens" class="checkbox-custom" onclick="updateLink('Linguagens')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Linguagens</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="matematica" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="matematica" class="checkbox-custom" onclick="updateLink('Matematica')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Matemática</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="humanas" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="humanas" class="checkbox-custom" onclick="updateLink('Humanas')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Humanas</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="ciencias" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="ciencias" class="checkbox-custom" onclick="updateLink('Ciencias')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Ciências</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="ingles" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="ingles" class="checkbox-custom" onclick="updateLink('Ingles')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Inglês</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="espanhol" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="espanhol" class="checkbox-custom" onclick="updateLink('Espanhol')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Espanhol</span>
+                        </label>
+                    </div>
+    
+                    <div>
+                        <label for="todas" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="todas" class="checkbox-custom" onclick="updateLink('Linguagens,Humanas,Ciencias,Matematica,Ingles,Espanhol')"></input>
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Todas</span>
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="start"> 
+                    <div>
+                        <label for="random" class="checkbox-label">
+                            <div>
+                                <input type="checkbox" id="random" class="checkbox-custom" onclick="updateLink('aleatorio')">
+                                <div></div>
+                            </div>
+                            <span class="checkbox-text">Aleatório</span>
+                        </label>
+                    </div>
+    
+                    <button onclick="confirm()">Confirmar</button>
+                </div>
+            </div>
+        </section>
     </main>
     
 </body>
