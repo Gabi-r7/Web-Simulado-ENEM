@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
->>>>>>> e1e1994501ce1996e3a34f1a82b574922739ed45
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
