@@ -3,7 +3,6 @@ let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 console.log('Página carregada');
 
-
 let params = new URLSearchParams(window.location.search);
 let ano = params.get('ano') ? params.get('ano').split(',') : [];
 let tipo = params.get('tipo') ? params.get('tipo').split(',') : [];
@@ -46,23 +45,23 @@ async function carregarPerguntas(ano, tipo) {
         body: JSON.stringify({ ano, tipo })
     });
     const data = await response.json();
-    perguntas = data['questionListCopy'];
+    perguntas = data['questionList'];
     console.log(perguntas);
     atualizarPergunta();
 }
 
-function  atualizarPergunta() {
+async function atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
-        const response = fetch('/checkAnswers', {
+        const response = await fetch('/checkAnswers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ respostasDoUsuario })
         });
-        const data = response.json();
-
+        const data = await response.json();
+        console.log('data: ', data);
 
         alert('Você acabou!');
         let gabarito = document.createElement('div');
@@ -123,7 +122,7 @@ function  atualizarPergunta() {
 
         // Adiciona a div principal ao elemento principal na página
         mainElement.appendChild(gabarito);
-        console.log(respostasDoUsuario);
+        console.log('respostasDoUsuario:', respostasDoUsuario);
         return;
     }
     

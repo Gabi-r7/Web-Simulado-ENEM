@@ -260,30 +260,23 @@ routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
         console.log(questionList);
         if (aleatorio) {
             questionList.sort(() => Math.random() - 0.5);
-        }
-        const questionListCopy = JSON.parse(JSON.stringify(questionList));
-        questionListCopy.forEach((q: any) => {
-            q.Resposta = '';
-        });
-
-        res.cookie('questionList', JSON.stringify(questionListCopy), { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 3600000 });
-        
+        }     
 
         
-        res.json({ questionListCopy });
+        res.json({ questionList });
     });
 });
 
 routes.post('/checkAnswers', (req, res) => {
     const { respostasDoUsuario } = req.body;
-    const questionList = JSON.parse(req.cookies.questionList);
-    const resultados = questionList.map((q: any, index: number) => ({
-        correta: q.Resposta === respostasDoUsuario[index],
-        respostaCorreta: q.Resposta
+    console.log(respostasDoUsuario);
+    const answersList = JSON.parse(req.cookies.answersList);
+    const resultados = answersList.map((q: any, index: number) => ({
+        correta: q[index] === respostasDoUsuario[index],
+        respostaCorreta: answersList[index],
     }));
     console.log(resultados);
     res.json(resultados);
-    res.status(400).json({ error: 'Invalid session ID' });
 });
 
 
