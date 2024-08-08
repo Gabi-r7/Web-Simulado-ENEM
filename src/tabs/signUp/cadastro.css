@@ -81,7 +81,7 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-.cadastrar > div{
+.cadastrar > label{
     width: 100%;
     padding: 0.5rem;
     background-color: #007bff;
@@ -99,7 +99,7 @@ input[type="submit"] {
     pointer-events: none;
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover, .cadastrar > label:hover {
     transform: translateY(-0.2rem);
     transition: 0.2s;
 }

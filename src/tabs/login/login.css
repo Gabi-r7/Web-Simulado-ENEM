@@ -80,12 +80,11 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-.logar > div{
+.logar > label{
     width: 100%;
     padding: 0.5rem;
     background-color: #007bff;
     color: #fff;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s;
@@ -98,7 +97,7 @@ input[type="submit"] {
     pointer-events: none;
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover, .logar > label:hover {
     transform: translateY(-0.2rem);
     transition: 0.2s;
 }

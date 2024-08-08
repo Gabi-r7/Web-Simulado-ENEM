@@ -1,13 +1,74 @@
+let tipo = []; // Declaração no escopo global
+let ano = [];
+let conc = '';
 
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 console.log('Página carregada');
 
+<<<<<<< HEAD
 let params = new URLSearchParams(window.location.search);
 let ano = params.get('ano') ? params.get('ano').split(',') : [];
 let tipo = params.get('tipo') ? params.get('tipo').split(',') : [];
 console.log(ano, tipo);
 carregarPerguntas(ano, tipo);
+=======
+function updateLink(categoria) {
+    if (isNaN(categoria)) {
+        tipo = [categoria];
+        const checkboxes = document.querySelectorAll('.checkbox-custom');
+        const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        tipo = selecionados.map(checkbox => {
+            const match = checkbox.getAttribute('onclick') ? checkbox.getAttribute('onclick').match(/\('(.*)'\)/) : null;
+            return match ? match[1] : null;
+        }).filter(Boolean); // Remove valores nulos ou undefined do array resultante
+    } else {
+        // Verifica se o ano já foi selecionado
+        if (ano.includes(categoria)) {
+            // Remove o ano se já estiver selecionado
+            ano = ano.filter(item => item !== categoria);
+        } else {
+            // Adiciona o ano se não estiver selecionado
+            ano.push(categoria);
+        }
+    }
+    console.log(tipo);
+}
+
+function confirm() {
+    if (tipo.length === 0 || tipo.includes('aleatorio') && tipo.length === 1) {
+        alert('Selecione pelo menos uma modalidade');
+        return;
+    }
+    if (ano.length === 0) {
+        alert('Selecione pelo menos um ano');
+        return;
+    }
+
+    conc += tipo.join(',');
+    conc += '&ano=' + ano;  
+    console.log(conc);
+
+    console.log(ano, tipo);
+    carregarPerguntas(ano, tipo);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var checkboxes = document.querySelectorAll('.checkbox-label input[type="checkbox"]');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            var siblingDiv = this.nextElementSibling;
+            if (this.checked) {
+                siblingDiv.textContent = '✓';
+                siblingDiv.style.color = 'black';
+            } else {
+                siblingDiv.textContent = '';
+            }
+        });
+    });
+});
+>>>>>>> e1e1994501ce1996e3a34f1a82b574922739ed45
 
 let perguntas = null;
 let indicePerguntaAtual = 0;
@@ -37,6 +98,7 @@ async function carregarPerguntas(ano, tipo) {
     //         atualizarPergunta();
     //     })
     //     .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+    mainElement.innerHTML = '';
     const response = await fetch('/loadQuestions', {
         method: 'POST',
         headers: {
