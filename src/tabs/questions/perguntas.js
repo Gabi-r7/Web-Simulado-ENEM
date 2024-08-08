@@ -6,13 +6,6 @@ let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 console.log('Página carregada');
 
-<<<<<<< HEAD
-let params = new URLSearchParams(window.location.search);
-let ano = params.get('ano') ? params.get('ano').split(',') : [];
-let tipo = params.get('tipo') ? params.get('tipo').split(',') : [];
-console.log(ano, tipo);
-carregarPerguntas(ano, tipo);
-=======
 function updateLink(categoria) {
     if (isNaN(categoria)) {
         tipo = [categoria];
