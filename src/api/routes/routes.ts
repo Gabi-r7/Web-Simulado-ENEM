@@ -267,16 +267,39 @@ routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
     });
 });
 
-routes.post('/checkAnswers', (req, res) => {
-    const { respostasDoUsuario } = req.body;
-    console.log(respostasDoUsuario);
-    const answersList = JSON.parse(req.cookies.answersList);
-    const resultados = answersList.map((q: any, index: number) => ({
-        correta: q[index] === respostasDoUsuario[index],
-        respostaCorreta: answersList[index],
-    }));
-    console.log(resultados);
-    res.json(resultados);
+routes.post('/checkAnswers', authenticate, async (req:any, res:any) => {
+    const { respostasDoUsuario, perguntas } = req.body;
+    const userId = req.user.id;
+    let acertos = 0;
+    let erros = 0;
+    let respondidas = 0;
+    for (let i = 0; i < perguntas.length; i++) {
+        console.log(respostasDoUsuario[i], perguntas[i].Resposta);
+        if (respostasDoUsuario[i] === perguntas[i].Resposta && respostasDoUsuario[i] !== undefined) {
+            respondidas++;
+            acertos++;
+        }
+        else {
+            respondidas++;
+            erros++;
+        }
+    }
+    const user = await prisma.user.findUnique({
+        where: { id: userId },
+    });
+    
+    if (user){
+        user.correct_answers += acertos;
+        user.wrong_answers += erros;
+        user.questions_answered += respondidas;
+        user.experience += acertos * 10;
+   
+        await prisma.user.update({
+            where: { id: userId },
+            data: user,
+        });
+    }
+    res.status(200);
 });
 
 

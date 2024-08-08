@@ -2,6 +2,9 @@ let tipo = []; // Declaração no escopo global
 let ano = [];
 let conc = '';
 
+let perguntas = null;
+let indicePerguntaAtual = 0;
+
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 console.log('Página carregada');
@@ -62,9 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-let perguntas = null;
-let indicePerguntaAtual = 0;
-
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -107,15 +107,15 @@ async function carregarPerguntas(ano, tipo) {
 async function atualizarPergunta() {
     if (indicePerguntaAtual >= perguntas.length) {
         // Todas as perguntas foram respondidas
-        const response = await fetch('/checkAnswers', {
+
+        console.log('respostasDoUsuario:', respostasDoUsuario);
+        fetch('/checkAnswers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ respostasDoUsuario })
+            body: JSON.stringify({ respostasDoUsuario, perguntas })
         });
-        const data = await response.json();
-        console.log('data: ', data);
 
         alert('Você acabou!');
         let gabarito = document.createElement('div');
@@ -303,6 +303,7 @@ div.appendChild(listaAlternativas);
         if (event.key === 'Enter') {
             if(selectedOption !== null) {
                 respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+                console.log(respostasDoUsuario);
             }
             let numero = parseInt(customQuestion.value);
             if (numero > 0 && numero <= perguntas.length) {
@@ -329,7 +330,8 @@ div.appendChild(listaAlternativas);
     buttonNext.addEventListener('click', function() {
         if (selectedOption !== null) {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            console.log(selectedOption.dataset.value);
+            console.log('selecionada: ', selectedOption.dataset.value);
+            console.log(respostasDoUsuario);
         }
         proximaPergunta();
     });
