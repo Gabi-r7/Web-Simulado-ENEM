@@ -65,13 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function embaralharArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
 async function carregarPerguntas(ano, tipo) {
     // fetch('/src/assets/json/arrayPerguntas.json')
     //     .then(response => response.json())
@@ -105,80 +98,6 @@ async function carregarPerguntas(ano, tipo) {
 }
 
 async function atualizarPergunta() {
-    if (indicePerguntaAtual >= perguntas.length) {
-        // Todas as perguntas foram respondidas
-
-        console.log('respostasDoUsuario:', respostasDoUsuario);
-        fetch('/checkAnswers', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ respostasDoUsuario, perguntas })
-        });
-
-        alert('Você acabou!');
-        let gabarito = document.createElement('div');
-        gabarito.classList.add('main-div'); // Class
-        gabarito.classList.add('gabarito'); // Class
-
-        let legendaGabarito = document.createElement('div');
-        legendaGabarito.classList.add('legenda-gabarito'); // Class
-        legendaGabarito.classList.add('main-div'); // Class
-        legendaGabarito.innerHTML = 'Gabarito';
-        mainElement.appendChild(legendaGabarito);        
-
-        perguntas.forEach((pergunta, index) => {
-            let divLinha = document.createElement('div');
-            divLinha.classList.add('linha'); // Class
-            divLinha.classList.add('border'); // Class
-
-            // Criar div para número da pergunta
-            let divNumero = document.createElement('div');
-            divNumero.innerHTML = `Questão ${index + 1}`;
-            divLinha.appendChild(divNumero);
-
-            // Criar div para a descrição da pergunta
-            let divPergunta = document.createElement('div');
-            divPergunta.innerHTML = pergunta['Descrição'];
-            divLinha.appendChild(divPergunta);
-
-            // Criar div para a resposta do usuário
-            let divRespostaUsuario = document.createElement('div');
-            divRespostaUsuario.classList.add('resposta-usuario'); // Class
-            divRespostaUsuario.innerHTML = "Marcada: " + (respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido');
-            divLinha.appendChild(divRespostaUsuario);
-            
-            if(pergunta['Alternativas'][respostasDoUsuario[index]] === pergunta['Alternativas'][pergunta['Resposta']]){
-                divRespostaUsuario.classList.add('acertou'); // Class
-            }
-            else{
-                divRespostaUsuario.classList.add('errou'); // Class
-            }
-            
-            // Criar div para a resposta correta
-            let divRespostaCorreta = document.createElement('div');
-            divRespostaCorreta.classList.add('resposta-correta'); // Class
-            divRespostaCorreta.innerHTML = "Resposta: " + (pergunta['Alternativas'][pergunta['Resposta']]);
-            divLinha.appendChild(divRespostaCorreta);
-
-            // Adiciona a linha à div principal
-            gabarito.appendChild(divLinha);
-
-            // Se a linha contém '\', processa com MathJax
-            if (divLinha.textContent.includes('\\')) {
-                MathJax.typesetPromise([divLinha]);
-                console.log('Inclui sabosta');
-            }
-
-
-        });
-
-        // Adiciona a div principal ao elemento principal na página
-        mainElement.appendChild(gabarito);
-        console.log('respostasDoUsuario:', respostasDoUsuario);
-        return;
-    }
     
     let pergunta = perguntas[indicePerguntaAtual];
     console.log(perguntas);
@@ -328,12 +247,33 @@ div.appendChild(listaAlternativas);
     buttonNext.appendChild(spanNext);
     
     buttonNext.addEventListener('click', function() {
+        console.log('indicePerguntaAtual:', indicePerguntaAtual);
+        if (indicePerguntaAtual + 1 <= perguntas.length - 1) {
+            if (selectedOption !== null) {
+                respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
+                console.log('selecionada: ', selectedOption.dataset.value);
+                console.log(respostasDoUsuario);
+            }
+            mainElement.innerHTML = '';
+            proximaPergunta();
+        }
+    });
+
+    //buttonFinish
+
+    let buttonFinish = document.createElement('div');
+    botoes.appendChild(buttonFinish);
+    buttonFinish.classList.add('finish'); //class
+
+    let spanFinish = document.createElement('div');
+    spanFinish.textContent = 'Terminar';
+    buttonFinish.appendChild(spanFinish);
+
+    buttonFinish.addEventListener('click', function() {
         if (selectedOption !== null) {
             respostasDoUsuario[indicePerguntaAtual] = parseInt(selectedOption.dataset.value);
-            console.log('selecionada: ', selectedOption.dataset.value);
-            console.log(respostasDoUsuario);
         }
-        proximaPergunta();
+        terminar();
     });
     
     mainElement.appendChild(div);
@@ -348,4 +288,79 @@ function proximaPergunta() {
 function perguntaAnterior() {
     indicePerguntaAtual--;
     atualizarPergunta();
+}
+
+function terminar () {
+    mainElement.innerHTML = '';
+    
+    console.log('respostasDoUsuario:', respostasDoUsuario);
+    fetch('/checkAnswers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ respostasDoUsuario, perguntas })
+    });
+
+    alert('Você acabou!');
+    let gabarito = document.createElement('div');
+    gabarito.classList.add('main-div'); // Class
+    gabarito.classList.add('gabarito'); // Class
+
+    let legendaGabarito = document.createElement('div');
+    legendaGabarito.classList.add('legenda-gabarito'); // Class
+    legendaGabarito.classList.add('main-div'); // Class
+    legendaGabarito.innerHTML = 'Gabarito';
+    mainElement.appendChild(legendaGabarito);        
+
+    perguntas.forEach((pergunta, index) => {
+        let divLinha = document.createElement('div');
+        divLinha.classList.add('linha'); // Class
+        divLinha.classList.add('border'); // Class
+
+        // Criar div para número da pergunta
+        let divNumero = document.createElement('div');
+        divNumero.innerHTML = `Questão ${index + 1}`;
+        divLinha.appendChild(divNumero);
+
+        // Criar div para a descrição da pergunta
+        let divPergunta = document.createElement('div');
+        divPergunta.innerHTML = pergunta['Descrição'];
+        divLinha.appendChild(divPergunta);
+
+        // Criar div para a resposta do usuário
+        let divRespostaUsuario = document.createElement('div');
+        divRespostaUsuario.classList.add('resposta-usuario'); // Class
+        divRespostaUsuario.innerHTML = "Marcada: " + (respostasDoUsuario[index] !== undefined ? pergunta['Alternativas'][respostasDoUsuario[index]] : 'Não respondido');
+        divLinha.appendChild(divRespostaUsuario);
+        
+        if(pergunta['Alternativas'][respostasDoUsuario[index]] === pergunta['Alternativas'][pergunta['Resposta']]){
+            divRespostaUsuario.classList.add('acertou'); // Class
+        }
+        else{
+            divRespostaUsuario.classList.add('errou'); // Class
+        }
+        
+        // Criar div para a resposta correta
+        let divRespostaCorreta = document.createElement('div');
+        divRespostaCorreta.classList.add('resposta-correta'); // Class
+        divRespostaCorreta.innerHTML = "Resposta: " + (pergunta['Alternativas'][pergunta['Resposta']]);
+        divLinha.appendChild(divRespostaCorreta);
+
+        // Adiciona a linha à div principal
+        gabarito.appendChild(divLinha);
+
+        // Se a linha contém '\', processa com MathJax
+        if (divLinha.textContent.includes('\\')) {
+            MathJax.typesetPromise([divLinha]);
+            console.log('Inclui sabosta');
+        }
+
+
+    });
+
+    // Adiciona a div principal ao elemento principal na página
+    mainElement.appendChild(gabarito);
+    console.log('respostasDoUsuario:', respostasDoUsuario);
+    return;
 }
