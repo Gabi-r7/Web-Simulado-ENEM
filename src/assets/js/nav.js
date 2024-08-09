@@ -1,4 +1,3 @@
-
 const nav = document.querySelector('nav');
 
 nav.innerHTML = `
@@ -64,8 +63,6 @@ nav.innerHTML = `
         </div>
     </div>`
 
-// const ranking = document.querySelector('.ranking');
-// const perfil = document.querySelector('.perfil');
 async function logout() {
     const response = await fetch('/logout', {
         method: 'POST',
@@ -82,4 +79,28 @@ async function logout() {
     else {
         alert(responseJson.message);
     }
+}
+
+export function showModal(responseJson) {
+    const main = document.querySelector('main');
+    let color = 'red';
+    if (responseJson.status === 'success') {
+        color = 'green';
+    }
+    main.innerHTML = `
+        <div id="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 style="color: ${color};">${responseJson.status}</h1>
+                <h2>${responseJson.message}</h2>
+            </div>
+        </div>
+    `;
+
+    const close = document.querySelector('.close');
+    close.onclick = () => {
+        modal.style.display = 'none';
+    }
+    
+    modal.style.display = 'block';
 }

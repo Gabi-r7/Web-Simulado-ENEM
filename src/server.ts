@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(routes);
 
 // Iniciar o servidor
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

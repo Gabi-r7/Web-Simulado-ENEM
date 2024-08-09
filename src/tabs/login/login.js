@@ -1,3 +1,5 @@
+import { showModal } from '../../assets/js/nav.js';
+
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     console.log('entrou');
     event.preventDefault();
@@ -15,7 +17,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
     const responseJson = await response.json();
     if (responseJson.status === 'success') {
-        alert(responseJson.message);
+        showModal(responseJson);
         window.location.href = '/src/tabs/home/index.html';
     }
     else {
