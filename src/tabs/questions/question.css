@@ -51,21 +51,10 @@ main section{
 
 main section:nth-child(1) .main-div > div{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
     gap: 1rem;
 }
 
-main section:nth-child(1) .main-div > div > div{
-    background-color: var(--cor-terciaria);
-    border-radius: 10px;
-    padding: 1rem;
-    border:1px solid rgba(255, 255, 255, 0.189);
-}
-
-main section:nth-child(1) .main-div > div > div:hover{
-    transform: translateY(-0.2rem);
-    transition: 0.2s;
-}
 
 .start > button{
     font-weight: bold;
@@ -76,15 +65,37 @@ main section:nth-child(1) .main-div > div > div:hover{
     cursor: pointer;
     padding: 1rem;
     background-color: rgb(40, 234, 50);
+    border:1px solid rgba(255, 255, 255, 0.189);
+    transition:border 0.2s, transform 0.2s;
+}
+
+.start > button:hover{
+    border:1px solid rgb(255, 255, 255);
+    transform: translateY(-0.2rem);
+    transition: 0.2s;
 }
 
 /* checkbox */
 
 .checkbox-label{
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    transition:border 0.2s, transform 0.2s;
+}
+.checkbox-label{
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
     cursor: pointer;
+    position: relative;
+}
+
+.checkbox-label:hover{
+    border:1px solid rgb(255, 255, 255);
+    transform: translateY(-0.2rem);
+    transition: 0.2s;
 }
 
 .checkbox-label .checkbox-custom{
@@ -94,23 +105,37 @@ main section:nth-child(1) .main-div > div > div:hover{
     width: 0;
 }
 
-.checkbox-label div > div{
-    content: '';
-    height: 1.2rem;
+.checkbox-custom + div{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
     width: 1.2rem;
-    border-radius: 2px;
-    background-color: white;
-    color: black;
+    height: 1.2rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    opacity: 0;
+    transition:background-color 0.2s, opacity 0.2s;
+    font-size: 1.1rem;
     text-align: center;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 1px solid white;
+    color: var(--cor-terciaria);
+}
+
+.checkbox-custom + div > div{
+    transform: translateY(-0.3rem);
+}
+
+.checkbox-custom:checked + div{
+    background-color: rgb(0, 255, 0);
+    opacity: 1;
+    transition: 0.2s;
 }
 
 /* questao */
 
 .alternativa.selecionada{
-    background-color: rgb(209, 8, 8);
+    background-color: rgb(255, 72, 0);
 }
 
 

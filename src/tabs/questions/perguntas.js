@@ -28,7 +28,7 @@ function updateLink(categoria) {
             ano.push(categoria);
         }
     }
-    console.log(tipo);
+    console.log(ano,tipo);
 }
 
 function confirm() {
@@ -48,22 +48,6 @@ function confirm() {
     console.log(ano, tipo);
     carregarPerguntas(ano, tipo);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    var checkboxes = document.querySelectorAll('.checkbox-label input[type="checkbox"]');
-
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            var siblingDiv = this.nextElementSibling;
-            if (this.checked) {
-                siblingDiv.textContent = '✓';
-                siblingDiv.style.color = 'black';
-            } else {
-                siblingDiv.textContent = '';
-            }
-        });
-    });
-});
 
 async function carregarPerguntas(ano, tipo) {
     // fetch('/src/assets/json/arrayPerguntas.json')
