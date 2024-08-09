@@ -1,4 +1,23 @@
 const nav = document.querySelector('nav');
+const modal = document.createElement('div'); // Create the 'modal' element
+const main = document.querySelector('main');
+modal.id = 'modal';
+const modalContent = document.createElement('div'); // Create the 'modal-content' element
+
+modalContent.classList.add('modal-content');
+
+const h1 = document.createElement('h1'); // Create the 'h1' element
+
+const h2 = document.createElement('h2'); // Create the 'h2' element
+
+modalContent.appendChild(h1); // Append 'h1' to 'modalContent'
+modalContent.appendChild(h2); // Append 'h2' to 'modalContent'
+
+modal.appendChild(modalContent); // Append 'modalContent' to 'modal'
+
+main.appendChild(modal); // Append 'modal' to 'main'
+modal.style.display = 'none';
+
 
 nav.innerHTML = `
     <div>
@@ -63,6 +82,8 @@ nav.innerHTML = `
         </div>
     </div>`
 
+    
+
 async function logout() {
     const response = await fetch('/logout', {
         method: 'POST',
@@ -81,26 +102,24 @@ async function logout() {
     }
 }
 
-export function showModal(responseJson) {
-    const main = document.querySelector('main');
+function showModal(responseJson) {
+    const html = document.querySelector('html');
     let color = 'red';
     if (responseJson.status === 'success') {
         color = 'green';
     }
-    main.innerHTML = `
-        <div id="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1 style="color: ${color};">${responseJson.status}</h1>
-                <h2>${responseJson.message}</h2>
-            </div>
-        </div>
-    `;
-
-    const close = document.querySelector('.close');
-    close.onclick = () => {
-        modal.style.display = 'none';
-    }
+    h1.style.color = color;
+    h1.innerHTML = responseJson.status;
+    h2.innerHTML = responseJson.message;
     
+    
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 2500);
+    
+    html.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
     modal.style.display = 'block';
 }

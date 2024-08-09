@@ -1,5 +1,3 @@
-import { showModal } from '../../assets/js/nav.js';
-
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     console.log('entrou');
     event.preventDefault();
@@ -18,9 +16,11 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const responseJson = await response.json();
     if (responseJson.status === 'success') {
         showModal(responseJson);
-        window.location.href = '/src/tabs/home/index.html';
+        setTimeout(() => {
+            window.location.href = '/src/tabs/home/index.html';
+        }, 700);
     }
     else {
-        alert(responseJson.message);
+        showModal(responseJson);
     }
 });
