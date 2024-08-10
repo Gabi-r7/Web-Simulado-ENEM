@@ -21,12 +21,12 @@ document.getElementById('register-form').addEventListener('submit', async (event
     console.log(response);
     const responseJson = await response.json();
     if (responseJson.ok) {
-        alert(responseJson.message);
+        showModal(responseJson);
 
         //cokkie
         window.location.href = '/src/tabs/home/index.html';
     }
     else {
-        alert(responseJson.message);
+        showModal(responseJson);
     }
 });

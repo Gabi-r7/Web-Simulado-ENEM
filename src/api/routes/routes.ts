@@ -262,7 +262,7 @@ routes.post('/loadQuestions', authenticate, async (req: any, res: any) => {
             questionList.sort(() => Math.random() - 0.5);
         }     
 
-        
+        res.status(200);
         res.json({ questionList });
     });
 });

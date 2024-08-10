@@ -33,11 +33,11 @@ function updateLink(categoria) {
 
 function confirm() {
     if (tipo.length === 0 || tipo.includes('aleatorio') && tipo.length === 1) {
-        alert('Selecione pelo menos uma modalidade');
+        showModal(0, 'Selecione pelo menos uma modalidade');
         return;
     }
     if (ano.length === 0) {
-        alert('Selecione pelo menos um ano');
+        showModal(0, 'Selecione pelo menos um ano');
         return;
     }
 
@@ -50,24 +50,6 @@ function confirm() {
 }
 
 async function carregarPerguntas(ano, tipo) {
-    // fetch('/src/assets/json/arrayPerguntas.json')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         perguntas = [];
-    //         for (let ano of anos) {
-    //             for (let tipo of tipos) {
-    //                 if (data[ano] && data[ano][tipo]) {
-    //                     perguntas = perguntas.concat(...Object.values(data[ano][tipo]));
-    //                 }
-    //             }
-    //         }
-    //         if (tipo.includes('aleatorio')) {
-    //             embaralharArray(perguntas);
-    //         }
-    //         atualizarPergunta();
-    //     })
-    //     .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
-    mainElement.innerHTML = '';
     const response = await fetch('/loadQuestions', {
         method: 'POST',
         headers: {
@@ -75,10 +57,19 @@ async function carregarPerguntas(ano, tipo) {
         },
         body: JSON.stringify({ ano, tipo })
     });
-    const data = await response.json();
-    perguntas = data['questionList'];
-    console.log(perguntas);
-    atualizarPergunta();
+    const responseJson = await response.json();
+    console.log(response);
+    if (response.status === 200) {
+        mainElement.innerHTML = '';
+        perguntas = responseJson['questionList'];
+        atualizarPergunta();
+    }
+    else {
+        showModal(responseJson);
+        setTimeout(() => {
+            window.location.href = '/src/tabs/login/login.html';
+        }, 700);
+    }
 }
 
 async function atualizarPergunta() {

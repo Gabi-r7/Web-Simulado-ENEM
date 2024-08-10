@@ -94,32 +94,40 @@ async function logout() {
 
     const responseJson = await response.json();
     if (responseJson.ok) {
-        alert(responseJson.message);
-        window.location.href = '/src/tabs/home/index.html';
+        showModal(responseJson);
+        setTimeout(() => {
+            window.location.href = '/src/tabs/home/index.html';
+        }, 700);
     }
     else {
-        alert(responseJson.message);
+        showModal(responseJson);
     }
 }
 
-function showModal(responseJson) {
+function showModal(responseJson, message) {
     const html = document.querySelector('html');
     let color = 'red';
-    if (responseJson.status === 'success') {
-        color = 'green';
+    if (message !== undefined) {
+        h2.innerHTML = message;
     }
-    h1.style.color = color;
-    h1.innerHTML = responseJson.status;
-    h2.innerHTML = responseJson.message;
-    
+    else {
+        if (responseJson.status === 'success') {
+            color = 'green';
+        }
+        h1.style.color = color;
+        h1.innerHTML = responseJson.status;
+        h2.innerHTML = responseJson.message;
+    }
     
     setTimeout(() => {
         modal.style.display = 'none';
     }, 2500);
     
-    html.addEventListener('click', () => {
-        modal.style.display = 'none';
+    html.addEventListener('click', (event) => {
+        if (event.target.tagName !== 'BUTTON') {
+            modal.style.display = 'none';
+        }
     });
-
+    
     modal.style.display = 'block';
 }
