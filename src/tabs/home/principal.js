@@ -38,19 +38,3 @@ function confirm() {
     console.log(urlConc);
     window.location.href = "/src/tabs/questions/question.html?tipo=" + urlConc;
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    var checkboxes = document.querySelectorAll('.checkbox-label input[type="checkbox"]');
-
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            var siblingDiv = this.nextElementSibling;
-            if (this.checked) {
-                siblingDiv.textContent = '✓';
-                siblingDiv.style.color = 'black';
-            } else {
-                siblingDiv.textContent = '';
-            }
-        });
-    });
-});

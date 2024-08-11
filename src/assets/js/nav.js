@@ -1,23 +1,20 @@
 const nav = document.querySelector('nav');
-const modal = document.createElement('div'); // Create the 'modal' element
 const main = document.querySelector('main');
-modal.id = 'modal';
-const modalContent = document.createElement('div'); // Create the 'modal-content' element
+const body = document.querySelector('body');
 
+const modal = document.createElement('div'); // Create the 'modal' element
+body.appendChild(modal); // Append 'modal' to 'main'
+modal.id = 'modal';
+modal.style.display = 'none';
+
+const modalContent = document.createElement('div'); // Create the 'modal-content' element
+modal.appendChild(modalContent); // Append 'modalContent' to 'modal'
 modalContent.classList.add('modal-content');
 
 const h1 = document.createElement('h1'); // Create the 'h1' element
-
 const h2 = document.createElement('h2'); // Create the 'h2' element
-
 modalContent.appendChild(h1); // Append 'h1' to 'modalContent'
 modalContent.appendChild(h2); // Append 'h2' to 'modalContent'
-
-modal.appendChild(modalContent); // Append 'modalContent' to 'modal'
-
-main.appendChild(modal); // Append 'modal' to 'main'
-modal.style.display = 'none';
-
 
 nav.innerHTML = `
     <div>
@@ -97,7 +94,7 @@ async function logout() {
         showModal(responseJson);
         setTimeout(() => {
             window.location.href = '/src/tabs/home/index.html';
-        }, 700);
+        }, 1000);
     }
     else {
         showModal(responseJson);
