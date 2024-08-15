@@ -41,7 +41,7 @@ nav.innerHTML = `
                 <span class="material-symbols-outlined">
                     trophy
                 </span>
-                <span class="text-icon">Ranking</span>
+                <a class="text-icon" href="/src/tabs/ranking/ranking.html">Ranking</a>
             </div>
             <div class="nav-op">
                 <span class="material-symbols-outlined">
