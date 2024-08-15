@@ -302,6 +302,18 @@ routes.post('/checkAnswers', authenticate, async (req:any, res:any) => {
     res.status(200);
 });
 
+routes.get('/getUsers', authenticate, async (req: any, res: any) => {
+    const users = await prisma.user.findMany({
+        select: {
+            id: true,
+            login: true,
+            experience: true,
+            profileImage: true,
+        }
+    });
+    res.status(200);
+    res.json({ users });
+});
 
 
 //           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
