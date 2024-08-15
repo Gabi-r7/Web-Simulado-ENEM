@@ -150,14 +150,14 @@ async function atualizarPergunta() {
 
     function checkScroll() {
         const dataQuestionHeight = dataQuestion.offsetHeight;
-        const dataQuestionWidth = dataQuestion.offsetWidth;
+        // const dataQuestionWidth = dataQuestion.offsetWidth;
         const scrollPosition = window.scrollY || window.pageYOffset;
         const mainElement = document.querySelector('main');
     
         if (scrollPosition > dataQuestionHeight) {
             console.log('A página foi rolada mais do que o tamanho da div dataQuestion.');
             dataQuestion.classList.add('beforeScroll') //class
-            dataQuestion.style.width = `${dataQuestionWidth}px`;
+            // dataQuestion.style.width = `${dataQuestionWidth}px`;
             mainElement.style.marginTop = `${dataQuestionHeight}px`;
         }
         else {
