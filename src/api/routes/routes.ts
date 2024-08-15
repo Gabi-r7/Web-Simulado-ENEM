@@ -309,9 +309,11 @@ routes.get('/getUsers', authenticate, async (req: any, res: any) => {
                 id: true,
                 login: true,
                 experience: true,
+                questions_answered: true,
+                correct_answers: true,
+                wrong_answers: true,
             }
         });
-        users.sort((a, b) => b.experience - a.experience);
         res.status(200).json({ users });
     } catch (error) {
         console.error(error);

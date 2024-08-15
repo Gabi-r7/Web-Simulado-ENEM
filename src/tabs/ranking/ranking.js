@@ -1,4 +1,6 @@
 // Função para fazer a requisição ao backend
+document.addEventListener('DOMContentLoaded', getUsers);
+let responseJson = {};
 async function getUsers() {
     const response = await fetch('/getUsers', {
         method: 'GET',
@@ -7,27 +9,37 @@ async function getUsers() {
         }
     });
     console.log(response);
-    const responseJson = await response.json();
-    console.log(responseJson);
-    if (response.status == 200) {
-        const users = responseJson.users;
-        const ranking = document.getElementById('ranking-list');
-        
-        users.forEach((user, index) => {
-            const userElement = document.createElement('tr');
-            userElement.className = 'user';
-            userElement.innerHTML = `
-                <td class="position">${index + 1}</td>
-                <td class="info"><h3>${user.login}</h3></td>
-                <td class="score">${user.experience}</td>
-            `;
-            ranking.appendChild(userElement);
-        });
-    } else {
-        showModal(responseJson);
-        setTimeout(() => {
-            window.location.href = '/src/tabs/login/login.html';
-        }, 700);
+    responseJson = await response.json();
+};
+
+let filter = document.getElementById('filtro');
+filter.addEventListener('input', () => {
+    if (filter.value == 'Pontos') {
+        responseJson.users.sort((a, b) => b.experience - a.experience);
     }
-}
-document.addEventListener('DOMContentLoaded', getUsers);
+    else if (filter.value == 'Acertos') {
+        responseJson.users.sort((a, b) => b.correct_answers - a.correct_answers);
+    }
+    else if (filter.value == 'Erros') {
+        responseJson.users.sort((a, b) => b.wrong_answers - a.wrong_answers);
+    }
+    else if (filter.value == 'Respondidas') {
+        responseJson.users.sort((a, b) => (b.correct_answers + b.wrong_answers) - (a.correct_answers + a.wrong_answers));
+    }
+    let rankingList = document.getElementById('ranking-list');
+    let rows = rankingList.querySelectorAll('tr:not(:first-child)');
+    rows.forEach(row => row.remove());
+    responseJson.users.forEach((user, index) => {
+        let userElement = document.createElement('tr');
+        userElement.classList.add('user');
+        userElement.innerHTML = `
+            <td class="position">${index + 1}</td>
+            <td class="name">${user.login}</td>
+            <td class="experience">${user.experience}</td>
+            <td class="correct-answers">${user.correct_answers}</td>
+            <td class="wrong-answers">${user.wrong_answers}</td>
+            <td class="answered-questions">${user.correct_answers + user.wrong_answers}</td>
+        `;
+        rankingList.appendChild(userElement);
+    });
+});

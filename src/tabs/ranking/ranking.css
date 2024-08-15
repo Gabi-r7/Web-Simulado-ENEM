@@ -21,3 +21,8 @@ table{
     border-spacing: 0;
     border: 1px solid var(--cor-borda);
 }
+
+#ranking-content{
+    display: flex;
+    gap: 1rem;
+}
