@@ -20,11 +20,11 @@ document.getElementById('register-form').addEventListener('submit', async (event
 
     console.log(response);
     const responseJson = await response.json();
-    if (responseJson.ok) {
+    if (responseJson.status === 'success') {
         showModal(responseJson);
-
-        //cokkie
-        window.location.href = '/src/tabs/home/index.html';
+        setTimeout(() => {
+            window.location.href = '/src/tabs/home/index.html';
+        }, 700);
     }
     else {
         showModal(responseJson);
