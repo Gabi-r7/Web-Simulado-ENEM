@@ -303,16 +303,20 @@ routes.post('/checkAnswers', authenticate, async (req:any, res:any) => {
 });
 
 routes.get('/getUsers', authenticate, async (req: any, res: any) => {
-    const users = await prisma.user.findMany({
-        select: {
-            id: true,
-            login: true,
-            experience: true,
-            profileImage: true,
-        }
-    });
-    res.status(200);
-    res.json({ users });
+    try {
+        const users = await prisma.user.findMany({
+            select: {
+                id: true,
+                login: true,
+                experience: true,
+            }
+        });
+        users.sort((a, b) => b.experience - a.experience);
+        res.status(200).json({ users });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
 
 

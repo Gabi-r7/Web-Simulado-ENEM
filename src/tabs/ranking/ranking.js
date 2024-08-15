@@ -6,23 +6,20 @@ async function getUsers() {
             'Content-Type': 'application/json'
         }
     });
+    console.log(response);
     const responseJson = await response.json();
-    if (responseJson.status === 'success') {
-        const users = responseJson.data;
-        const ranking = document.getElementById('ranking');
-        ranking.innerHTML = '';
+    console.log(responseJson);
+    if (response.status == 200) {
+        const users = responseJson.users;
+        const ranking = document.getElementById('ranking-list');
+        
         users.forEach((user, index) => {
-            const userElement = document.createElement('div');
+            const userElement = document.createElement('tr');
             userElement.className = 'user';
             userElement.innerHTML = `
-                <div class="position">${index + 1}</div>
-                <div class="profile">
-                    <img src="${user.profileImage}" alt="Profile Image">
-                    <div class="info">
-                        <h3>${user.login}</h3>
-                    </div>
-                </div>
-                <div class="score">${user.experience}</div>
+                <td class="position">${index + 1}</td>
+                <td class="info"><h3>${user.login}</h3></td>
+                <td class="score">${user.experience}</td>
             `;
             ranking.appendChild(userElement);
         });
