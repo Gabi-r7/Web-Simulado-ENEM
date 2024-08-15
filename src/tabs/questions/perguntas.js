@@ -88,7 +88,6 @@ async function atualizarPergunta() {
     let numeroPergunta = indicePerguntaAtual + 1; // Adicionamos 1 porque os índices começam em 0
     let numeroPerguntaElement = document.createElement('h2');
     
-    
     numeroPerguntaElement.textContent = `Questão ${numeroPergunta} / ${perguntas.length}`;
     
     mainElement.appendChild(dataQuestion);
@@ -97,6 +96,8 @@ async function atualizarPergunta() {
     dataQuestion.classList.add('data-question'); //class
     dataQuestion.classList.add('main-div'); //class
     numeroPerguntaElement.classList.add('numero-pergunta'); //class
+
+    // export const dataQuestionSize = dataQuestion.getBoundingClientRect();
 
     if (descricaoAuxiliar) {
         let p = document.createElement('p');
@@ -115,6 +116,61 @@ async function atualizarPergunta() {
         divImgAux.classList.add('imagemAuxiliar'); //class
         divImgAux.classList.add('border'); //class
     }
+
+    dataQuestion.appendChild(div);
+
+    // Função para observar a div
+    function observeDiv(targetDiv) {
+        // Callback executada quando a interseção muda
+        const callback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('A div está visível na viewport.');
+                    dataQuestion.classList.remove('beforeScroll'); //class
+
+                } else {
+                    console.log('A div não está visível na viewport.');
+                    dataQuestion.classList.add('beforeScroll'); //class
+                }
+            });
+        };
+
+        // Cria uma instância de IntersectionObserver
+        const observer = new IntersectionObserver(callback, {
+            root: null, // Observa a viewport
+            threshold: 0 // Chama o callback assim que qualquer parte da div estiver visível
+        });
+
+        // Começa a observar a div
+        observer.observe(targetDiv);
+    }
+
+    // Adicione o código para observar a div
+    observeDiv(dataQuestion);
+
+    function checkScroll() {
+        const dataQuestionHeight = dataQuestion.offsetHeight;
+        const dataQuestionWidth = dataQuestion.offsetWidth;
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        const mainElement = document.querySelector('main');
+    
+        if (scrollPosition > dataQuestionHeight) {
+            console.log('A página foi rolada mais do que o tamanho da div dataQuestion.');
+            dataQuestion.classList.add('beforeScroll') //class
+            dataQuestion.style.width = `${dataQuestionWidth}px`;
+            mainElement.style.marginTop = `${dataQuestionHeight}px`;
+        }
+        else {
+            dataQuestion.classList.remove('beforeScroll') //class
+            mainElement.style.marginTop = '0';
+            
+        }
+    }
+    
+    // Adiciona o evento de rolagem
+    window.addEventListener('scroll', checkScroll);
+
+    // ------------------------
     
     h3.innerHTML = perguntaTtl;
     div.appendChild(h3);

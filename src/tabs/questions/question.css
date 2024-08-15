@@ -7,6 +7,7 @@ body{
 }
 
 main{
+    position: relative;
     margin-left: var(--nav-min-width);
     padding: 1rem;
     display: flex;
@@ -17,6 +18,7 @@ main{
     font-weight: 600;
     font-style: normal;
     gap: 1rem;
+    min-height: 100vh;
 }
 
 .border{
@@ -144,6 +146,7 @@ main section:nth-child(1) .main-div > div{
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
 }
 
 
@@ -195,14 +198,16 @@ main section:nth-child(1) .main-div > div{
 }
 
 .next,
-.previous{
+.previous,
+.finish{
     text-align: center;
     background-color: var(--cor-terciaria);
     transition: 0.2s;
 }
 
 .next > div,
-.previous > div{
+.previous > div,
+.finish > div{
     height: 100%;
     display: grid;
     place-items: center;
@@ -215,9 +220,18 @@ main section:nth-child(1) .main-div > div{
 }
 
 .next:hover,
-.previous:hover{
+.previous:hover,
+.finish:hover{
     transform: translateY(-0.2rem);
     transition: 0.2s;
+}
+
+.beforeScroll{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 /* gabarito */
