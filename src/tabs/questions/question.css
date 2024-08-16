@@ -146,7 +146,6 @@ main section:nth-child(1) .main-div > div{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
 }
 
 
@@ -179,11 +178,17 @@ main section:nth-child(1) .main-div > div{
 /* data-question */
 
 .data-question{
+    top: var(--nav-padding);
+    z-index: 100;
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    right: var(--nav-padding);
+    width: var(--data-question-size);
+    transition: border-top-left-radius 0.2s, border-top-right-radius 0.2s;
 }
 
 .botoes{
@@ -227,13 +232,10 @@ main section:nth-child(1) .main-div > div{
 }
 
 .beforeScroll{
-    position: fixed;
     top: 0;
-    z-index: 100;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width: calc(100% - var(--nav-min-width) - 2*var(--nav-padding));
-    right: var(--nav-padding);
+    transition: 0.2s;
 }
 
 /* gabarito */

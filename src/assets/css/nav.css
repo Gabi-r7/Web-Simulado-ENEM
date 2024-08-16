@@ -13,6 +13,7 @@
     --cor-secundaria: rgb(51, 51, 52);
     --cor-terciaria: rgb(97, 94, 107);
     --size-character: 1.2rem;
+    --data-question-size:calc(100% - var(--nav-min-width) - 2*var(--nav-padding));
 }
 
 *{

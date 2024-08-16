@@ -92,11 +92,15 @@ async function atualizarPergunta() {
     
     mainElement.appendChild(dataQuestion);
     dataQuestion.appendChild(numeroPerguntaElement);
+
+    // const dataQuestionWidth = dataQuestion.offsetWidth;
+    const dataQuestionHeight = dataQuestion.offsetHeight;
+    mainElement.style.marginTop = `calc(${dataQuestionHeight}px + 1rem)`;
     
     dataQuestion.classList.add('data-question'); //class
     dataQuestion.classList.add('main-div'); //class
     numeroPerguntaElement.classList.add('numero-pergunta'); //class
-
+    
     // export const dataQuestionSize = dataQuestion.getBoundingClientRect();
 
     if (descricaoAuxiliar) {
@@ -106,7 +110,7 @@ async function atualizarPergunta() {
         p.classList.add('descricaoAuxiliar'); //class
         p.classList.add('border'); //class
     }
-
+    
     if (imagemAuxiliar) {
         let img = document.createElement('img');
         let divImgAux = document.createElement('div');
@@ -116,9 +120,23 @@ async function atualizarPergunta() {
         divImgAux.classList.add('imagemAuxiliar'); //class
         divImgAux.classList.add('border'); //class
     }
-
+    
     dataQuestion.appendChild(div);
 
+    // Função para obter o valor da fonte raiz em pixels
+    function getRootFontSize() {
+        return parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
+
+    // Função para converter rem para pixels
+    function remToPixels(rem) {
+        const rootFontSize = getRootFontSize();
+        return rem * rootFontSize;
+    }
+
+    let remValue = 4; // valor em rem
+    let pixelValue = remToPixels(remValue);
+    
     // Função para observar a div
     function observeDiv(targetDiv) {
         // Callback executada quando a interseção muda
@@ -134,7 +152,7 @@ async function atualizarPergunta() {
                 }
             });
         };
-
+        
         // Cria uma instância de IntersectionObserver
         const observer = new IntersectionObserver(callback, {
             root: null, // Observa a viewport
@@ -149,21 +167,14 @@ async function atualizarPergunta() {
     observeDiv(dataQuestion);
 
     function checkScroll() {
-        const dataQuestionHeight = dataQuestion.offsetHeight;
-        // const dataQuestionWidth = dataQuestion.offsetWidth;
-        const scrollPosition = window.scrollY || window.pageYOffset;
-        const mainElement = document.querySelector('main');
+        const scrollPosition = window.scrollY || window.pageYOffset;        
     
-        if (scrollPosition > dataQuestionHeight) {
+        if (scrollPosition > (dataQuestionHeight - pixelValue)) {
             console.log('A página foi rolada mais do que o tamanho da div dataQuestion.');
             dataQuestion.classList.add('beforeScroll') //class
-            // dataQuestion.style.width = `${dataQuestionWidth}px`;
-            mainElement.style.marginTop = `${dataQuestionHeight}px`;
         }
         else {
             dataQuestion.classList.remove('beforeScroll') //class
-            mainElement.style.marginTop = '0';
-            
         }
     }
     
