@@ -71,13 +71,35 @@ nav.innerHTML = `
                     <span class="text-icon">Perfil</span>
                 </a>
             </div>
-            <div class="nav-op">    
-                <a href="/src/tabs/signUp/cadastro.html">
+        </div>
+    </div>`
+    
+async function fetchUserProfile() {
+    const response = await fetch('/profile', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const responseJson = await response.json();
+    if (responseJson.status === 'success') {
+        const user = responseJson.data;
+        const userElement = document.querySelector('.user');
+        userElement.innerHTML = `
+            <div class="nav-op">
+                <a href="/src/tabs/account/account.html">
                     <span class="material-symbols-outlined">
-                        person_add
+                        person
                     </span>
-                    <span class="text-icon">SingUp</span>
+                    <span class="text-icon">Perfil</span>
                 </a>
+            </div>
+            <div class="nav-op">
+                ${user.login}
+            </div>
+            <div class="nav-op">
+                <img src="${user.profileImage}" alt="profile image" class="profile-img">
             </div>
             <div class="nav-op">
                 <button onclick="logout()">
@@ -86,11 +108,28 @@ nav.innerHTML = `
                     </span>
                     <span class="text-icon">LogOut</span>
                 </button>
-            </div>
-        </div>
-    </div>`
+            </div>`
 
-    
+        // document.getElementById('login').innerText = user.login;
+        // document.getElementById('email').innerText = user.email;
+        // document.getElementById('profileImg').src = user.profileImage;
+    } else {
+        const userElement = document.querySelector('.user');
+        userElement.innerHTML = `
+            <div class="nav-op">
+                Não logado
+            </div>
+            <div class="nav-op">    
+                <a href="/src/tabs/signUp/cadastro.html">
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+                    <span class="text-icon">SingUp</span>
+                </a>
+            </div>`
+    }
+};
+
 
 async function logout() {
     const response = await fetch('/logout', {

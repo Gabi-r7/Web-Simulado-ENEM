@@ -86,3 +86,13 @@ main > section{
 .border-right{
     border-right: 0;
 }
+
+.selected{
+    background-color: rgb(98, 97, 105);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.legendas.selected{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

@@ -134,7 +134,7 @@ async function atualizarPergunta() {
         return rem * rootFontSize;
     }
 
-    let remValue = 4; // valor em rem
+    let remValue = 5.5; // valor em rem
     let pixelValue = remToPixels(remValue);
     
     // Função para observar a div

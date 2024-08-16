@@ -68,35 +68,69 @@ function sortUser() {
 
     const filterText = document.getElementById('filter-text');
     filterText.innerHTML = 'Filtrando por ';
+    
+    const legendas = document.querySelectorAll('.legendas');
+    legendas.forEach((legenda, index) => {
+        legenda.classList.remove('selected');
+        legenda.classList.remove('border-right');
+
+        if(index == legendas.length - 1) {
+            legenda.classList.add('border-right');
+        }
+    });
 
     if (filterOp == 'Acertos') {
+        let legenda = document.querySelector('.correct-answers.legendas');
+        afterLegenda = legenda.previousElementSibling;
+        afterLegenda.classList.add('border-right');
+
         filterText.innerHTML += 'acertos';
+
         correct_answers = document.querySelectorAll('.correct-answers');
         correct_answers.forEach(correct_answer => {
-            correct_answer.style.backgroundColor = 'yellowgreen';
+            // correct_answer.style.backgroundColor = 'yellowgreen';
+            correct_answer.classList.add('selected');
         });
         
     }
     else if (filterOp == 'Erros') {
+        let legenda = document.querySelector('.wrong-answers.legendas');
+        afterLegenda = legenda.previousElementSibling;
+        afterLegenda.classList.add('border-right');
+
         filterText.innerHTML += 'erros';
+
         wrong_answers = document.querySelectorAll('.wrong-answers');
         wrong_answers.forEach(wrong_answer => {
-            wrong_answer.style.backgroundColor = 'red';
+            // wrong_answer.style.backgroundColor = 'red';
+            wrong_answer.classList.add('selected');
         });
         
     }
     else if (filterOp == 'Respondidas') {
+        let legenda = document.querySelector('.answered-questions.legendas');
+        afterLegenda = legenda.previousElementSibling;
+        afterLegenda.classList.add('border-right');
+
         filterText.innerHTML += 'respondidas';
+
         answered_questions = document.querySelectorAll('.answered-questions');
         answered_questions.forEach(answered_question => {
-            answered_question.style.backgroundColor = 'rgb(71, 71, 255)';
+            // answered_question.style.backgroundColor = 'rgb(71, 71, 255)';
+            answered_question.classList.add('selected');
         });
     }
     else {
+        let legenda = document.querySelector('.experience.legendas');
+        afterLegenda = legenda.previousElementSibling;
+        afterLegenda.classList.add('border-right');
+
         filterText.innerHTML += 'experiência';
+
         experience = document.querySelectorAll('.experience');
         experience.forEach(experience => {
-            experience.style.backgroundColor = 'orange';
+            // experience.style.backgroundColor = 'orange';
+            experience.classList.add('selected');
         });
     }
 };
