@@ -22,7 +22,6 @@ main{
 
 .border{
     border-bottom:1px solid rgba(255, 255, 255, 0.189);
-    padding-bottom: 1rem;
 }
 
 .main-div{
@@ -35,23 +34,25 @@ main{
     gap: 2rem;
 }
 
-table{
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid var(--cor-borda);
-    gap: 1rem;
+.secondary-div{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
 }
 
 #ranking-content{
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 } 
 
 main > section{
     width: 100%;
 }
 
-.legenda-ranking{
+.titulo-ranking{
     font-size: 1.8rem;
     width: 100%;
     text-align: center;
@@ -59,4 +60,29 @@ main > section{
 
 .par{
     background-color: rgb(74, 72, 79);;
+}
+
+#filtro{
+    cursor: pointer;
+}
+
+#filtro > option{
+    cursor: pointer;
+}
+
+.linha{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.coluna{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.189);
+}
+
+.border-right{
+    border-right: 0;
 }

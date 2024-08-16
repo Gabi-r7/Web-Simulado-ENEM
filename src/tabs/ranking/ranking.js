@@ -17,36 +17,86 @@ filter.addEventListener('input', () => {
     sortUser();
 });
 function sortUser() {
+    let filterOp
+
     if (filter.value == 'Acertos') {
         responseJson.users.sort((a, b) => b.correct_answers - a.correct_answers);
+        filterOp = 'Acertos'
     }
     else if (filter.value == 'Erros') {
         responseJson.users.sort((a, b) => b.wrong_answers - a.wrong_answers);
+        filterOp = 'Erros'
     }
     else if (filter.value == 'Respondidas') {
         responseJson.users.sort((a, b) => (b.correct_answers + b.wrong_answers) - (a.correct_answers + a.wrong_answers));
+        filterOp = 'Respondidas'
     }
     else {
         responseJson.users.sort((a, b) => b.experience - a.experience);
+        filterOp = 'Experiência'
     }
+
     let rankingList = document.getElementById('ranking-list');
-    let rows = rankingList.querySelectorAll('tr:not(:first-child)');
+    let rows = rankingList.querySelectorAll('.linha:not(:first-child)');
+
     rows.forEach(row => row.remove());
+
     responseJson.users.forEach((user, index) => {
-        let userElement = document.createElement('tr');
+        let userElement = document.createElement('div');
         userElement.classList.add('linha');
         userElement.classList.add('border');
+
         if(index % 2 == 0) {
             userElement.classList.add('par');
         }
+        if(responseJson.users.length - 1 == index) {
+            userElement.classList.remove('border');
+        }
+
         userElement.innerHTML = `
-            <td class="position">${index + 1}</td>
-            <td class="name">${user.login}</td>
-            <td class="experience">${user.experience}</td>
-            <td class="correct-answers">${user.correct_answers}</td>
-            <td class="wrong-answers">${user.wrong_answers}</td>
-            <td class="answered-questions">${user.correct_answers + user.wrong_answers}</td>
+        <div class="position coluna">${index + 1}</div>
+        <div class="name coluna">${user.login}</div>
+        <div class="experience coluna">${user.experience}</div>
+        <div class="correct-answers coluna">${user.correct_answers}</div>
+        <div class="wrong-answers coluna">${user.wrong_answers}</div>
+        <div class="answered-questions coluna border-right">${user.correct_answers + user.wrong_answers}</div>
         `;
+        
+        
         rankingList.appendChild(userElement);
     });
+
+    const filterText = document.getElementById('filter-text');
+    filterText.innerHTML = 'Filtrando por ';
+
+    if (filterOp == 'Acertos') {
+        filterText.innerHTML += 'acertos';
+        correct_answers = document.querySelectorAll('.correct-answers');
+        correct_answers.forEach(correct_answer => {
+            correct_answer.style.backgroundColor = 'yellowgreen';
+        });
+        
+    }
+    else if (filterOp == 'Erros') {
+        filterText.innerHTML += 'erros';
+        wrong_answers = document.querySelectorAll('.wrong-answers');
+        wrong_answers.forEach(wrong_answer => {
+            wrong_answer.style.backgroundColor = 'red';
+        });
+        
+    }
+    else if (filterOp == 'Respondidas') {
+        filterText.innerHTML += 'respondidas';
+        answered_questions = document.querySelectorAll('.answered-questions');
+        answered_questions.forEach(answered_question => {
+            answered_question.style.backgroundColor = 'rgb(71, 71, 255)';
+        });
+    }
+    else {
+        filterText.innerHTML += 'experiência';
+        experience = document.querySelectorAll('.experience');
+        experience.forEach(experience => {
+            experience.style.backgroundColor = 'orange';
+        });
+    }
 };

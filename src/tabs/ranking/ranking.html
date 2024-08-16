@@ -29,29 +29,32 @@
     </nav>
 
     <main>
-        <section id="header-main" class="legenda-ranking main-div">
+        <section id="header-main" class="titulo-ranking main-div">
             <div>Ranking</div>
         </section>
         <section id="ranking-content" class="main-div">
-            <form>
-                <label>Filtro: </label>
-                <select type="" id="filtro" name="Opcoes" autocomplete="off" required pattern="Pontos|Questões corretas|Questões erradas|Questões respondidas">
-                    <option value="Pontos" selected>Pontos</option>
-                    <option value="Acertos">Acertos</option>
-                    <option value="Erros">Erros</option>
-                    <option value="Respondidas">Respondidas</option>
-                </select>
+            <form class="secondary-div">
+                <div>
+                    <label>Filtro: </label>
+                    <select type="" id="filtro" name="Opcoes" autocomplete="off" required pattern="Pontos|Questões corretas|Questões erradas|Questões respondidas">
+                        <option value="Pontos" selected>Pontos</option>
+                        <option value="Acertos">Acertos</option>
+                        <option value="Erros">Erros</option>
+                        <option value="Respondidas">Respondidas</option>
+                    </select>
+                </div>
+                <div id="filter-text"></div>
             </form>
-            <table id="ranking-list">
-                <tr>
-                    <td>Posição</td>
-                    <td>Nome</td>
-                    <td>Pontos</td>
-                    <td>Questões corretas</td>
-                    <td>Questões erradas</td>
-                    <td>Questões respondidas</td>
-                </tr>
-            </table>
+            <div id="ranking-list">
+                <div class="border legenda-ranking linha">
+                    <div class="coluna">Posição</div>
+                    <div class="coluna">Nome</div>
+                    <div class="coluna">Pontos</div>
+                    <div class="coluna">Questões corretas</div>
+                    <div class="coluna">Questões erradas</div>
+                    <div class="coluna border-right">Questões respondidas</div>
+                </div>
+            </div>
         </section>
     </main>
 
