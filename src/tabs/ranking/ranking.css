@@ -9,20 +9,58 @@ body{
 main{
     margin-left: var(--nav-min-width);
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: var(--size-character);
     font-family: "Titillium Web", sans-serif;
     font-weight: 600;
     font-style: normal;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.border{
+    border-bottom:1px solid rgba(255, 255, 255, 0.189);
+    padding-bottom: 1rem;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    gap: 2rem;
+}
+
+.secondary-div{
+    background-color: var(--cor-terciaria);
 }
 
 table{
-    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     border: 1px solid var(--cor-borda);
+    gap: 1rem;
 }
 
 #ranking-content{
     display: flex;
     gap: 1rem;
+} 
+
+main > section{
+    width: 100%;
+}
+
+.legenda-ranking{
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;
+}
+
+.linha{
+
 }

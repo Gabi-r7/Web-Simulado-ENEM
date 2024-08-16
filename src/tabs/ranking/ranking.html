@@ -27,11 +27,21 @@
 <body>
     <nav>
     </nav>
+
     <main>
-        <section id="header-main">
-            <h1>Ranking</h1>
+        <section id="header-main" class="legenda-ranking main-div">
+            <div>Ranking</div>
         </section>
-        <section id="ranking-content">
+        <section id="ranking-content" class="main-div">
+            <form>
+                <label>Filtro: </label>
+                <select type="" id="filtro" name="Opcoes" autocomplete="off" required pattern="Pontos|Questões corretas|Questões erradas|Questões respondidas">
+                    <option value="Pontos" selected>Pontos</option>
+                    <option value="Acertos">Acertos</option>
+                    <option value="Erros">Erros</option>
+                    <option value="Respondidas">Respondidas</option>
+                </select>
+            </form>
             <table id="ranking-list">
                 <tr>
                     <td>Posição</td>
@@ -42,15 +52,6 @@
                     <td>Questões respondidas</td>
                 </tr>
             </table>
-            <form>
-                <label>Filtro: </label>
-                <select type="" id="filtro" name="Opcoes" autocomplete="off" required pattern="Pontos|Questões corretas|Questões erradas|Questões respondidas">
-                    <option value="Pontos">Pontos</option>
-                    <option value="Acertos">Acertos</option>
-                    <option value="Erros">Erros</option>
-                    <option value="Respondidas">Respondidas</option>
-                </select>
-            </form>
         </section>
     </main>
 

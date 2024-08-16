@@ -334,6 +334,7 @@ function perguntaAnterior() {
 
 function terminar () {
     mainElement.innerHTML = '';
+    mainElement.style.marginTop = '0';
     
     console.log('respostasDoUsuario:', respostasDoUsuario);
     fetch('/checkAnswers', {

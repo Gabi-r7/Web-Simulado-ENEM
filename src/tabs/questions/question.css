@@ -26,6 +26,15 @@ main{
     padding-bottom: 1rem;
 }
 
+.main-div{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 1rem;
+    border:1px solid rgba(255, 255, 255, 0.189);
+    gap: 2rem;
+}
 /* section 1 */
 
 main section{
@@ -36,15 +45,6 @@ main section{
     width: 100%;
 }
 
-.main-div{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--cor-secundaria);
-    border-radius: 20px;
-    padding: 1rem;
-    border:1px solid rgba(255, 255, 255, 0.189);
-    gap: 2rem;
-}
 
 .border{
     border-bottom:1px solid rgba(255, 255, 255, 0.189);

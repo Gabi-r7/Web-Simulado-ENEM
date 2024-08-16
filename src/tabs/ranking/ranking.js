@@ -31,7 +31,8 @@ filter.addEventListener('input', () => {
     rows.forEach(row => row.remove());
     responseJson.users.forEach((user, index) => {
         let userElement = document.createElement('tr');
-        userElement.classList.add('user');
+        userElement.classList.add('linha');
+        userElement.classList.add('secondary-div');
         userElement.innerHTML = `
             <td class="position">${index + 1}</td>
             <td class="name">${user.login}</td>
