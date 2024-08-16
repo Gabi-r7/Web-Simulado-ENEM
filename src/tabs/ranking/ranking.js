@@ -10,14 +10,14 @@ async function getUsers() {
     });
     console.log(response);
     responseJson = await response.json();
+    sortUser();
 };
-
 let filter = document.getElementById('filtro');
 filter.addEventListener('input', () => {
-    if (filter.value == 'Pontos') {
-        responseJson.users.sort((a, b) => b.experience - a.experience);
-    }
-    else if (filter.value == 'Acertos') {
+    sortUser();
+});
+function sortUser() {
+    if (filter.value == 'Acertos') {
         responseJson.users.sort((a, b) => b.correct_answers - a.correct_answers);
     }
     else if (filter.value == 'Erros') {
@@ -26,13 +26,15 @@ filter.addEventListener('input', () => {
     else if (filter.value == 'Respondidas') {
         responseJson.users.sort((a, b) => (b.correct_answers + b.wrong_answers) - (a.correct_answers + a.wrong_answers));
     }
+    else {
+        responseJson.users.sort((a, b) => b.experience - a.experience);
+    }
     let rankingList = document.getElementById('ranking-list');
     let rows = rankingList.querySelectorAll('tr:not(:first-child)');
     rows.forEach(row => row.remove());
     responseJson.users.forEach((user, index) => {
         let userElement = document.createElement('tr');
-        userElement.classList.add('linha');
-        userElement.classList.add('secondary-div');
+        userElement.classList.add('user');
         userElement.innerHTML = `
             <td class="position">${index + 1}</td>
             <td class="name">${user.login}</td>
@@ -43,4 +45,4 @@ filter.addEventListener('input', () => {
         `;
         rankingList.appendChild(userElement);
     });
-});
+};
