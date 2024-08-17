@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', loginVerify);
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -74,19 +75,24 @@ nav.innerHTML = `
         </div>
     </div>`
     
-async function fetchUserProfile() {
-    const response = await fetch('/profile', {
+
+async function loginVerify() {
+    const response = await fetch('/loginVerify', {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         }
     });
-
+    
     const responseJson = await response.json();
     if (responseJson.status === 'success') {
-        const user = responseJson.data;
+        const user = responseJson.message + responseJson.data;
         const userElement = document.querySelector('.user');
+        
         userElement.innerHTML = `
+        <div class="nav-op">
+            ${user}
+        </div>
             <div class="nav-op">
                 <a href="/src/tabs/account/account.html">
                     <span class="material-symbols-outlined">
@@ -95,12 +101,7 @@ async function fetchUserProfile() {
                     <span class="text-icon">Perfil</span>
                 </a>
             </div>
-            <div class="nav-op">
-                ${user.login}
-            </div>
-            <div class="nav-op">
-                <img src="${user.profileImage}" alt="profile image" class="profile-img">
-            </div>
+            
             <div class="nav-op">
                 <button onclick="logout()">
                     <span class="material-symbols-outlined">

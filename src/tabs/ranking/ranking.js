@@ -8,7 +8,6 @@ async function getUsers() {
             'Content-Type': 'application/json'
         }
     });
-    console.log(response);
     responseJson = await response.json();
     sortUser();
 };

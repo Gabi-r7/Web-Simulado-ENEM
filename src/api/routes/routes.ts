@@ -7,7 +7,6 @@ import cookieParser from 'cookie-parser';
 import prisma from '../../prisma/client';
 import fs from 'fs';
 import path from 'path';
-import { ALL } from 'dns';
 
 // Instância do express
 const routes = express.Router();
@@ -321,6 +320,27 @@ routes.get('/getUsers', authenticate, async (req: any, res: any) => {
     }
 });
 
+routes.get('/loginVerify', authenticate, async (req: any, res: any) => {
+    if (req.cookies.auth_token) {
+        const userId = req.user.id;
+        const login = await prisma.user.findUnique({
+            where: {id: userId },
+            select: {
+                login: true
+            }
+        });
+        return res.status(200).json({
+            status: 'success',
+            message: 'Você está logado como: ',
+            data: login?.login.toString()
+        });
+    }
+    return res.status(400).json({
+        status: 'error',
+        message: 'Você não está logado',
+        data: null
+    });
+});
 
 //           ROTA MODIFICAR USUÁRIO, SENHA OU EMAIL
 //não fiz pra imagem
