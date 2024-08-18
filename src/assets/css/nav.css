@@ -169,5 +169,16 @@ main.maisEspaco{
         padding: 1rem;
     }
 
+    .showNavContent > button{
+        font-family: "Titillium Web", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.7rem;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: var(--cor-terciaria);
+    }
+
 
 }
