@@ -9,7 +9,8 @@ async function getUsers() {
         }
     });
     responseJson = await response.json();
-    if (responseJson.status != 400) {
+    console.log(responseJson);
+    if (responseJson.status != 'error') {
         sortUser();
     }
     else {
@@ -24,23 +25,23 @@ filter.addEventListener('input', () => {
     sortUser();
 });
 function sortUser() {
-    let filterOp
+    let filterOp;
 
     if (filter.value == 'Acertos') {
         responseJson.users.sort((a, b) => b.correct_answers - a.correct_answers);
-        filterOp = 'Acertos'
+        filterOp = 'Acertos';
     }
     else if (filter.value == 'Erros') {
         responseJson.users.sort((a, b) => b.wrong_answers - a.wrong_answers);
-        filterOp = 'Erros'
+        filterOp = 'Erros';
     }
     else if (filter.value == 'Respondidas') {
         responseJson.users.sort((a, b) => (b.correct_answers + b.wrong_answers) - (a.correct_answers + a.wrong_answers));
-        filterOp = 'Respondidas'
+        filterOp = 'Respondidas';
     }
     else {
         responseJson.users.sort((a, b) => b.experience - a.experience);
-        filterOp = 'Experiência'
+        filterOp = 'Experiência';
     }
 
     let rankingList = document.getElementById('ranking-list');

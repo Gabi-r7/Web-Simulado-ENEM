@@ -221,12 +221,11 @@ async function logout() {
     })
 
     const responseJson = await response.json();
-    if (responseJson.ok) {
+    if (responseJson.status === 'success') {
         showModal(responseJson);
         setTimeout(() => {
-            window.location.href = '/src/tabs/home/index.html';
-            location.reload();
-        }, 1000);
+            window.location.href = '/src/tabs/home/index.html'; 
+        }, 700);
     }
     else {
         showModal(responseJson);
