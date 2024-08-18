@@ -9,7 +9,15 @@ async function getUsers() {
         }
     });
     responseJson = await response.json();
-    sortUser();
+    if (responseJson.status === 'success') {
+        sortUser();
+    }
+    else {
+        showModal(responseJson);
+        setTimeout(() => {
+            window.location.href = '/src/tabs/login/login.html';
+        }, 700);
+    }
 };
 let filter = document.getElementById('filtro');
 filter.addEventListener('input', () => {
