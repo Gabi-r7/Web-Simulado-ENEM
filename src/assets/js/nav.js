@@ -46,6 +46,7 @@ if(larguraJanela < 430) {
     let btShowNav = document.createElement('button');
     divShowNavContent.appendChild(btShowNav);
 
+    btShowNav.innerHTML = "menu";
 
     btShowNav.addEventListener('click', () => {
         nav.classList.toggle('hidden');
