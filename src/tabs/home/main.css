@@ -7,7 +7,7 @@ body{
 }
 
 main{
-    margin-left: var(--nav-min-width);
+    margin-left: var(--nav-width);
     padding: 1rem;
     font-size: var(--size-character);
     font-family: "Titillium Web", sans-serif;

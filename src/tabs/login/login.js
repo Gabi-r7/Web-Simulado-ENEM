@@ -18,6 +18,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         showModal(responseJson);
         setTimeout(() => {
             window.location.href = '/src/tabs/home/index.html';
+            location.reload();
         }, 700);
     }
     else {

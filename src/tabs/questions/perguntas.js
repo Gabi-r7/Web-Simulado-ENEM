@@ -49,6 +49,27 @@ function confirm() {
     carregarPerguntas(ano, tipo);
 }
 
+// Função para verificar o tamanho da janela e comparar com o tamanho do nav
+function verificarTamanhoJanelaENav() {
+    // Obter a largura da janela
+    const larguraJanela = window.innerWidth;
+
+    const dataQuestion2 = document.querySelector('.data-question');
+
+    // Obter a largura máxima da janela
+    const larguraMaximaJanela = screen.availWidth;
+
+    if(dataQuestion2){
+
+        if (larguraJanela < larguraMaximaJanela * 0.7) {
+            dataQuestion2.classList.add('nav-hidden');
+    
+        } else {
+            dataQuestion2.classList.remove('nav-hidden');
+        }
+    }
+}
+
 async function carregarPerguntas(ano, tipo) {
     const response = await fetch('/loadQuestions', {
         method: 'POST',
@@ -73,6 +94,8 @@ async function carregarPerguntas(ano, tipo) {
 }
 
 async function atualizarPergunta() {
+
+    verificarTamanhoJanelaENav();
     
     let pergunta = perguntas[indicePerguntaAtual];
     console.log(perguntas);
@@ -407,3 +430,9 @@ function terminar () {
     console.log('respostasDoUsuario:', respostasDoUsuario);
     return;
 }
+
+// Chamar a função para verificar o tamanho da janela e do nav
+verificarTamanhoJanelaENav();
+
+// Adicionar um event listener para verificar o tamanho da janela ao redimensionar
+window.addEventListener('resize', verificarTamanhoJanelaENav);

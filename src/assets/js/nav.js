@@ -28,6 +28,30 @@ const h2 = document.createElement('h2'); // Create the 'h2' element
 divH1.appendChild(h1); // Append 'h1' to 'modalContent'
 divH2.appendChild(h2); // Append 'h2' to 'modalContent'
 
+let larguraJanela = window.innerWidth;
+let larguraMaximaJanela = screen.availWidth;
+
+if(larguraJanela < 430) {
+    nav.classList.add('hidden');
+
+    let divShowNav = document.createElement('div');
+    body.appendChild(divShowNav);
+    divShowNav.classList.add('showNav');
+
+    let divShowNavContent = document.createElement('div');
+    divShowNav.appendChild(divShowNavContent);
+    divShowNavContent.classList.add('showNavContent');
+    divShowNavContent.classList.add('main-div');
+
+    let btShowNav = document.createElement('button');
+    divShowNavContent.appendChild(btShowNav);
+
+
+    btShowNav.addEventListener('click', () => {
+        nav.classList.toggle('hidden');
+    });
+}
+
 nav.innerHTML = `
     <div>
         <div class="logo">
@@ -35,46 +59,99 @@ nav.innerHTML = `
         </div>
 
         <div class="menu">
-            <div class="nav-op">
-                <a href="/src/tabs/home/index.html">
-                    <span class="material-symbols-outlined">
-                        home
-                    </span>
-                    <span class="text-icon">Inicio</span>
-                </a>
-            </div>
-            <div class="nav-op">
+            <a class="nav-op" href="/src/tabs/home/index.html">
+                <span class="material-symbols-outlined">
+                    home
+                </span>
+                <span class="text-icon">Inicio</span>
+            </a>
+            <a class="nav-op" href="/src/tabs/questions/question.html">
                 <span class="material-symbols-outlined">
                     quiz
                 </span>
-                <a class="text-icon" href="/src/tabs/questions/question.html">Questões</a>
-            </div>
-            <div class="nav-op">
+                <div class="text-icon" >Questões</div>
+            </a>
+            <a class="nav-op" href="/src/tabs/ranking/ranking.html">
                 <span class="material-symbols-outlined">
                     trophy
                 </span>
-                <a class="text-icon" href="/src/tabs/ranking/ranking.html">Ranking</a>
-            </div>
-            <div class="nav-op">
+                <div class="text-icon">Ranking</div>
+            </a>
+            <a class="nav-op">
                 <span class="material-symbols-outlined">
                     live_help
                 </span>
                 <span class="text-icon">Suporte</span>
-            </div>
+            </a>
         </div>
         
         <div class="user">
             <div class="nav-op">
-                <a href="/src/tabs/account/account.html">
-                    <span class="material-symbols-outlined">
-                        person
-                    </span>
-                    <span class="text-icon">Perfil</span>
-                </a>
+                Não logado
             </div>
+            <a class="nav-op" href="/src/tabs/login/login.html">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <span class="text-icon">SingIn</span>
+            </a>
+            <a class="nav-op" href="/src/tabs/signUp/cadastro.html">    
+                <span class="material-symbols-outlined">
+                    person_add
+                </span>
+                <span class="text-icon">SingUp</span>
+            </a>
         </div>
     </div>`
     
+// Função para verificar o tamanho da janela e comparar com o tamanho do nav
+function verificarTamanhoJanelaENav() {
+    // Obter a largura da janela
+    let larguraJanela = window.innerWidth;
+
+    // Obter a largura máxima da janela
+    let larguraMaximaJanela = screen.availWidth;
+
+    // Obter o elemento <nav>
+    const navElement = document.querySelector('nav');
+    const nomeLogo = document.querySelector('.nomeLogo');
+    const textIcons = document.querySelectorAll('.text-icon');
+
+    const mainElement = document.querySelector('main');
+    const larguraNav = navElement.getBoundingClientRect().width;
+
+    // Verificar se o elemento <nav> existe
+    if (navElement) {
+        if(larguraJanela > 430) {
+            // Obter a largura do elemento <nav>
+
+            // Comparar as larguras
+            if (larguraJanela < larguraMaximaJanela * 0.7) {
+                console.log('A largura da janela é menor que a largura maxima.');
+                navElement.classList.add('hidden');
+                nomeLogo.innerHTML = 'S';
+
+                textIcons.forEach((textIcon) => {
+                    textIcon.style.display = 'none';
+                });
+
+                mainElement.classList.add('maisEspaco');
+
+            } else {
+                navElement.classList.remove('hidden');
+                nomeLogo.innerHTML = 'SIMULANDO';
+
+                textIcons.forEach((textIcon) => {
+                    textIcon.style.display = 'block';
+                });
+
+                mainElement.classList.remove('maisEspaco');
+            }
+        }
+    } else {
+        console.log('Elemento <nav> não encontrado.');
+    }
+}
 
 async function loginVerify() {
     const response = await fetch('/loginVerify', {
@@ -93,23 +170,21 @@ async function loginVerify() {
         <div class="nav-op">
             ${user}
         </div>
-            <div class="nav-op">
-                <a href="/src/tabs/account/account.html">
-                    <span class="material-symbols-outlined">
-                        person
-                    </span>
-                    <span class="text-icon">Perfil</span>
-                </a>
+            <a class="nav-op" href="/src/tabs/account/account.html">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <span class="text-icon">Perfil</span>
             </div>
             
-            <div class="nav-op">
+            <a class="nav-op">
                 <button onclick="logout()">
                     <span class="material-symbols-outlined">
                         logout
                     </span>
                     <span class="text-icon">LogOut</span>
                 </button>
-            </div>`
+            </a>`
 
         // document.getElementById('login').innerText = user.login;
         // document.getElementById('email').innerText = user.email;
@@ -120,17 +195,22 @@ async function loginVerify() {
             <div class="nav-op">
                 Não logado
             </div>
-            <div class="nav-op">    
-                <a href="/src/tabs/signUp/cadastro.html">
-                    <span class="material-symbols-outlined">
-                        person_add
-                    </span>
-                    <span class="text-icon">SingUp</span>
-                </a>
-            </div>`
+            <a class="nav-op" href="/src/tabs/login/login.html">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <span class="text-icon">SingIn</span>
+            </a>
+            <a class="nav-op" href="/src/tabs/signUp/cadastro.html">    
+                <span class="material-symbols-outlined">
+                    person_add
+                </span>
+                <span class="text-icon">SingUp</span>
+            </a>`
     }
 };
 
+verificarTamanhoJanelaENav();
 
 async function logout() {
     const response = await fetch('/logout', {
@@ -145,6 +225,7 @@ async function logout() {
         showModal(responseJson);
         setTimeout(() => {
             window.location.href = '/src/tabs/home/index.html';
+            location.reload();
         }, 1000);
     }
     else {
@@ -179,3 +260,9 @@ function showModal(responseJson, message) {
     
     modal.style.display = 'block';
 }
+
+// Chamar a função para verificar o tamanho da janela e do nav
+verificarTamanhoJanelaENav();
+
+// Adicionar um event listener para verificar o tamanho da janela ao redimensionar
+window.addEventListener('resize', verificarTamanhoJanelaENav);

@@ -8,7 +8,7 @@ body{
 
 main{
     position: relative;
-    margin-left: var(--nav-min-width);
+    margin-left: var(--nav-width);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -235,6 +235,11 @@ main section:nth-child(1) .main-div > div{
     top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    transition: 0.2s;
+}
+
+.nav-hidden{
+    width: calc(100% - 6rem - 2*var(--nav-padding));
     transition: 0.2s;
 }
 
