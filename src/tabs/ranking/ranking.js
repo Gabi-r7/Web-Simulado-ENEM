@@ -9,7 +9,7 @@ async function getUsers() {
         }
     });
     responseJson = await response.json();
-    if (responseJson.status === 'success') {
+    if (responseJson.status != 400) {
         sortUser();
     }
     else {
