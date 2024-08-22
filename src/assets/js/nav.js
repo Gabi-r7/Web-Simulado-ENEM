@@ -94,13 +94,13 @@ nav.innerHTML = `
                 <span class="material-symbols-outlined">
                     person
                 </span>
-                <span class="text-icon">SingIn</span>
+                <span class="text-icon">Login</span>
             </a>
             <a class="nav-op" href="/src/tabs/signUp/cadastro.html">    
                 <span class="material-symbols-outlined">
                     person_add
                 </span>
-                <span class="text-icon">SingUp</span>
+                <span class="text-icon">Sign Up</span>
             </a>
         </div>
     </div>`
@@ -163,7 +163,7 @@ async function loginVerify() {
     });
     
     const responseJson = await response.json();
-    if (responseJson.status === 'success') {
+    if (response.status == 200) {
         const user = responseJson.message + responseJson.data;
         const userElement = document.querySelector('.user');
         
@@ -183,7 +183,7 @@ async function loginVerify() {
                     <span class="material-symbols-outlined">
                         logout
                     </span>
-                    <span class="text-icon">LogOut</span>
+                    <span class="text-icon">Log Out</span>
                 </button>
             </a>`
 
@@ -200,13 +200,13 @@ async function loginVerify() {
                 <span class="material-symbols-outlined">
                     person
                 </span>
-                <span class="text-icon">SingIn</span>
+                <span class="text-icon">Login</span>
             </a>
             <a class="nav-op" href="/src/tabs/signUp/cadastro.html">    
                 <span class="material-symbols-outlined">
                     person_add
                 </span>
-                <span class="text-icon">SingUp</span>
+                <span class="text-icon">Sign Up</span>
             </a>`
     }
 };
@@ -222,7 +222,7 @@ async function logout() {
     })
 
     const responseJson = await response.json();
-    if (responseJson.status === 'success') {
+    if (response.status == 200) {
         showModal(responseJson);
         setTimeout(() => {
             window.location.href = '/src/tabs/home/index.html'; 

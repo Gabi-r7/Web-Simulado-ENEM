@@ -14,11 +14,11 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     });
 
     const responseJson = await response.json();
-    if (responseJson.status === 'success') {
+    if (response.status == 200) {
         showModal(responseJson);
         setTimeout(() => {
             window.location.href = '/src/tabs/home/index.html';
-            location.reload();
+            // location.reload(); sla q desgraça é essa
         }, 700);
     }
     else {

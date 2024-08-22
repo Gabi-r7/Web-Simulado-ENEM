@@ -368,7 +368,6 @@ function terminar () {
         body: JSON.stringify({ respostasDoUsuario, perguntas })
     });
 
-    alert('Você acabou!');
     let gabarito = document.createElement('div');
     gabarito.classList.add('main-div'); // Class
     gabarito.classList.add('gabarito'); // Class
