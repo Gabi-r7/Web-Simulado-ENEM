@@ -91,6 +91,19 @@ routes.post('/register', upload.single('profileImage'), async (req, res) => {
         });
     }
 
+    const existingEmail = await prisma.user.findUnique({
+        where: {
+            email
+        }
+    });
+    if (existingEmail) {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Email já existe',
+            data: null    
+        });
+    }
+
     if (!login || !email || !confirmEmail || !password || !confirmPassword) {
         return res.status(400).json({
             status: 'error',
@@ -114,6 +127,8 @@ routes.post('/register', upload.single('profileImage'), async (req, res) => {
             data: null
         });
     }
+
+
     if (password !== confirmPassword) {
         return res.status(400).json({
             status: 'error',
