@@ -9,7 +9,18 @@ let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 console.log('Página carregada');
 
+function todas() {
+    let checkboxes = document.querySelectorAll('.checkbox-custom');
+    const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+    if (selecionados.length === checkboxes.length-1) {
+        checkboxes.forEach(checkbox => checkbox.checked = false);
+    } else {
+        checkboxes.forEach(checkbox => checkbox.checked = true);
+    }
+}
+
 function updateLink(categoria) {
+    console.log('categoria:', categoria);
     if (isNaN(categoria)) {
         tipo = [categoria];
         const checkboxes = document.querySelectorAll('.checkbox-custom');
@@ -28,7 +39,6 @@ function updateLink(categoria) {
             ano.push(categoria);
         }
     }
-    console.log(ano,tipo);
 }
 
 function confirm() {
@@ -40,10 +50,8 @@ function confirm() {
         showModal(0, 'Selecione pelo menos um ano');
         return;
     }
-
     conc += tipo.join(',');
-    conc += '&ano=' + ano;  
-    console.log(conc);
+    conc += '&ano=' + ano;
 
     console.log(ano, tipo);
     carregarPerguntas(ano, tipo);
