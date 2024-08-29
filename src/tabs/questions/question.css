@@ -252,7 +252,8 @@ main section:nth-child(1) .main-div > div{
     width: 100%;
 } 
 
-.legenda-gabarito{
+.legenda-gabarito,
+.legenda-acertos{
     font-size: 1.8rem;
     width: 100%;
     text-align: center;

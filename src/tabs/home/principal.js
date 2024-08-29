@@ -1,11 +1,20 @@
-let tipo = []; // Declaração no escopo global
 let ano = [];
-let urlConc = '';
+let conc = '';
+
+let perguntas = null;
+let indicePerguntaAtual = 0;
+
+let respostasDoUsuario = [];
+let mainElement = document.querySelector('main');
+console.log('Página carregada');
+
 function updateLink(categoria) {
     if (isNaN(categoria)) {
         tipo = [categoria];
-        const checkboxes = document.querySelectorAll('.checkbox-custom');
-        const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        const buttons = document.querySelectorAll('.checkbox-custom');
+        // const buttonsComing = document.querySelectorAll('.coming-soon');
+
+        const selecionados = Array.from(buttons).filter(checkbox => checkbox.checked);
         tipo = selecionados.map(checkbox => {
             const match = checkbox.getAttribute('onclick') ? checkbox.getAttribute('onclick').match(/\('(.*)'\)/) : null;
             return match ? match[1] : null;
@@ -20,21 +29,23 @@ function updateLink(categoria) {
             ano.push(categoria);
         }
     }
-    console.log(tipo);
+    console.log(ano,tipo);
 }
 
 function confirm() {
     if (tipo.length === 0 || tipo.includes('aleatorio') && tipo.length === 1) {
-        alert('Selecione pelo menos uma modalidade');
+        showModal(0, 'Selecione pelo menos uma modalidade');
         return;
     }
     if (ano.length === 0) {
-        alert('Selecione pelo menos um ano');
+        showModal(0, 'Selecione pelo menos um ano');
         return;
     }
 
-    urlConc += tipo.join(',');
-    urlConc += '&ano=' + ano;  
-    console.log(urlConc);
-    window.location.href = "/src/tabs/questions/question.html?tipo=" + urlConc;
+    conc += tipo.join(',');
+    conc += '&ano=' + ano;  
+    console.log(conc);
+
+    console.log(ano, tipo);
+    carregarPerguntas(ano, tipo);
 }

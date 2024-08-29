@@ -376,7 +376,13 @@ function terminar () {
     legendaGabarito.classList.add('legenda-gabarito'); // Class
     legendaGabarito.classList.add('main-div'); // Class
     legendaGabarito.innerHTML = 'Gabarito';
-    mainElement.appendChild(legendaGabarito);        
+    mainElement.appendChild(legendaGabarito);       
+
+    let legendaAcertos = document.createElement('div');
+    legendaAcertos.classList.add('legenda-acertos'); // Class
+    legendaAcertos.classList.add('main-div'); // Class
+    legendaAcertos.innerHTML = 'Resultado: ' + respostasDoUsuario.filter((resposta, index) => resposta === perguntas[index]['Resposta']).length + '/' + perguntas.length;
+    mainElement.appendChild(legendaAcertos);
 
     perguntas.forEach((pergunta, index) => {
         let divLinha = document.createElement('div');
