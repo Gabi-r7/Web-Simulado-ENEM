@@ -346,7 +346,7 @@ routes.get('/loginVerify', authenticate, async (req: any, res: any) => {
         });
         return res.status(200).json({
             status: 'success',
-            message: 'Você está logado como: ',
+            message: ' está logado',
             data: login?.login.toString()
         });
     }

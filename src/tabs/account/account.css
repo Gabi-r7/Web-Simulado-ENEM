@@ -13,6 +13,9 @@ main{
     font-family: "Titillium Web", sans-serif;
     font-weight: 600;
     font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 /* section 1*/
@@ -94,4 +97,11 @@ main > section:nth-child(1){
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+}
+
+/* grafico */
+
+.graphic-div{
+    background-color: white;
+    padding: 3rem;
 }

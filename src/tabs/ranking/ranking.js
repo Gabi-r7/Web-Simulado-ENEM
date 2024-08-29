@@ -45,18 +45,38 @@ function sortUser() {
     }
 
     let rankingList = document.getElementById('ranking-list');
-    let rows = rankingList.querySelectorAll('.linha:not(:first-child)');
 
-    rows.forEach(row => row.remove());
+    rankingList.innerHTML = `<div class="border legenda-ranking linha">
+                    <div class="coluna legendas">Posição</div>
+                    <div class="coluna legendas">Nome</div>
+                    <div class="coluna experience legendas">EXP</div>
+                    <div class="coluna correct-answers legendas">Acertos</div>
+                    <div class="coluna wrong-answers legendas">Erros</div>
+                    <div class="coluna border-right answered-questions legendas">Respostas</div>
+                </div>`;
+
+    let podium = document.createElement('div');
+    podium.classList.add('podium');
+    let podiumHeader = document.createElement('div');
+    podiumHeader.classList.add('podium-header');
+    podiumHeader.innerHTML = `Pódio`;
+    podium.appendChild(podiumHeader);
+    rankingList.appendChild(podium);
+
+    let outher = document.createElement('div');
+    outher.classList.add('outher');
+    let outherHeader = document.createElement('div');
+    outherHeader.classList.add('outher-header');
+    outherHeader.innerHTML = `Outros`;
+    outher.appendChild(outherHeader);
+    rankingList.appendChild(outher);
 
     responseJson.users.forEach((user, index) => {
+
         let userElement = document.createElement('div');
         userElement.classList.add('linha');
-        userElement.classList.add('border');
+        userElement.classList.add('secondary-div');
 
-        if(index % 2 == 0) {
-            userElement.classList.add('par');
-        }
         if(responseJson.users.length - 1 == index) {
             userElement.classList.remove('border');
         }
@@ -70,8 +90,22 @@ function sortUser() {
         <div class="answered-questions coluna border-right">${user.correct_answers + user.wrong_answers}</div>
         `;
         
-        
-        rankingList.appendChild(userElement);
+        if(index < 3) {
+            if(index == 0) {
+                userElement.classList.add('first');
+            }
+            if(index == 1) {
+                userElement.classList.add('second');
+            }
+            if(index == 2) {
+                userElement.classList.add('third');
+            }
+
+            podium.appendChild(userElement);
+        }
+        else{
+            outher.appendChild(userElement);
+        }
     });
 
     const filterText = document.getElementById('filter-text');
@@ -88,57 +122,15 @@ function sortUser() {
     });
 
     if (filterOp == 'Acertos') {
-        let legenda = document.querySelector('.correct-answers.legendas');
-        afterLegenda = legenda.previousElementSibling;
-        afterLegenda.classList.add('border-right');
-
         filterText.innerHTML += 'acertos';
-
-        correct_answers = document.querySelectorAll('.correct-answers');
-        correct_answers.forEach(correct_answer => {
-            // correct_answer.style.backgroundColor = 'yellowgreen';
-            correct_answer.classList.add('selected');
-        });
-        
     }
     else if (filterOp == 'Erros') {
-        let legenda = document.querySelector('.wrong-answers.legendas');
-        afterLegenda = legenda.previousElementSibling;
-        afterLegenda.classList.add('border-right');
-
         filterText.innerHTML += 'erros';
-
-        wrong_answers = document.querySelectorAll('.wrong-answers');
-        wrong_answers.forEach(wrong_answer => {
-            // wrong_answer.style.backgroundColor = 'red';
-            wrong_answer.classList.add('selected');
-        });
-        
     }
     else if (filterOp == 'Respondidas') {
-        let legenda = document.querySelector('.answered-questions.legendas');
-        afterLegenda = legenda.previousElementSibling;
-        afterLegenda.classList.add('border-right');
-
         filterText.innerHTML += 'respondidas';
-
-        answered_questions = document.querySelectorAll('.answered-questions');
-        answered_questions.forEach(answered_question => {
-            // answered_question.style.backgroundColor = 'rgb(71, 71, 255)';
-            answered_question.classList.add('selected');
-        });
     }
     else {
-        let legenda = document.querySelector('.experience.legendas');
-        afterLegenda = legenda.previousElementSibling;
-        afterLegenda.classList.add('border-right');
-
         filterText.innerHTML += 'experiência';
-
-        experience = document.querySelectorAll('.experience');
-        experience.forEach(experience => {
-            // experience.style.backgroundColor = 'orange';
-            experience.classList.add('selected');
-        });
     }
 };

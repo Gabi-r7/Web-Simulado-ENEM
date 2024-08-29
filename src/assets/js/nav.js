@@ -164,7 +164,7 @@ async function loginVerify() {
     
     const responseJson = await response.json();
     if (response.status == 200) {
-        const user = responseJson.message + responseJson.data;
+        const user = responseJson.data + responseJson.message;
         const userElement = document.querySelector('.user');
         
         userElement.innerHTML = `

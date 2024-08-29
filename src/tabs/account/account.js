@@ -21,7 +21,6 @@ async function fetchUserProfile() {
     }
 };
 
-
 async function modifyUserProfile(field, value) {
     const login = document.getElementById('login').innerText;
     const email = document.getElementById('email').innerText;
@@ -38,7 +37,6 @@ async function modifyUserProfile(field, value) {
     // Update the specified field with the new value
     data[field] = value;
 
-
     const response = await fetch('/modify', {
         method: 'PUT',
         headers: {
@@ -48,9 +46,60 @@ async function modifyUserProfile(field, value) {
     });
     const responseJson = await response.json();
 
-
     showModal(responseJson);
-         
 }
 
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
+
+var options = {
+    series: [{
+    name: 'Acertos',
+    data: [50]
+  }, {
+    name: 'Erros',
+    data: [76]
+  }, {
+    name: 'Respostas',
+    data: [120]
+  }],
+    chart: {
+    type: 'bar',
+    height: 350
+  },
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: '55%',
+      endingShape: 'rounded'
+    },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    show: true,
+    width: 2,
+    colors: ['transparent']
+  },
+  xaxis: {
+    categories: [''],
+  },
+  yaxis: {
+    title: {
+      text: 'Questões respondidas'
+    }
+  },
+  fill: {
+    opacity: 1
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return "$ " + val + " thousands"
+      }
+    }
+  }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
