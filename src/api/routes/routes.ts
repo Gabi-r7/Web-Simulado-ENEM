@@ -380,14 +380,35 @@ routes.put('/modify', authenticate, async (req: any, res: any) => {
         }
 
         if (login) {
+            if (login === user.login) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Login já existe',
+                    data: null
+                });
+            }
             user.login = login;
         }
 
         if (email) {
+            if (email === user.email) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Email já existe',
+                    data: null
+                });
+            }
             user.email = email;
         }
 
         if (password) {
+            if (password.length < 6) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Senha deve ter no mínimo 6 caracteres',
+                    data: null
+                });
+            }
             const hashedPassword = await bcrypt.hash(password, 10);
             user.password = hashedPassword;
         }

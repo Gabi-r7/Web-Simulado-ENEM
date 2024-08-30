@@ -12,7 +12,6 @@ async function fetchUserProfile() {
         console.log(user);
         document.getElementById('login').innerText = user.login;
         document.getElementById('email').innerText = user.email;
-        document.getElementById('password').innerText = user.password;
         document.getElementById('profileImg').src = user.profileImage;
         let correct = parseFloat(user.correct_answers);
         let wrong = parseFloat(user.wrong_answers);
@@ -52,7 +51,20 @@ async function modifyUserProfile(field, value) {
     const responseJson = await response.json();
 
     showModal(responseJson);
+    setTimeout(() => {
+        window.location.reload();
+    }, 700);
 }
+let btnsTrocar = document.querySelectorAll('.modifyBtn');
+btnsTrocar.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const field = e.target.name;
+        const value = prompt(`Digite o novo valor para ${field}`);
+        if (value) {
+            modifyUserProfile(field, value);
+        }
+    });
+});
 
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
 
