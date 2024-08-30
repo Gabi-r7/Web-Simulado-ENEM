@@ -9,10 +9,15 @@ async function fetchUserProfile() {
     const responseJson = await response.json();
     if (responseJson.status === 'success') {
         const user = responseJson.data;
+        console.log(user);
         document.getElementById('login').innerText = user.login;
         document.getElementById('email').innerText = user.email;
         document.getElementById('password').innerText = user.password;
         document.getElementById('profileImg').src = user.profileImage;
+        let correct = parseFloat(user.correct_answers);
+        let wrong = parseFloat(user.wrong_answers);
+        let total = parseFloat(user.questions_answered);
+        generateChart(correct, wrong, total);
     } else {
         showModal(responseJson);
         setTimeout(() => {
@@ -51,55 +56,61 @@ async function modifyUserProfile(field, value) {
 
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
 
-var options = {
-    series: [{
-    name: 'Acertos',
-    data: [50]
-  }, {
-    name: 'Erros',
-    data: [76]
-  }, {
-    name: 'Respostas',
-    data: [120]
-  }],
-    chart: {
-    type: 'bar',
-    height: 350
-  },
-  plotOptions: {
-    bar: {
-      horizontal: false,
-      columnWidth: '55%',
-      endingShape: 'rounded'
+function generateChart(correct, wrong, total) {
+  var options = {
+      series: [{
+      name: 'Acertos',
+      data: [correct],
+      color: '#00FF00'
+    }, {
+      name: 'Erros',
+      data: [wrong],
+      color: '#FF0000'
+    }, {
+      name: 'Respostas',
+      data: [total],
+      color: '#0000FF'
+    }],
+      chart: {
+      type: 'bar',
+      height: 350
     },
-  },
-  dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    show: true,
-    width: 2,
-    colors: ['transparent']
-  },
-  xaxis: {
-    categories: [''],
-  },
-  yaxis: {
-    title: {
-      text: 'Questões respondidas'
-    }
-  },
-  fill: {
-    opacity: 1
-  },
-  tooltip: {
-    y: {
-      formatter: function (val) {
-        return "$ " + val + " thousands"
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '55%',
+        endingShape: 'rounded'
+      },
+    },
+    dataLabels: {
+      enabled: true
+    },
+    stroke: {
+      show: true,
+      width: 2,
+      colors: ['transparent']
+    },
+    xaxis: {
+      categories: ['Estatístias do Usuário'],
+    },
+    yaxis: {
+      title: {
+        text: 'Questões'
       }
+    },
+    fill: {
+      opacity: 1
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return val
+        }
+      }
+      
     }
-  }
-  };
+    };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+}

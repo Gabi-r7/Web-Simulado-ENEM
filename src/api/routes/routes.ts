@@ -223,6 +223,9 @@ routes.get('/profile', authenticate, async (req: any, res: any) => {
                 password: true,
                 experience: true,
                 profileImage: true,
+                questions_answered: true,
+                correct_answers: true,
+                wrong_answers: true,
             }
         });
 
