@@ -58,59 +58,32 @@
         </section>
 
         <section>
-
-
-        </section>
-
-        <section class="sectionTexto"> 
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-            
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint eveniet laudantium odio nihil voluptatibus hic sit animi, nostrum quod aut temporibus officia excepturi qui nisi quasi esse exercitationem quidem.</p>
-            </div>
-        </section>
+            <h1>Ranking top 3</h1>
+            <div id="ranking-content" class="main-div">
+                <form class="secondary-div">
+                    <div>
+                        <label>Filtro: </label>
+                        <select type="" id="filtro" name="Opcoes" autocomplete="off" required pattern="Pontos|Questões corretas|Questões erradas|Questões respondidas">
+                            <option value="Pontos" selected>Pontos</option>
+                            <option value="Acertos">Acertos</option>
+                            <option value="Erros">Erros</option>
+                            <option value="Respondidas">Respondidas</option>
+                        </select>
+                    </div>
+                    <div id="filter-text"></div>
+                </form>
+                <div id="ranking-list">
+                    <div class="border legenda-ranking linha">
+                        <div class="coluna legendas">Posição</div>
+                        <div class="coluna legendas">Nome</div>
+                        <div class="coluna experience legendas">EXP</div>
+                        <div class="coluna correct-answers legendas">Acertos</div>
+                        <div class="coluna wrong-answers legendas">Erros</div>
+                        <div class="coluna border-right answered-questions legendas">Respostas</div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
     </main>
 

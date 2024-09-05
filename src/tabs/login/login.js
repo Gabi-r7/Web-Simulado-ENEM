@@ -1,3 +1,5 @@
+divsError = document.querySelectorAll('.divsError');
+
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     console.log('entrou');
     event.preventDefault();
@@ -22,6 +24,17 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         }, 700);
     }
     else {
-        showModal(responseJson);
+        divsError.forEach(divError => {
+            divError.innerHTML = '';
+        });
+
+        if(responseJson.message == 'Usuário não encontrado'){
+            divsError[0].innerHTML = responseJson.message;
+        }
+        else{
+            divsError[1].innerHTML = responseJson.message;
+        }
+        console.log(responseJson);
+        // showModal(responseJson);
     }
 });

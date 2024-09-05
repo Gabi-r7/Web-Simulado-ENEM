@@ -1,3 +1,5 @@
+const divsError = document.querySelectorAll('.divsError');
+
 document.getElementById('register-form').addEventListener('submit', async (event) => {
     console.log('entrou');
     event.preventDefault();
@@ -27,6 +29,28 @@ document.getElementById('register-form').addEventListener('submit', async (event
         }, 700);
     }
     else {
-        showModal(responseJson);
+        divsError.forEach(divError => {
+            divError.innerHTML = '';
+        });
+
+        if(responseJson.message == 'Usuário já existe'){
+            divsError[0].innerHTML = responseJson.message;
+        }
+        else if(responseJson.message == 'Email já existe'){
+            divsError[1].innerHTML = responseJson.message;
+        }
+        else if(responseJson.message == 'Emails não coincidem'){
+            divsError[2].innerHTML = responseJson.message;
+        }
+        else if(responseJson.message == 'Senha deve ter no mínimo 6 caracteres'){
+            divsError[3].innerHTML = responseJson.message;
+        }
+        else if(responseJson.message == 'Senhas não coincidem'){
+            divsError[4].innerHTML = responseJson.message;
+        }
+        else{
+            showModal(responseJson);
+        }
+        
     }
 });

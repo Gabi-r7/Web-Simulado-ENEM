@@ -19,7 +19,7 @@
      
      <!-- links de arquivos -->
     <link rel='stylesheet' type='text/css' media='screen' href='/src/tabs/login/login.css'>
-    <script type="module" defer async src='/src/tabs/login/login.js'></script>
+    <script defer async src='/src/tabs/login/login.js'></script>
     <link rel='stylesheet' type='text/css' media='screen' href='/src/assets/css/nav.css'>
     <script defer src='/src/assets/js/nav.js'></script>
 </head>
@@ -39,11 +39,13 @@
             <div class="form-group border">
                 <label for="login">Login:</label>
                 <input type="text" id="login" placeholder="Digite o seu login aqui">
+                <div class="divsError"></div>
             </div>
 
             <div class="form-group border">
                 <label for="password">Senha:</label>
                 <input type="password" id="password" placeholder="Digite a sua senha aqui">
+                <div class="divsError"></div>
             </div>
 
             <div class="logar">
