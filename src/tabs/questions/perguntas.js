@@ -7,7 +7,17 @@ let indicePerguntaAtual = 0;
 
 let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
-console.log('Página carregada');
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    ano = urlParams.get('ano');
+    console.log('ano:', ano);
+    if (ano) {
+        console.log('ano existe');
+        tipo = ['Linguagens', 'Matematica', 'Ciencias', 'Humanas', 'Ingles', 'Espanhol'];
+        carregarPerguntas(ano, tipo);
+    }
+});
 
 function todas() {
     let checkboxes = document.querySelectorAll('.checkbox-custom');
