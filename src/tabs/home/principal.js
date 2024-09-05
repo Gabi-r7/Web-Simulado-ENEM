@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 function startQuiz(ano){
     window.location.href = `../../../src/tabs/questions/question.html?ano=${ano}`;
 }
-=======
 let ano = [];
 let conc = '';
 
@@ -183,4 +181,3 @@ function sortUser() {
         filterText.innerHTML += 'experiência';
     }
 };
->>>>>>> a3b508323d4a1fbf59dd8072df37d37d30d29671
