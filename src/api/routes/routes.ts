@@ -74,9 +74,8 @@ const authenticate = async (req: any, res: any, next: any) => {
 //
 
 //           ROTA CADASTRO DE USUÁRIO
-routes.post('/register', upload.single('profileImage'), async (req, res) => {
+routes.post('/register', async (req, res) => {
     const { login, email, confirmEmail, password, confirmPassword } = req.body;
-    const profileImagePath = req.file ? req.file.path : null;
 
     const existingUser = await prisma.user.findUnique({
         where: {
@@ -143,7 +142,6 @@ routes.post('/register', upload.single('profileImage'), async (req, res) => {
             login,
             email,
             password: hashedPassword,
-            profileImage: profileImagePath
         }
     });
 

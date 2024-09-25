@@ -8,8 +8,7 @@ document.getElementById('register-form').addEventListener('submit', async (event
     const confirmEmail = document.getElementById('confirmEmail').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    const profileImage = document.getElementById('profileImage').files[0];
-    const data = { login, email, confirmEmail, password, confirmPassword, profileImage };
+    const data = { login, email, confirmEmail, password, confirmPassword };
 
 
     const response = await fetch('/register', {
