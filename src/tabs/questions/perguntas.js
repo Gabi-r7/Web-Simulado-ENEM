@@ -34,26 +34,33 @@ function todas() {
     let checkboxes = document.querySelectorAll('.checkbox-custom');
     const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
     
-    // Se todos os checkboxes, exceto um, estiverem selecionados, desmarque todos, exceto os anos selecionados
+    // Se todos os checkboxes, exceto um, estiverem selecionados, desmarque todos, exceto os anos, "aleatorio" e "todas" selecionados
     if (selecionados.length === checkboxes.length - 1) {
         checkboxes.forEach(checkbox => {
-            if (!checkbox.classList.contains('ano')) {
+            if (!checkbox.classList.contains('ano') && !checkbox.classList.contains('aleatorio') && !checkbox.classList.contains('todas')) {
                 checkbox.checked = false;
             }
         });
     } else {
-        // Caso contrário, marque todos os checkboxes, exceto os anos que não foram selecionados
+        // Caso contrário, marque todos os checkboxes, exceto os anos, "aleatorio" e "todas" que não foram selecionados
         checkboxes.forEach(checkbox => {
-            if (!checkbox.classList.contains('ano') || checkbox.checked) {
+            if ((!checkbox.classList.contains('ano') && !checkbox.classList.contains('aleatorio') && !checkbox.classList.contains('todas')) || checkbox.checked) {
                 checkbox.checked = true;
             }
         });
     }
 
-    // Atualiza o link com todas as categorias
+    // Garantir que a modalidade "todas" nunca seja marcada
+    checkboxes.forEach(checkbox => {
+        if (checkbox.classList.contains('todas')) {
+            checkbox.checked = false;
+        }
+    });
+
+    // Atualiza o link com todas as categorias, excluindo "aleatorio" se não estiver selecionado
     tipo = Array.from(checkboxes).map(checkbox => {
         const match = checkbox.getAttribute('onclick') ? checkbox.getAttribute('onclick').match(/\('(.*)'\)/) : null;
-        return match ? match[1] : null;
+        return match && (checkbox.checked || match[1] !== 'aleatorio') ? match[1] : null;
     }).filter(Boolean); // Remove valores nulos ou undefined do array resultante
 
     console.log(ano, tipo);

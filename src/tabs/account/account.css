@@ -55,7 +55,8 @@ main > section:nth-child(1){
 
 .img-account > div > label{
     position: absolute;
-    background-color: var(--cor-terciaria);
+    background-color: rgba(0, 0, 0, 0.589);
+    opacity: 0.5;
     width: 100%;
     height: 100%;
     z-index: 3;
