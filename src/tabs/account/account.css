@@ -4,6 +4,7 @@ body{
     margin: 0%;
     background-color: var(--cor-fundo);
     color: white;
+    overflow-x: hidden;
 }
 
 main{
@@ -104,4 +105,33 @@ main > section:nth-child(1){
 .graphic-div{
     background-color: white;
     padding: 3rem;
+}
+
+/* section 2*/
+
+main > section:nth-child(2){
+    display: grid;
+    width: 100%;
+    grid-template-columns:repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 1rem;
+}
+
+.profileImg {
+    cursor: pointer;
+    border-radius: 100px;
+    transition: transform 0.2s;
+    height: 5rem;
+}
+
+.profileImg:hover {
+    transform: scale(1.1);
+}
+
+.hidden{
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    display: none;
+    box-sizing: border-box;
 }

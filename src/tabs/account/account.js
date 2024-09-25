@@ -48,6 +48,7 @@ async function modifyUserProfile(field, value) {
         window.location.reload();
     }, 700);
 }
+
 let btnsTrocar = document.querySelectorAll('.modifyBtn');
 btnsTrocar.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -60,67 +61,9 @@ btnsTrocar.forEach(btn => {
 });
 
 function openSelectionWindow() {
-  const imageDiv = document.getElementById('profileImgDiv');
+  const selectWindow = document.querySelector('.selectWindow');
 
-  imageDiv.innerHTML = `
-    <style>
-      .profileImg {
-        cursor: pointer;
-        border-radius: 50%;
-        margin: 5px;
-        transition: transform 0.2s;
-      }
-      .profileImg:hover {
-        transform: scale(1.1);
-      }
-      #profileImgDiv {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-content: space-between;
-        align-items: center;
-      }
-      .img-account img {
-        width: 5vw;
-        height: 5vw;
-        border-radius: 50%;
-      }
-      .img-account > div{
-        padding: 50px;
-      }
-      
-    </style>
-    <div>
-      <img src="/src/assets/profileImages/ftDefault.jpg" alt="Default" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ftDefault.jpg')">
-    </div>
-    <div>
-      <img src="/src/assets/profileImages/ft1.jpg" alt="1" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft1.jpg')">
-    </div>
-    <div>  
-      <img src="/src/assets/profileImages/ft2.jpg" alt="2" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft2.jpg')">
-    </div>
-    <div>
-      <img src="/src/assets/profileImages/ft3.jpg" alt="3" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft3.jpg')">
-    </div>
-    <div>
-      <img src="/src/assets/profileImages/ft4.jpg" alt="4" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft4.jpg')">
-    </div>
-    <div>  
-      <img src="/src/assets/profileImages/ft5.jpg" alt="5" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft5.jpg')">
-    </div>
-    <div>
-      <img src="/src/assets/profileImages/ft6.jpg" alt="6" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft6.jpg')">
-    </div>  
-    <div>  
-      <img src="/src/assets/profileImages/ft7.jpg" alt="7" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft7.jpg')">
-    </div>  
-    <div>  
-      <img src="/src/assets/profileImages/ft8.jpg" alt="8" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft8.jpg')">
-    </div>  
-    <div>  
-      <img src="/src/assets/profileImages/ft9.jpg" alt="9" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft9.jpg')">
-    </div>
-  `;
+  selectWindow.classList.toggle('hidden');
 }
 
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
