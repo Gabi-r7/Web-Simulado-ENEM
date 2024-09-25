@@ -179,7 +179,7 @@ async function loginVerify() {
             </div>
             
             <a class="nav-op">
-                <button onclick="logout()">
+                <button onclick="logout()" class="nav-op">
                     <span class="material-symbols-outlined">
                         logout
                     </span>

@@ -19,14 +19,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// function todas() {
+//     let checkboxes = document.querySelectorAll('.checkbox-custom');
+//     const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+//     if (selecionados.length === checkboxes.length-1) {
+//         checkboxes.forEach(checkbox => checkbox.checked = false);
+//     } else {
+//         checkboxes.forEach(checkbox => checkbox.checked = true);
+//     }
+// }
 function todas() {
+    tipo = [];
+
     let checkboxes = document.querySelectorAll('.checkbox-custom');
     const selecionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
-    if (selecionados.length === checkboxes.length-1) {
-        checkboxes.forEach(checkbox => checkbox.checked = false);
+    
+    // Se todos os checkboxes, exceto um, estiverem selecionados, desmarque todos, exceto os anos selecionados
+    if (selecionados.length === checkboxes.length - 1) {
+        checkboxes.forEach(checkbox => {
+            if (!checkbox.classList.contains('ano')) {
+                checkbox.checked = false;
+            }
+        });
     } else {
-        checkboxes.forEach(checkbox => checkbox.checked = true);
+        // Caso contrário, marque todos os checkboxes, exceto os anos que não foram selecionados
+        checkboxes.forEach(checkbox => {
+            if (!checkbox.classList.contains('ano') || checkbox.checked) {
+                checkbox.checked = true;
+            }
+        });
     }
+
+    // Atualiza o link com todas as categorias
+    tipo = Array.from(checkboxes).map(checkbox => {
+        const match = checkbox.getAttribute('onclick') ? checkbox.getAttribute('onclick').match(/\('(.*)'\)/) : null;
+        return match ? match[1] : null;
+    }).filter(Boolean); // Remove valores nulos ou undefined do array resultante
+
+    console.log(ano, tipo);
 }
 
 function updateLink(categoria) {
