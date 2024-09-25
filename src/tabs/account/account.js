@@ -12,7 +12,7 @@ async function fetchUserProfile() {
         console.log(user);
         document.getElementById('login').innerText = user.login;
         document.getElementById('email').innerText = user.email;
-        document.getElementById('profileImg').src = user.profileImage;
+        document.getElementById('profileIamge').src = user.profileImage;
         let correct = parseFloat(user.correct_answers);
         let wrong = parseFloat(user.wrong_answers);
         let total = parseFloat(user.questions_answered);
@@ -28,25 +28,32 @@ async function fetchUserProfile() {
 };
 
 async function modifyUserProfile(field, value) {
-    // Update the specified field with the new value
-    const data = {
-      field,
-      value
-    };
+  // Update the specified field with the new value
+  const data = {
+    field,
+    value
+  };
 
-    const response = await fetch('/modify', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    const responseJson = await response.json();
+  const response = await fetch('/modify', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  const responseJson = await response.json();
+  if (responseJson.status === 'success' && field != 'password') {
+    if (field === 'profileImage') {
+      document.getElementById('profileIamge').src = value;
+    }
+    else {
+      document.getElementById(field).innerHTML = value;
+    }
+  }
+  showModal(responseJson);
+  setTimeout(() => {
     
-    showModal(responseJson);
-    setTimeout(() => {
-        window.location.reload();
-    }, 700);
+  }, 700);
 }
 
 let btnsTrocar = document.querySelectorAll('.modifyBtn');

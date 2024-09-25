@@ -372,7 +372,7 @@ routes.put('/modify', authenticate, async (req: any, res: any) => {
         });
     }
     
-    if (field === 'password') {
+    if (field == 'password') {
         if (value.length < 6) {
             return res.status(400).json({
                 status: 'error',
@@ -385,20 +385,40 @@ routes.put('/modify', authenticate, async (req: any, res: any) => {
             where: { id: userId },
             data: { password: hashedPassword }
         });
-    } else if (field === 'email') {
+        return res.status(200).json({
+            status: 'success',
+            message: 'Senha modificada com sucesso',
+            data: null
+        });
+    } else if (field == 'email') {
         await prisma.user.update({
             where: { id: userId },
             data: { email: value }
         });
-    } else if (field === 'login') {
+        return res.status(200).json({
+            status: 'success',
+            message: 'Email modificada com sucesso',
+            data: null
+        });
+    } else if (field == 'login') {
         await prisma.user.update({
             where: { id: userId },
             data: { login: value }
         });
-    } else if (field === 'profileImage') {
+        return res.status(200).json({
+            status: 'success',
+            message: 'Login modificada com sucesso',
+            data: null
+        });
+    } else if (field == 'profileImage') {
         await prisma.user.update({
             where: { id: userId },
             data: { profileImage: value }
+        });
+        return res.status(200).json({
+            status: 'success',
+            message: 'Imagem de perfil modificada com sucesso',
+            data: null
         });
     } else {
         return res.status(400).json({
