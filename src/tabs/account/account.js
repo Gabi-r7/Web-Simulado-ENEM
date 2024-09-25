@@ -17,6 +17,8 @@ async function fetchUserProfile() {
         let wrong = parseFloat(user.wrong_answers);
         let total = parseFloat(user.questions_answered);
         generateChart(correct, wrong, total);
+
+
     } else {
         showModal(responseJson);
         setTimeout(() => {
@@ -26,20 +28,11 @@ async function fetchUserProfile() {
 };
 
 async function modifyUserProfile(field, value) {
-    const login = document.getElementById('login').innerText;
-    const email = document.getElementById('email').innerText;
-    const password = document.getElementById('password').innerText;
-    const profileImage = document.getElementById('profileImg').src;
-
-    const data = {
-        login,
-        email,
-        password,
-        profileImage
-    };
-
     // Update the specified field with the new value
-    data[field] = value;
+    const data = {
+      field,
+      value
+    };
 
     const response = await fetch('/modify', {
         method: 'PUT',
@@ -49,7 +42,7 @@ async function modifyUserProfile(field, value) {
         body: JSON.stringify(data)
     });
     const responseJson = await response.json();
-
+    
     showModal(responseJson);
     setTimeout(() => {
         window.location.reload();
@@ -65,6 +58,70 @@ btnsTrocar.forEach(btn => {
         }
     });
 });
+
+function openSelectionWindow() {
+  const imageDiv = document.getElementById('profileImgDiv');
+
+  imageDiv.innerHTML = `
+    <style>
+      .profileImg {
+        cursor: pointer;
+        border-radius: 50%;
+        margin: 5px;
+        transition: transform 0.2s;
+      }
+      .profileImg:hover {
+        transform: scale(1.1);
+      }
+      #profileImgDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        align-items: center;
+      }
+      .img-account img {
+        width: 5vw;
+        height: 5vw;
+        border-radius: 50%;
+      }
+      .img-account > div{
+        padding: 50px;
+      }
+      
+    </style>
+    <div>
+      <img src="/src/assets/profileImages/ftDefault.jpg" alt="Default" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ftDefault.jpg')">
+    </div>
+    <div>
+      <img src="/src/assets/profileImages/ft1.jpg" alt="1" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft1.jpg')">
+    </div>
+    <div>  
+      <img src="/src/assets/profileImages/ft2.jpg" alt="2" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft2.jpg')">
+    </div>
+    <div>
+      <img src="/src/assets/profileImages/ft3.jpg" alt="3" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft3.jpg')">
+    </div>
+    <div>
+      <img src="/src/assets/profileImages/ft4.jpg" alt="4" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft4.jpg')">
+    </div>
+    <div>  
+      <img src="/src/assets/profileImages/ft5.jpg" alt="5" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft5.jpg')">
+    </div>
+    <div>
+      <img src="/src/assets/profileImages/ft6.jpg" alt="6" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft6.jpg')">
+    </div>  
+    <div>  
+      <img src="/src/assets/profileImages/ft7.jpg" alt="7" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft7.jpg')">
+    </div>  
+    <div>  
+      <img src="/src/assets/profileImages/ft8.jpg" alt="8" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft8.jpg')">
+    </div>  
+    <div>  
+      <img src="/src/assets/profileImages/ft9.jpg" alt="9" class="profileImg" onclick="modifyUserProfile('profileImage', '/src/assets/profileImages/ft9.jpg')">
+    </div>
+  `;
+}
 
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
 

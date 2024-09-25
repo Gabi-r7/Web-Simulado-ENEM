@@ -362,72 +362,52 @@ routes.get('/loginVerify', authenticate, async (req: any, res: any) => {
 //não fiz pra imagem
 routes.put('/modify', authenticate, async (req: any, res: any) => {
     const userId = req.user.id;
-    const { login, email, password } = req.body;
+    const { field, value } = req.body;
 
-    try {
-        const user = await prisma.user.findUnique({
-            where: { id: userId },
-        });
-
-        if (!user) {
-            return res.status(404).json({
-                status: 'error',
-                message: 'Usuário não encontrado',
-                data: null
-            });
-        }
-
-        if (login) {
-            if (login === user.login) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'Login já existe',
-                    data: null
-                });
-            }
-            user.login = login;
-        }
-
-        if (email) {
-            if (email === user.email) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'Email já existe',
-                    data: null
-                });
-            }
-            user.email = email;
-        }
-
-        if (password) {
-            if (password.length < 6) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'Senha deve ter no mínimo 6 caracteres',
-                    data: null
-                });
-            }
-            const hashedPassword = await bcrypt.hash(password, 10);
-            user.password = hashedPassword;
-        }
-
-        const updatedUser = await prisma.user.update({
-            where: { id: userId },
-            data: user,
-        });
-
-        res.status(200).json({
-            status: 'success',
-            message: 'Usuário atualizado com sucesso',
-            data: updatedUser
-        });
-    } catch (error) {
-        res.status(500).json({
+    if (!field || !value) {
+        return res.status(400).json({
             status: 'error',
-            message: 'Erro ao atualizar usuário',
+            message: 'Preencha todos os campos',
             data: null
         });
     }
+    
+    if (field === 'password') {
+        if (value.length < 6) {
+            return res.status(400).json({
+                status: 'error',
+                message: 'Senha deve ter no mínimo 6 caracteres',
+                data: null
+            });
+        }
+        const hashedPassword = await bcrypt.hash(value, 10);
+        await prisma.user.update({
+            where: { id: userId },
+            data: { password: hashedPassword }
+        });
+    } else if (field === 'email') {
+        await prisma.user.update({
+            where: { id: userId },
+            data: { email: value }
+        });
+    } else if (field === 'login') {
+        await prisma.user.update({
+            where: { id: userId },
+            data: { login: value }
+        });
+    } else if (field === 'profileImage') {
+        await prisma.user.update({
+            where: { id: userId },
+            data: { profileImage: value }
+        });
+    } else {
+        return res.status(400).json({
+            status: 'error',
+            message: 'Campo inválido',
+            data: null
+        });
+    }
+    
 });
 
 //           ROTA LOGOUT DE USUÁRIO
