@@ -319,7 +319,7 @@ routes.post('/checkAnswers', authenticate, async (req:any, res:any) => {
     res.status(200);
 });
 
-routes.get('/getUsers', authenticate, async (req: any, res: any) => {
+routes.get('/getUsers', async (req: any, res: any) => {
     try {
         const users = await prisma.user.findMany({
             select: {

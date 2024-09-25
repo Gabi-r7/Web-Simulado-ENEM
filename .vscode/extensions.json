@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "prisma.prisma",
-        "ms-vscode.remote-repositories"
+        "prisma.prisma"
     ]
 }
