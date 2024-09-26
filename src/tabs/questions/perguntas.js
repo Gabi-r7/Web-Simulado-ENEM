@@ -9,11 +9,11 @@ let respostasDoUsuario = [];
 let mainElement = document.querySelector('main');
 
 
-console.log('Página carregada');
 const urlParams = new URLSearchParams(window.location.search);
-ano = urlParams.get('ano');
-console.log('ano:', ano);
-if (ano) {
+
+if (urlParams.get('ano')) {
+    console.log('ano:', ano);
+    ano = urlParams.get('ano');
     console.log('ano existe');
     tipo = ['Linguagens', 'Matematica', 'Ciencias', 'Humanas', 'Ingles', 'Espanhol'];
     carregarPerguntas(ano, tipo);
