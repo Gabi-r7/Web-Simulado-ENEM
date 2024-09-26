@@ -327,6 +327,7 @@ routes.get('/getUsers', async (req: any, res: any) => {
                 questions_answered: true,
                 correct_answers: true,
                 wrong_answers: true,
+                profileImage: true
             }
         });
         res.status(200).json({ users });

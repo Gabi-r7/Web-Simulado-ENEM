@@ -88,7 +88,7 @@ function sortUser() {
         }
 
         userElement.innerHTML = `
-        <div class="imgProfile coluna"><img src="${user.profileImage} alt="Imagem de perfil"></img></div>
+        <div class="imgProfile coluna"><img src="${user.profileImage}"></img></div>
         <div class="position coluna">${index + 1}</div>
         <div class="name coluna">${user.login}</div>
         <div class="experience coluna">${user.experience}</div>

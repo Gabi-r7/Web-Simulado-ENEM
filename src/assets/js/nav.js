@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', loginVerify);
+// document.addEventListener('DOMContentLoaded', loginVerify);
+loginVerify();
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
 const body = document.querySelector('body');
@@ -31,7 +32,10 @@ divH2.appendChild(h2); // Append 'h2' to 'modalContent'
 let larguraJanela = window.innerWidth;
 let larguraMaximaJanela = screen.availWidth;
 
+console.log('ta ai o nav')
+
 if(larguraJanela < 430) {
+    console.log('A largura da janela é menor que 430px.');
     nav.classList.add('hidden');
 
     let divShowNav = document.createElement('div');

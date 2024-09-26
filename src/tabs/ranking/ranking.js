@@ -47,6 +47,7 @@ function sortUser() {
     let rankingList = document.getElementById('ranking-list');
 
     rankingList.innerHTML = `<div class="border legenda-ranking linha">
+                    <div class="coluna legendas">Perfil</div>
                     <div class="coluna legendas">Posição</div>
                     <div class="coluna legendas">Nome</div>
                     <div class="coluna experience legendas">EXP</div>
@@ -82,6 +83,7 @@ function sortUser() {
         }
 
         userElement.innerHTML = `
+        <div class="imgProfile coluna"><img src="${user.profileImage}"></img></div>
         <div class="position coluna">${index + 1}</div>
         <div class="name coluna">${user.login}</div>
         <div class="experience coluna">${user.experience}</div>
