@@ -246,14 +246,29 @@ async function atualizarPergunta() {
     observeDiv(dataQuestion);
 
     function checkScroll() {
-        const scrollPosition = window.scrollY || window.pageYOffset;        
-    
-        if (scrollPosition > (dataQuestionHeight - pixelValue)) {
-            console.log('A página foi rolada mais do que o tamanho da div dataQuestion.');
-            dataQuestion.classList.add('beforeScroll') //class
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        
+        if(larguraJanela < 430){
+            console.log('larguraJanela:', larguraJanela);
+            let remValue2 = 3;
+            let pixelValue2 = remToPixels(remValue2);
+
+            if (scrollPosition > (pixelValue2)) {
+                dataQuestion.classList.add('beforeScroll') //class
+            }
+            else {
+                dataQuestion.classList.remove('beforeScroll') //class
+            }
+
+            
         }
-        else {
-            dataQuestion.classList.remove('beforeScroll') //class
+        else{
+            if (scrollPosition > (dataQuestionHeight - pixelValue)) {
+                dataQuestion.classList.add('beforeScroll') //class
+            }
+            else {
+                dataQuestion.classList.remove('beforeScroll') //class
+            }
         }
     }
     

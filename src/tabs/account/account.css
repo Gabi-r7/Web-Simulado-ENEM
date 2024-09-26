@@ -10,7 +10,6 @@ body{
 main{
     margin-left: var(--nav-width);
     padding: 1rem;
-    font-size: var(--size-character);
     font-family: "Titillium Web", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -135,4 +134,28 @@ main > section:nth-child(2){
     opacity: 0;
     display: none;
     box-sizing: border-box;
+}
+
+@media (max-width: 430px){
+    
+    .data-account{
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    main > section:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-account{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-account> div{
+        height: 100%;
+    }
 }

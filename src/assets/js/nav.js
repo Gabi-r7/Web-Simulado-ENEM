@@ -32,31 +32,6 @@ divH2.appendChild(h2); // Append 'h2' to 'modalContent'
 let larguraJanela = window.innerWidth;
 let larguraMaximaJanela = screen.availWidth;
 
-console.log('ta ai o nav')
-
-if(larguraJanela < 430) {
-    console.log('A largura da janela é menor que 430px.');
-    nav.classList.add('hidden');
-
-    let divShowNav = document.createElement('div');
-    body.appendChild(divShowNav);
-    divShowNav.classList.add('showNav');
-
-    let divShowNavContent = document.createElement('div');
-    divShowNav.appendChild(divShowNavContent);
-    divShowNavContent.classList.add('showNavContent');
-    divShowNavContent.classList.add('main-div');
-
-    let btShowNav = document.createElement('button');
-    divShowNavContent.appendChild(btShowNav);
-
-    btShowNav.innerHTML = "menu";
-
-    btShowNav.addEventListener('click', () => {
-        nav.classList.toggle('hidden');
-    });
-}
-
 nav.innerHTML = `
     <div>
         <div class="logo">
@@ -108,6 +83,61 @@ nav.innerHTML = `
             </a>
         </div>
     </div>`
+
+function esconderNav () {
+    console.log('A largura da janela é: ' + larguraJanela + 'px.');
+    if(larguraJanela < 430) {
+        console.log('A largura da janela é menor que 430px.');
+        nav.classList.add('hidden');
+
+        let divShowNav = document.createElement('div');
+        body.appendChild(divShowNav);
+        divShowNav.classList.add('showNav');
+
+        let divShowNavContent = document.createElement('div');
+        divShowNav.appendChild(divShowNavContent);
+        divShowNavContent.classList.add('showNavContent');
+        divShowNavContent.classList.add('main-div');
+
+        let btShowNav = document.createElement('button');
+        divShowNavContent.appendChild(btShowNav);
+
+        btShowNav.innerHTML = "menu";
+
+        btShowNav.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+        });
+
+        // closenav
+
+        let divCloseNav = document.createElement('div');
+        body.appendChild(divCloseNav);
+        divCloseNav.classList.add('showNav');
+
+        let divCloseNavContent = document.createElement('div');
+        divCloseNav.appendChild(divCloseNavContent);
+        divCloseNavContent.classList.add('showNavContent');
+        divCloseNavContent.classList.add('main-div');
+
+        let btCloseNav = document.createElement('button');
+        divCloseNavContent.appendChild(btCloseNav);
+
+        btCloseNav.innerHTML = `
+                <span class="material-symbols-outlined">
+                    logout
+                </span>
+                <span class="text-icon">Fechar nav</span>`;
+
+        btCloseNav.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+        });
+
+        filhoNav = nav.children[0];
+        filhoNav.appendChild(divCloseNav);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', esconderNav());
     
 // Função para verificar o tamanho da janela e comparar com o tamanho do nav
 function verificarTamanhoJanelaENav() {

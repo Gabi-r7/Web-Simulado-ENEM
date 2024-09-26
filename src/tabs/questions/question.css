@@ -13,7 +13,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: var(--size-character);
+
     font-family: "Titillium Web", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -279,4 +279,29 @@ main section:nth-child(1) .main-div > div{
 
 .resposta-usuario.errou{
     background-color: rgb(179, 26, 26);
+}
+
+@media (max-width: 430px){
+
+    .data-question{
+        top: calc(var(--nav-padding)*2 + 5.5rem);
+        width: calc(100% - 2*var(--nav-padding));
+        font-size: 0.7rem;
+        z-index: 50;
+    }
+
+    .data-question .finish > div{
+        font-size: 0.9rem;
+    }
+
+    .data-question input{
+        width: 5rem;
+    }
+
+    .beforeScroll{
+        top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        transition: 0.2s;
+    }
 }

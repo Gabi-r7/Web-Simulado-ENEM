@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-size: var(--size-character);
+}
+
 nav{
     position: fixed;
     top: 0;
@@ -28,6 +32,7 @@ nav{
     height: 100vh;
     padding: var(--nav-padding);
     color : white;
+    z-index: 100;
 }
 
 
@@ -164,6 +169,10 @@ main.maisEspaco{
         margin-left: 0;
     }
 
+    .mainDiv{
+        padding: 0.5rem;
+    }
+
     nav.hidden{
         opacity: 0;
         visibility: hidden;
@@ -186,5 +195,8 @@ main.maisEspaco{
         background-color: var(--cor-terciaria);
     }
 
-
+    #modal > div > div{
+        width: 90dvw;
+        height: 90dvh;
+    }
 }
