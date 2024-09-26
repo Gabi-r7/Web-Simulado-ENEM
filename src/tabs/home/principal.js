@@ -22,6 +22,7 @@ async function getUsers() {
         }
     });
     responseJson = await response.json();
+    console.log(response);
     console.log(responseJson);
     if (responseJson.status != 'error') {
         sortUser();
