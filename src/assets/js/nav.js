@@ -79,7 +79,7 @@ nav.innerHTML = `
                 <span class="material-symbols-outlined">
                     person_add
                 </span>
-                <span class="text-icon">Sign Up</span>
+                <span class="text-icon">Cadastrar</span>
             </a>
         </div>
     </div>`
@@ -240,7 +240,7 @@ async function loginVerify() {
                 <span class="material-symbols-outlined">
                     person_add
                 </span>
-                <span class="text-icon">Sign Up</span>
+                <span class="text-icon">Cadastrar</span>
             </a>`
     }
 };
