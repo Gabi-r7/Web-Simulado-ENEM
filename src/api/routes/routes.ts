@@ -75,7 +75,7 @@ const authenticate = async (req: any, res: any, next: any) => {
 
 //           ROTA CADASTRO DE USUÁRIO
 routes.post('/register', async (req, res) => {
-    const { login, email, confirmEmail, password, confirmPassword } = req.body;
+    const { login, email, password } = req.body;
 
     const existingUser = await prisma.user.findUnique({
         where: {
@@ -103,7 +103,7 @@ routes.post('/register', async (req, res) => {
         });
     }
 
-    if (!login || !email || !confirmEmail || !password || !confirmPassword) {
+    if (!login || !email || !password) {
         return res.status(400).json({
             status: 'error',
             message: 'Preencha todos os campos',
@@ -119,22 +119,6 @@ routes.post('/register', async (req, res) => {
         });
     }
 
-    if (email !== confirmEmail) {
-        return res.status(400).json({
-            status: 'error',
-            message: 'Emails não coincidem',
-            data: null
-        });
-    }
-
-
-    if (password !== confirmPassword) {
-        return res.status(400).json({
-            status: 'error',
-            message: 'Senhas não coincidem',
-            data: null
-        });
-    }
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await prisma.user.create({
