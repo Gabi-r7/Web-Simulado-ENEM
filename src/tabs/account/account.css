@@ -158,4 +158,8 @@ main > section:nth-child(2){
     .img-account> div{
         height: 100%;
     }
+
+    .showNavContent > button{
+        width: 100%;
+    }
 }
