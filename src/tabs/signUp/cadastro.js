@@ -5,10 +5,8 @@ document.getElementById('register-form').addEventListener('submit', async (event
     event.preventDefault();
     const login = document.getElementById('login').value;
     const email = document.getElementById('email').value;
-    const confirmEmail = document.getElementById('confirmEmail').value;
     const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const data = { login, email, confirmEmail, password, confirmPassword };
+    const data = { login, email, password };
 
 
     const response = await fetch('/register', {
