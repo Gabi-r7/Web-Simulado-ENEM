@@ -50,7 +50,7 @@ async function modifyUserProfile(field, value) {
       document.getElementById(field).innerHTML = value;
     }
   }
-  showModal(responseJson);
+  showModal(responseJson);c
   setTimeout(() => {
     
   }, 700);

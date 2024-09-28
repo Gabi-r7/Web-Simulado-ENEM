@@ -136,6 +136,10 @@ main > section:nth-child(2){
     box-sizing: border-box;
 }
 
+.selectWindow.hidden{
+    pointer-events: none;     
+}
+
 @media (max-width: 430px){
     
     .data-account{
