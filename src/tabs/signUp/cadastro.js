@@ -37,7 +37,7 @@ document.getElementById('register-form').addEventListener('submit', async (event
             divsError[1].innerHTML = responseJson.message;
         }
         else if(responseJson.message == 'Senha deve ter no mínimo 6 caracteres'){
-            divsError[3].innerHTML = responseJson.message;
+            divsError[2].innerHTML = responseJson.message;
         }
         else{
             showModal(responseJson);

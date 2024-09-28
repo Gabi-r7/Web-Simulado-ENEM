@@ -111,7 +111,9 @@ routes.post('/register', async (req, res) => {
         });
     }
 
+    console.log(password.length);
     if (password.length < 6) {
+        console.log('entrou aqui')
         return res.status(400).json({
             status: 'error',
             message: 'Senha deve ter no mínimo 6 caracteres',
