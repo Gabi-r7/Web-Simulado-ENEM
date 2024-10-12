@@ -1,4 +1,4 @@
-**Simulador ENEM - Projeto de Preparação para o Exame Nacional do Ensino Médio**
+**Web Simulado ENEM - Projeto de Preparação para o Exame Nacional do Ensino Médio**
 
 Este repositório contém o código-fonte de um site que simula o Exame Nacional do Ensino Médio (ENEM), criado com o objetivo de ajudar os estudantes a se prepararem para a prova. O projeto permite a escolha de áreas de conhecimento específicas e apresenta um gabarito interativo ao final, destacando as respostas corretas e erradas, facilitando o aprendizado e o treinamento.
 
