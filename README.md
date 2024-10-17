@@ -34,3 +34,7 @@ Este repositório contém o código-fonte de um site que simula o Exame Nacional
 7. Aguarde alguns segundos para que o repositório seja clonado
 8. No Pop up, clique em `Abrir` ou pressione `Enter`
 9. Logo após, clique em `Sim, eu confio nos autores` ou pressione `Enter`
+10. Pressione `Ctrl` + `'`
+> `'` é o caractere de aspas simples, fica à esquerda do número 1 no teclado
+
+11.
