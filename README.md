@@ -27,7 +27,10 @@ Este repositório contém o código-fonte de um site que simula o Exame Nacional
 > Caso você não cumpra os requisitos minímos, veja aqui [como instalar o Visual Studio Code](https://youtu.be/uxln1hT_Ev4?si=vqeSVQ6lGZ66RF7g) e [como instalar o Git](https://www.youtube.com/watch?v=Am46OOLgV4s).
 
 2. Abra o Visual Studio Code
-3. No seu teclado, pressione a tecla `Ctrl` + `'`
-4. Digite o comando `git clone https://github.com/Gabi-r7/Web-Simulado-ENEM.git` para clonar o repositório
-5. Aguarde alguns segundos para que o repositório seja clonado
-6. 
+3. No seu teclado, pressione a tecla `F1`
+4. Digite `git clone` e pressione `Enter`
+5. Digite ou cole o comando: `https://github.com/Gabi-r7/Web-Simulado-ENEM.git` e pressione `Enter` em seguida
+6. Na aba que surge, selecione a pasta desejada para salvar os arquivos do projeto, em seguida clique no botão `Selecionar como Destino do Repositório` ou pressione `Enter`
+7. Aguarde alguns segundos para que o repositório seja clonado
+8. No Pop up, clique em `Abrir` ou pressione `Enter`
+9. Logo após, clique em `Sim, eu confio nos autores` ou pressione `Enter`
