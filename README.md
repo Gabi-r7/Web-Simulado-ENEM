@@ -57,9 +57,9 @@ Este repositório contém o código-fonte de um site que simula o Exame Nacional
 > [!IMPORTANT]
 > Como descrito, este é o comando para a execução, sempre que você desejar executar o projeto, apenas este comando será necessário
 
-12. Neste momento o projeto já estará rodando localmente em seu computador, acesse `http://localhost:3333` em qualquer navegador para desfrutar do projeto ou mantenha a tecla `Ctrl` pressionada em clique no link que aparece no terminal, assim como demonstrado na imagem abaixo:
+12. Neste momento o projeto já estará rodando localmente em seu computador, acesse `http://127.0.0.1:3333` em qualquer navegador para desfrutar do projeto ou mantenha a tecla `Ctrl` pressionada em clique no link que aparece no terminal, assim como demonstrado na imagem abaixo:
 
-![{A68E51B9-1565-4EE6-AE25-1FF7A0F6D9B0}](https://github.com/user-attachments/assets/921ca440-ddf5-4984-bb1c-c2de16129ebe)
+![{Imagem do terminal mostrando o link para visualização do projeto}](https://github.com/user-attachments/assets/921ca440-ddf5-4984-bb1c-c2de16129ebe)
 
 13. Pronto! Agora você já consegue interagir com nosso projeto e estudar tranquilamente para os vestibulares! 😄🎉
 > [!NOTE]
