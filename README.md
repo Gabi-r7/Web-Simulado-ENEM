@@ -18,23 +18,49 @@ Este repositório contém o código-fonte de um site que simula o Exame Nacional
 - MySQL: Banco de dados relacional utilizado para armazenar questões, respostas e dados dos usuários.
 - HTML, CSS e JavaScript: Tecnologias utilizadas no desenvolvimento da interface do usuário (front-end).
 
-## Como executar o projeto:
 
-1. Requisitos:
-    - Ter o Visual Studio Code instalado no seu computador 
-    - Ter o Git instalado no seu computador
+## Requisitos:
+- Ter o Visual Studio Code instalado no seu computador 
+- Ter o Git instalado no seu computador
 > [!WARNING]
 > Caso você não cumpra os requisitos minímos, veja aqui [como instalar o Visual Studio Code](https://youtu.be/uxln1hT_Ev4?si=vqeSVQ6lGZ66RF7g) e [como instalar o Git](https://www.youtube.com/watch?v=Am46OOLgV4s).
 
-2. Abra o Visual Studio Code
+## Como executar o projeto:
+1. Abra o Visual Studio Code
+   
 3. No seu teclado, pressione a tecla `F1`
+   
 4. Digite `git clone` e pressione `Enter`
+   
 5. Digite ou cole o comando: `https://github.com/Gabi-r7/Web-Simulado-ENEM.git` e pressione `Enter` em seguida
+   
 6. Na aba que surge, selecione a pasta desejada para salvar os arquivos do projeto, em seguida clique no botão `Selecionar como Destino do Repositório` ou pressione `Enter`
+   
 7. Aguarde alguns segundos para que o repositório seja clonado
+   
 8. No Pop up, clique em `Abrir` ou pressione `Enter`
+   
 9. Logo após, clique em `Sim, eu confio nos autores` ou pressione `Enter`
+   
 10. Pressione `Ctrl` + `'`
 > `'` é o caractere de aspas simples, fica à esquerda do número 1 no teclado
 
-11.
+10. Digite os seguintes comando em ordem:
+    ```
+    npm install --fix-broken
+    npx prisma generate
+    npx prisma migrate dev
+    ```
+    Os comandos acima precisam ser executados apenas na primeira vez em que você for executar o programa pois são comandos de configuração e instalação de dependências
+    
+12. Agora, digite o comando `npx ts-node ./src/server.ts` para executar o projeto
+> [!IMPORTANT]
+> Como descrito, este é o comando para a execução, sempre que você desejar executar o projeto, apenas este comando será necessário
+
+12. Neste momento o projeto já estará rodando localmente em seu computador, acesse `http://localhost:3333` em qualquer navegador para desfrutar do projeto ou mantenha a tecla `Ctrl` pressionada em clique no link que aparece no terminal, assim como demonstrado na imagem abaixo:
+
+![{A68E51B9-1565-4EE6-AE25-1FF7A0F6D9B0}](https://github.com/user-attachments/assets/921ca440-ddf5-4984-bb1c-c2de16129ebe)
+
+13. Pronto! Agora você já consegue interagir com nosso projeto e estudar tranquilamente para os vestibulares! 😄🎉
+> [!NOTE]
+> Para abrir o projeto novamente, depois de ter fechado o mesmo, será necessário abrir o Visual Studio Code novamente e executar o comando `npx ts-node ./src/server.ts`
