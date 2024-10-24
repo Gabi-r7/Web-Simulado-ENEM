@@ -45,7 +45,7 @@ Este repositório contém o código-fonte de um site que simula o Exame Nacional
 10. Pressione `Ctrl` + `'`
 > `'` é o caractere de aspas simples, fica à esquerda do número 1 no teclado
 
-10. Digite os seguintes comando em ordem:
+10. Digite os seguintes comando em ordem **um por vez**:
     ```
     npm install --fix-broken
     npx prisma generate
