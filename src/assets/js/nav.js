@@ -1,5 +1,6 @@
 // document.addEventListener('DOMContentLoaded', loginVerify);
 loginVerify();
+
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
 const body = document.querySelector('body');
